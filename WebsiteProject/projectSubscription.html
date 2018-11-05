@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Subscribe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="project.css" />
+    <!--script src="main.js"></script-->
+</head>
+<body>
+    <header>
+        <h1>Subscribe!</h1>
+    </header>
+    <br>
+    <nav> 
+        <h6><a href="projectHome.html">Home</a></h6>
+        <h6><a href="projectUltimateAlfredo.html">Ultimate Alfredo</a></h6>
+        <h6><a href="projectTacos.html">Tacos</a></h6>
+        <h6><a href="projectCookieCake.html">Cookie Cake</a></h6>            
+        <h6><a href="projectSubscription.html">Subscribe</a></h6>
+    </nav>
+    <br>
+    <div id="intro">
+        <h4><em>Stay up-to-date on my culinary adventures.</em></h4>
+        <form action="" method="GET">
+            <p>What's your name?</p>
+            <input type="text" name="firstName" placeholder="First Name"/> 
+            <input type="text" name="lastName" placeholder="Last Name"/>
+            <br>
+            <p>How can I reach you on the interwebz?</p>
+            <input type="email" name="email" placeholder="your.email@hello.com"/>
+            <br>
+            <p>When were you born?</p>
+            <input type="date" name="birthday"/>
+            <br><br>
+            <fieldset>
+                    <legend>What kind of cooking experience do you have?</legend>
+                <input type="radio" name="cookingExp" value="n00b" checked/>Novice<br>
+                <input type="radio" name="cookingExp" value="meh"/>Intermediate<br>
+                <input type="radio" name="cookingExp" value="1337"/>Gordon F#$%ing Ramsay<br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Have you tried the recipes on my website?</legend>
+                <input type="checkbox" name="recipe" value="alfredo"/>Ultimate Alfredo<br>
+                <input type="checkbox" name="recipe" value="tacos"/>Tacos<br>
+                <input type="checkbox" name="recipe" value="cookiecake"/>Cookie Cake<br>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <form action="projectThankYou.html" method="POST">
+        <input type="submit" value="Submit"/>
+    </form>
+    
+</body>
+</html>
