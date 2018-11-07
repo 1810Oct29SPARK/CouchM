@@ -1,0 +1,26 @@
+layout kitchen elements in html
+style in css
+
+in js:
+creating multiple objects within the game space: tools, ingredients, and appliances
+click on tools to select
+while selected, click on ingredient to 'measure'
+while 'measured,' click on bowl tool to add
+repeat for all ingredients
+use whisk tool to mix when necessary
+boil water for mix by selecting pot tool, selecting sink appliance, then selecting stove top appliance
+select completed mix, select cake pans tool(s), select oven appliance
+
+a recipe tool is in the game space
+clicking it will open a page(window) displaying recipe information
+clicking anywhere will close
+
+clicking oven appliance will open panel(window) with arrows to set temperature and time
+clicking anywhere will close
+
+if all ingredients measured && oven temp and time set correctly, "success" GUI appears
+else, "not quite" GUI
+"play again" button in the center of GUI
+
+I'm still foggy on how pulling info from an API works, but I would want to pull from the page where I found the recipe itself
+It sounds like we'll be going over that soon
