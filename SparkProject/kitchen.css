@@ -1,0 +1,79 @@
+body {
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#kitchenFloor {
+    margin: auto;
+    box-sizing: content-box;
+    width: 700px;
+    height: 700px;
+    border: 10px solid white;
+    background-image: url("floorTile.jpg");
+}
+
+#tableTop1 {
+    box-sizing: content-box;
+    width: 150px;
+    height: 680px;
+    border: 10px solid gray;
+    background-image: url("tableTop.jpg");
+}
+
+#ovenArea{
+    box-sizing: content-box;
+    width: 130px;
+    height: 130px;
+    background: white;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+
+#stoveArea{
+    box-sizing: content-box;
+    width: 130px;
+    height: 130px;
+    background: white;
+    position: relative;
+    left: 10px;
+    top: 20px;
+}
+
+#sinkArea{
+    box-sizing: content-box;
+    width: 130px;
+    height: 130px;
+    background: white;
+    position: relative;
+    left: 10px;
+    top: 30px;
+}
+
+#tableTop2 {
+    box-sizing: content-box;
+    width: 400px;
+    height: 150px;
+    border-top: 10px solid gray;
+    border-right: 10px solid gray;
+    border-bottom: 10px solid gray;
+    background-image: url("tableTop.jpg");
+    position: relative;
+    left: 160px;
+    bottom: 170px;
+}
+
+#tableTop3 {
+    box-sizing: content-box;
+    width: 150px;
+    height: 300px;
+    border: 10px solid gray;
+    background-image: url("tableTop.jpg");
+    position: relative;
+    left: 400px;
+    bottom: 775px;
+}
