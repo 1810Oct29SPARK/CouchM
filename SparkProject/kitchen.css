@@ -14,6 +14,7 @@ body {
     height: 700px;
     border: 10px solid white;
     background-image: url("floorTile.jpg");
+    /*position: relative;*/
 }
 
 #tableTop1 {
@@ -24,34 +25,40 @@ body {
     background-image: url("tableTop.jpg");
 }
 
-#ovenArea{
+#oven{
     box-sizing: content-box;
     width: 130px;
     height: 130px;
-    background: white;
+    background-image: url("oven.png");
+    background-color: gray;
     position: relative;
     left: 10px;
     top: 10px;
+    cursor: pointer;
 }
 
-#stoveArea{
+#stove{
     box-sizing: content-box;
-    width: 130px;
-    height: 130px;
-    background: white;
+    width: 128px;
+    height: 128px;
+    background-image: url("stove.png");
+    background-color: gray;
     position: relative;
     left: 10px;
     top: 20px;
+    cursor: pointer;
 }
 
-#sinkArea{
+#sink{
     box-sizing: content-box;
-    width: 130px;
-    height: 130px;
-    background: white;
+    width: 128px;
+    height: 128px;
+    background-image: url("sink.png");
+    background-color: gray;
     position: relative;
     left: 10px;
     top: 30px;
+    cursor: pointer;
 }
 
 #tableTop2 {
@@ -76,4 +83,223 @@ body {
     position: relative;
     left: 400px;
     bottom: 775px;
+}
+
+#measuringCup {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("measuringCup.jpg");
+    position: relative;
+    bottom: 750px;
+    left: 20px;
+    cursor: pointer;
+}
+
+#measuringSpoon {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("measuringSpoons.png");
+    background-color: white;
+    position: relative;
+    bottom: 800px;
+    left: 100px;
+    cursor: pointer;
+}
+
+#cakePans {
+    box-sizing: content-box;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    background-image: url("cakePans.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1160px;
+    left: 435px;
+    cursor: pointer;
+}
+
+#mixingBowl {
+    box-sizing: content-box;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    background-image: url("mixingBowl.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1110px;
+    left: 435px;
+    cursor: pointer;
+}
+
+#whisk {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("whisk.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 975px;
+    left: 60px;
+    cursor: pointer;
+}
+
+#pot {
+    box-sizing: content-box;
+    width: 100px;
+    height: 80px;
+    z-index: 1;
+    background-image: url("pot.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 950px;
+    left: 30px;
+    cursor: pointer;
+}
+
+#bakingPowder {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("bakingPowder.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1065px;
+    left: 175px;
+    cursor: pointer;
+}
+
+#bakingSoda {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("bakingSoda.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1045px;
+    left: 175px;
+    cursor: pointer;
+}
+
+#cocoaPowder {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("cocoaPowder.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1165px;
+    left: 250px;
+    cursor: pointer;
+}
+
+#cookingOil {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("cookingOil.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1145px;
+    left: 250px;
+    cursor: pointer;
+}
+
+#eggs {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("eggs.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1265px;
+    left: 325px;
+    cursor: pointer;
+}
+
+#flour {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("flour.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1245px;
+    left: 325px;
+    cursor: pointer;
+}
+
+#milk {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("milk.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1365px;
+    left: 400px;
+    cursor: pointer;
+}
+
+#salt {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("salt.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1345px;
+    left: 400px;
+    cursor: pointer;
+}
+
+#sugar {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("sugar.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1445px;
+    left: 475px;
+    cursor: pointer;
+}
+
+#vanillaExtract {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("vanillaExtract.jpg");
+    background-color: white;
+    position: relative;
+    bottom: 1465px;
+    left: 475px;
+    cursor: pointer;
+}
+
+#recipe {
+    margin: auto;
+    box-sizing: content-box;
+    width: 700px;
+    height: 500px;
+    border: 10px solid white;
+    background-image: url("parchment.jpg");
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+
 }
