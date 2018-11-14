@@ -5,34 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Kitchen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="kitchen.css" />
     <script src="kitchen.js"></script>
 </head>
 <body class="container">
     <div id="kitchenFloor">
+
         <div id="tableTop1">
+
             <div class="appliance" id="oven" title="Oven"></div>
+
             <div class="appliance" id="stove" title="Stove"></div>
+
             <div class="appliance" id="sink" title="Sink"></div>
+
         </div>
+
         <div id="tableTop2"></div>
+
         <div id="tableTop3"></div>
-        <div class="tool" id="measuringCup" title="Measuring Cup"></div>
-        <div class="tool" id="measuringSpoon" title="Measuring Spoons"></div>
+
+        <div onclick="MeasureCup()" class="measuringTool" id="measuringCup" title="Measuring Cup">
+            <div class="measurements" id="cup">
+                <p>1 cup</p>
+                <p>1/2 cup</p>
+                <p>1/4 cup</p>
+            </div>
+        </div>
+        <!-- Give "measuringTool" class the .onclick to activate dropdown menu -->
+        <div onclick="MeasureSpoon()" class="measuringTool" id="measuringSpoon" title="Measuring Spoons">
+            <div class="measurements" id="spoon">
+                <p>1 teaspoon</p>
+                <p>1/2 teaspoon</p>
+            </div>
+        </div>
+
         <div class="tool" id="cakePans" title="Cake Pans"></div>
+
         <div class="tool" id="mixingBowl" title="Mixing Bowl"></div>
+
         <div class="tool" id="whisk" title="Whisk"></div>
+
         <div class="tool" id="pot" title="Pot"></div>
+        
         <div class="ingredient" id="bakingPowder" title="Baking Powder"></div>
+        
         <div class="ingredient" id="bakingSoda" title="Baking Soda"></div>
+        
         <div class="ingredient" id="cocoaPowder" title="Cocoa Powder"></div>
+        
         <div class="ingredient" id="cookingOil" title="Cooking Oil"></div>
+        
         <div class="ingredient" id="eggs" title="Eggs"></div>
+        
         <div class="ingredient" id="flour" title="Flour"></div>
+        
         <div class="ingredient" id="milk" title="Milk"></div>
+        
         <div class="ingredient" id="salt" title="Salt"></div>
+        
         <div class="ingredient" id="vanillaExtract" title="Vanilla Extract"></div>
+        
         <div class="ingredient" id="sugar" title="Sugar"></div>
+    
     </div>
     <br>
     <br>
