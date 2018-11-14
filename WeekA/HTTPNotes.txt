@@ -1,0 +1,19 @@
+What is an http(hyper text transfer protocol) request?
+	A request has:
+		A URL -> (address of the resource being requested)
+		Headers -> (metadata about the request [encoding, content type, origin...)
+		Body -> (content)
+		Method/Verb 	-> (what kind of request is it?)
+				-> GET, POST
+		HTTP Version
+
+Difference between GET and POST requests:
+
+	GET 	-> sending info in the URL
+		-> e.g. www.google.com/search?q=cats
+		-> NOT good for anything sensitive
+		-> limited in size of what can be sent
+
+	POST 	-> sending info in the request body
+		-> NOT limited in size
+		-> better for sensitive information

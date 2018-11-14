@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script-->
+</head>
+<body>
+    <form action="" method="GET">
+        <!--text is actually the default input type-->
+        <input type="text" name="text1" autocomplete="off" placeholder="ABC1234" required="true" pattern="[A-Z]{3}[0-9]{4}"/>
+        <br><br>
+        <input type="email" name="myEmail"/>
+        <br><br>
+        <input type="password" name="myPassword"/>
+        <br><br> 
+    </form>
+
+    <br>
+    <br>
+
+    <em>let me Google that for you</em>
+    <form action="https://www.google.com/search" method="GET">
+        <input type="text" name="q"/>
+        <input type="submit" value="let me Google that for you"/>
+    </form>
+
+    <br><br>
+
+    <form action="Congrats.html" method="POST">
+            <!--fieldset from HTML5 to separate out related fields-->
+        <fieldset>
+                <legend>radio buttons:</legend>
+            <input type="radio" name="penguinType" value="emperor" checked/>Emperor<br>
+            <input type="radio" name="penguinType" value="macaroni"/>Macaroni<br>
+            <input type="radio" name="penguinType" value="rockhopper"/>Rock Hopper<br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>checkboxes:</legend>
+            <input type="checkbox" name="cactusType" value="saguaro"/>Saguaro<br>
+            <input type="checkbox" name="cactusType" value="pricklypear"/>Prickly Pear<br>
+            <input type="checkbox" name="cactusType" value="teddybear"/>Teddy Bear<br>
+        </fieldset>
+        <br>
+        <!--value attribute determines what text will be on the button-->
+        <input type="submit" value="Submit"/>
+        </form>
+</body>
+</html>

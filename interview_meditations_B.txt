@@ -1,0 +1,20 @@
+let vs var
+- let can be changed and remains within the block scope
+- var can also be changed, but can also be accessed from global into any local scope
+
+loose type
+- don't need to declare data type
+
+falsey values
+- null, undefined, NaN, empty strings, zero
+- checking whether things exist; useful for loose typing;
+
+== vs === vs =
+== - type coercion ('12' == 12)
+=== - identity (12 === 12)
+= - for assignment
+
+fetch api
+used to access information from an online server
+sending an HTTP request to an endpoint
+

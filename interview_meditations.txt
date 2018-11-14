@@ -1,0 +1,13 @@
+block vs inline
+- a block element has whitespace above and below it, and does not tolerate any HTML elements next to it
+- an inline element can be placed on the same line as adjacent content, but behaves as a block element
+
+http
+- the underlying protocol used by the WWW, defines how messages are formatted and transmitted, and what actions servers and browsers should take in response to various commands
+
+<fieldset>
+<legend>words</legend>
+<input type="checkbox">
+</fieldset>
+
+action is specifying the form handler

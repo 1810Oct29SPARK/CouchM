@@ -1,0 +1,27 @@
+.form {
+    padding: 50px;
+    margin: 50px;
+    /*box-sizing: border-box;*/
+    /*display: inline-block;*/
+    height: 100px;
+    width: 20%;
+}
+p, legend {
+    color: yellow;
+}
+body {
+    border-style: solid;
+    border-radius: 25%;
+    border-width: 5px 10px 15px 20px;
+    border-color: burlywood;
+    background-image: url("https://wwwimage-secure.cbsstatic.com/base/files/seo/fdf860507a4341d0_fbi.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 500px;
+}
+html{
+    background-color: greenyellow;
+    /*margin: 25%;
+    border: 25%;
+    padding: 25%;*/
+}
