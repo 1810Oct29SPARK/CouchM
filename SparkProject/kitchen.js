@@ -8,17 +8,24 @@ function MeasureSpoon() {
 
 window.onclick = function(event) {
     if (!event.target.matches('.measuringTool')) {
-  
-      var dropdowns = document.getElementsByClassName("measurements");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+        var dropdowns = document.getElementsByClassName("measurements");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
         }
-      }
     }
-  }
+}
+
+function UseOven() {
+    document.getElementById("tempAndTime").classList.toggle("show");
+}
+
+function Preheat() {
+    document.getElementById("step1").classList.toggle("complete");
+}
 
 /*
 Need Tools, Ingredients, Appliances, and Functions

@@ -14,7 +14,12 @@
 
         <div id="tableTop1">
 
-            <div class="appliance" id="oven" title="Oven"></div>
+            <div onclick="UseOven()" class="measuringTool" id="oven" title="Oven">
+                <div class="measurements" id="tempAndTime">
+                    <p onclick="Preheat()" id="preheat">Preheat to 350F</p>
+                    <p id="bake">Bake for 30 minutes</p>
+                </div>
+            </div>
 
             <div class="appliance" id="stove" title="Stove"></div>
 
@@ -28,16 +33,16 @@
 
         <div onclick="MeasureCup()" class="measuringTool" id="measuringCup" title="Measuring Cup">
             <div class="measurements" id="cup">
-                <p>1 cup</p>
-                <p>1/2 cup</p>
-                <p>1/4 cup</p>
+                <p id="1cup">1 cup</p>
+                <p id="1/2cup">1/2 cup</p>
+                <p id="1/4cup">1/4 cup</p>
             </div>
         </div>
-        <!-- Give "measuringTool" class the .onclick to activate dropdown menu -->
+        
         <div onclick="MeasureSpoon()" class="measuringTool" id="measuringSpoon" title="Measuring Spoons">
             <div class="measurements" id="spoon">
-                <p>1 teaspoon</p>
-                <p>1/2 teaspoon</p>
+                <p id="1tsp">1 teaspoon</p>
+                <p id="1/2tsp">1/2 teaspoon</p>
             </div>
         </div>
 
@@ -88,25 +93,30 @@
         </ul>
         <br>
         <ol>Directions:
-            <li>Preheat oven to 350 degrees F</li>
-            <li>In a large bowl add sugar, flour, cocoa powder, baking powder, baking soda and salt</li>
-            <li>Mix.</li>
-            <li>Add the eggs, milk, oil and vanilla.</li>
-            <li>Mix.</li>
-            <li>Add boiling water.</li>
-            <li>Mix.</li>
-            <li>Pour into cake pans.</li>
-            <li>Bake for 30 minutes.</li>
+            <li id="step1">Preheat oven to 350 degrees F</li>
+            <li id="step2">In a large bowl add sugar, flour, cocoa powder, baking powder, baking soda and salt</li>
+            <li id="step3">Mix.</li>
+            <li id="step4">Add the eggs, milk, oil and vanilla.</li>
+            <li id="step5">Mix.</li>
+            <li id="step6">Add boiling water.</li>
+            <li id="step7">Mix.</li>
+            <li id="step8">Pour into cake pans.</li>
+            <li id="step9">Bake for 30 minutes.</li>
         </ol>
     </div>
 </body>
 </html>
 
-<!-- if above statements are true, then direct to congratulations page 
-Determine if above statements are true by: 
-1. adding their text below game space
-2. text changes green when completed successfully
-3. when all text is green, then complete
--->
+<!-- 
+    Victory Condition: create a variable that increases every time a direction step is followed. 
+    At i === 9, the game is over, and the player wins.
 
-<!--Add a "Congratulations" page-->
+    example/possible idea:
+    let i = 0;
+    if (.toggle("complete")) {
+        i++;
+    } else if (i === 9) {
+        //winner!
+        //pop-up victory screen with a big ol' chocolate cake on it
+    }
+    -->

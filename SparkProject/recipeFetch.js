@@ -3,7 +3,7 @@ let state = {
 }
 // http:www.recipepuppy.com/api/
 
-let recipeURL = 'http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3';
+let recipeURL = 'https://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3';
 let query= "";
 
 let recipeFetch = function() {
@@ -11,14 +11,16 @@ let recipeFetch = function() {
         method: 'GET', 
         mode: 'cors', 
         headers: {
-            "Accept:": "application/json",
-            'Access-Control-Allow-Origin':'*'
+            "Accept:": "application/json"
+            //'Access-Control-Allow-Origin':'*'
         }
-    }).then(req => console.log(req));
+    }).then((response) => {console.log(response)}).catch((error) => {
+        console.log(error);
+    });
     // .then(result => console.log(result))
 }
 
-recipeFetch();
+//recipeFetch();
 
 //once I get data from API
 //.then((data) => )
