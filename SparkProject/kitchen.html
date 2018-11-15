@@ -17,13 +17,13 @@
             <div onclick="UseOven()" class="measuringTool" id="oven" title="Oven">
                 <div class="measurements" id="tempAndTime">
                     <p onclick="Preheat()" id="preheat">Preheat to 350F</p>
-                    <p id="bake">Bake for 30 minutes</p>
+                    <p onclick="Bake()" id="bake">Bake for 30 minutes</p>
                 </div>
             </div>
 
-            <div class="appliance" id="stove" title="Stove"></div>
+            <div onclick="Stove()" class="appliance" id="stove" title="Stove"></div>
 
-            <div class="appliance" id="sink" title="Sink"></div>
+            <div onclick="Sink()" class="appliance" id="sink" title="Sink"></div>
 
         </div>
 
@@ -33,63 +33,63 @@
 
         <div onclick="MeasureCup()" class="measuringTool" id="measuringCup" title="Measuring Cup">
             <div class="measurements" id="cup">
-                <p id="1cup">1 cup</p>
-                <p id="1/2cup">1/2 cup</p>
-                <p id="1/4cup">1/4 cup</p>
+                <p onclick="OneCup()" id="1cup">1 cup</p>
+                <p onclick="ThreeQuartersCup()" id="3/4cup">3/4 cup</p>
+                <p onclick="HalfCup()" id="1/2cup">1/2 cup</p>
             </div>
         </div>
         
         <div onclick="MeasureSpoon()" class="measuringTool" id="measuringSpoon" title="Measuring Spoons">
             <div class="measurements" id="spoon">
-                <p id="1tsp">1 teaspoon</p>
-                <p id="1/2tsp">1/2 teaspoon</p>
+                <p onclick="OneTsp()" id="1tsp">1 teaspoon</p>
+                <p onclick="HalfTsp()" id="1/2tsp">1/2 teaspoon</p>
             </div>
         </div>
 
-        <div class="tool" id="cakePans" title="Cake Pans"></div>
+        <div onclick="CakePans()" class="tool" id="cakePans" title="Cake Pans"></div>
 
-        <div class="tool" id="mixingBowl" title="Mixing Bowl"></div>
+        <div onclick="MixingBowl()" class="tool" id="mixingBowl" title="Mixing Bowl"></div>
 
-        <div class="tool" id="whisk" title="Whisk"></div>
+        <div onclick="Whisk()" class="tool" id="whisk" title="Whisk"></div>
 
-        <div class="tool" id="pot" title="Pot"></div>
+        <div onclick="Pot()" class="tool" id="pot" title="Pot"></div>
         
-        <div class="ingredient" id="bakingPowder" title="Baking Powder"></div>
+        <div onclick="BakingPowder()" class="ingredient" id="bakingPowder" title="Baking Powder"></div>
         
-        <div class="ingredient" id="bakingSoda" title="Baking Soda"></div>
+        <div onclick="BakingSoda()" class="ingredient" id="bakingSoda" title="Baking Soda"></div>
         
-        <div class="ingredient" id="cocoaPowder" title="Cocoa Powder"></div>
+        <div onclick="Cocoa()" class="ingredient" id="cocoaPowder" title="Cocoa Powder"></div>
         
-        <div class="ingredient" id="cookingOil" title="Cooking Oil"></div>
+        <div onclick="Oil()" class="ingredient" id="cookingOil" title="Cooking Oil"></div>
         
-        <div class="ingredient" id="eggs" title="Eggs"></div>
+        <div onclick="Egg()" class="ingredient" id="eggs" title="Eggs"></div>
         
-        <div class="ingredient" id="flour" title="Flour"></div>
+        <div onclick="Flour()" class="ingredient" id="flour" title="Flour"></div>
         
-        <div class="ingredient" id="milk" title="Milk"></div>
+        <div onclick="Milk()" class="ingredient" id="milk" title="Milk"></div>
         
-        <div class="ingredient" id="salt" title="Salt"></div>
+        <div onclick="Salt()" class="ingredient" id="salt" title="Salt"></div>
         
-        <div class="ingredient" id="vanillaExtract" title="Vanilla Extract"></div>
+        <div onclick="Vanilla()" class="ingredient" id="vanillaExtract" title="Vanilla Extract"></div>
         
-        <div class="ingredient" id="sugar" title="Sugar"></div>
+        <div onclick="Sugar()" class="ingredient" id="sugar" title="Sugar"></div>
     
     </div>
     <br>
     <br>
     <div id="recipe">
         <ul>Ingredients:
-            <li>2 cups white sugar</li>
-            <li>1 3/4 cups flour</li>
-            <li>3/4 cup cocoa powder</li>
-            <li>1 1/2 teaspoon baking powder</li>
-            <li>1 1/2 teaspoon baking soda</li>
-            <li>1 teaspoon salt</li>
-            <li>2 eggs</li>
-            <li>1 cup milk</li>
-            <li>1/2 cup veggie oil</li>
-            <li>2 teaspoons vanilla extract</li>
-            <li>1 cup boiling water</li>
+            <li id="addSugar">2 cups white sugar</li>
+            <li id="addFlour">1 3/4 cups flour</li>
+            <li id="addCocoa">3/4 cup cocoa powder</li>
+            <li id="addSoda">1 1/2 teaspoon baking soda</li>
+            <li id="addPowder">1 1/2 teaspoon baking powder</li>
+            <li id="addSalt">1 teaspoon salt</li>
+            <li id="addEggs">2 eggs</li>
+            <li id="addMilk">1 cup milk</li>
+            <li id="addOil">1/2 cup cooking oil</li>
+            <li id="addVanilla">2 teaspoons vanilla extract</li>
+            <li id="addBoilingWater">1 cup boiling water</li>
         </ul>
         <br>
         <ol>Directions:
