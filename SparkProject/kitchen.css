@@ -14,7 +14,6 @@ body {
     height: 700px;
     border: 10px ridge white;
     background-image: url("floorTile.jpg");
-    /*position: relative;*/
 }
 
 #tableTop1 {
@@ -162,6 +161,71 @@ body {
     cursor: pointer;
 }
 
+#vanillaExtract {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("vanillaExtract.jpg");
+    background-color: white;
+    position: absolute;
+    bottom: 85px;
+    left: 25px;
+    cursor: pointer;
+}
+
+#cookingOil {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("cookingOil.jpg");
+    background-color: white;
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+    cursor: pointer;
+}
+
+#milk {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("milk.jpg");
+    background-color: white;
+    position: absolute;
+    bottom: 85px;
+    left: 100px;
+    cursor: pointer;
+}
+
+#eggs {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("eggs.jpg");
+    background-color: white;
+    position: absolute;
+    bottom: 15px;
+    left: 100px;
+    cursor: pointer;
+}
+
+#salt {
+    box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    background-image: url("salt.jpg");
+    background-color: white;
+    position: absolute;
+    bottom: 85px;
+    left: 175px;
+    cursor: pointer;
+}
+
 #bakingPowder {
     box-sizing: content-box;
     width: 50px;
@@ -169,8 +233,8 @@ body {
     z-index: 1;
     background-image: url("bakingPowder.jpg");
     background-color: white;
-    position: relative;
-    bottom: 1065px;
+    position: absolute;
+    bottom: 15px;
     left: 175px;
     cursor: pointer;
 }
@@ -182,9 +246,9 @@ body {
     z-index: 1;
     background-image: url("bakingSoda.jpg");
     background-color: white;
-    position: relative;
-    bottom: 1045px;
-    left: 175px;
+    position: absolute;
+    bottom: 85px;
+    left: 250px;
     cursor: pointer;
 }
 
@@ -195,35 +259,9 @@ body {
     z-index: 1;
     background-image: url("cocoaPowder.jpg");
     background-color: white;
-    position: relative;
-    bottom: 1165px;
+    position: absolute;
+    bottom: 15px;
     left: 250px;
-    cursor: pointer;
-}
-
-#cookingOil {
-    box-sizing: content-box;
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    background-image: url("cookingOil.jpg");
-    background-color: white;
-    position: relative;
-    bottom: 1145px;
-    left: 250px;
-    cursor: pointer;
-}
-
-#eggs {
-    box-sizing: content-box;
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    background-image: url("eggs.jpg");
-    background-color: white;
-    position: relative;
-    bottom: 1265px;
-    left: 325px;
     cursor: pointer;
 }
 
@@ -234,35 +272,9 @@ body {
     z-index: 1;
     background-image: url("flour.jpg");
     background-color: white;
-    position: relative;
-    bottom: 1245px;
+    position: absolute;
+    bottom: 85px;
     left: 325px;
-    cursor: pointer;
-}
-
-#milk {
-    box-sizing: content-box;
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    background-image: url("milk.jpg");
-    background-color: white;
-    position: relative;
-    bottom: 1365px;
-    left: 400px;
-    cursor: pointer;
-}
-
-#salt {
-    box-sizing: content-box;
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    background-image: url("salt.jpg");
-    background-color: white;
-    position: relative;
-    bottom: 1345px;
-    left: 400px;
     cursor: pointer;
 }
 
@@ -273,22 +285,9 @@ body {
     z-index: 1;
     background-image: url("sugar.jpg");
     background-color: white;
-    position: relative;
-    bottom: 1445px;
-    left: 475px;
-    cursor: pointer;
-}
-
-#vanillaExtract {
-    box-sizing: content-box;
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    background-image: url("vanillaExtract.jpg");
-    background-color: white;
-    position: relative;
-    bottom: 1465px;
-    left: 475px;
+    position: absolute;
+    bottom: 15px;
+    left: 325px;
     cursor: pointer;
 }
 
@@ -300,7 +299,6 @@ body {
     border: 10px ridge white;
     background-image: url("parchment.jpg");
     font-family: 'Indie Flower', cursive;
-    /* font-family: 'Roboto', sans-serif; */
     color: white;
 }
 

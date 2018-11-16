@@ -119,6 +119,9 @@ function MixingBowl() {
         ingredients++;
         console.log(ingredients + " ingredient(s) added to the mixing bowl");
         //remove sugar
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("sugar");
+        parent.removeChild(child);
     }
     if (cup === 1.75 && flour === 2 && mixingBowl === 2) {
         document.getElementById("addFlour").classList.toggle("complete");
@@ -127,6 +130,10 @@ function MixingBowl() {
         mixingBowl = 0;
         ingredients++;
         console.log(ingredients + " ingredient(s) added to the mixing bowl");
+        //remove flour
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("flour");
+        parent.removeChild(child);
     }
     if (cup === .75 && cocoa === 1 && mixingBowl === 1) {
         document.getElementById("addCocoa").classList.toggle("complete");
@@ -135,6 +142,10 @@ function MixingBowl() {
         mixingBowl = 0;
         ingredients++;
         console.log(ingredients + " ingredient(s) added to the mixing bowl");
+        //remove cocoa
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("cocoaPowder");
+        parent.removeChild(child);
     }
     if (tsp === 1.5 && bakingPowder === 2 && mixingBowl === 2) {
         document.getElementById("addPowder").classList.toggle("complete");
@@ -143,6 +154,10 @@ function MixingBowl() {
         mixingBowl = 0;
         ingredients++;
         console.log(ingredients + " ingredient(s) added to the mixing bowl");
+        //remove baking powder
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("bakingPowder");
+        parent.removeChild(child);
     }
     if (tsp === 1.5 && bakingSoda === 2 && mixingBowl === 2) {
         document.getElementById("addSoda").classList.toggle("complete");
@@ -151,6 +166,10 @@ function MixingBowl() {
         mixingBowl = 0;
         ingredients++;
         console.log(ingredients + " ingredient(s) added to the mixing bowl");
+        //remove baking soda
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("bakingSoda");
+        parent.removeChild(child);
     }
     if (tsp === 1 && salt === 1 && mixingBowl === 1) {
         document.getElementById("addSalt").classList.toggle("complete");
@@ -159,6 +178,10 @@ function MixingBowl() {
         salt = 0;
         ingredients++;
         console.log(ingredients + " ingredient(s) added to the mixing bowl");
+        //remove salt
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("salt");
+        parent.removeChild(child);
     }
     if (ingredients === 6 && directions == 1){
         document.getElementById("step2").classList.toggle("complete");
@@ -183,6 +206,10 @@ function MixingBowl() {
         mixingBowl = 0;
         eggs = 0;
         ingredients++;
+        //remove eggs
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("eggs");
+        parent.removeChild(child);
     }
     if (cup === 1 && milk === 1 && mixingBowl === 1) {
         document.getElementById("addMilk").classList.toggle("complete");
@@ -190,6 +217,10 @@ function MixingBowl() {
         milk = 0;
         mixingBowl = 0;
         ingredients++;
+        //remove milk
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("milk");
+        parent.removeChild(child);
     }
     if (cup === .5 && oil === 1 && mixingBowl === 1) {
         document.getElementById("addOil").classList.toggle("complete");
@@ -197,6 +228,10 @@ function MixingBowl() {
         oil = 0;
         mixingBowl = 0;
         ingredients++;
+        //remove oil
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("cookingOil");
+        parent.removeChild(child);
     }
     if (tsp === 2 && vanilla === 2 && mixingBowl >= 2) {
         document.getElementById("addVanilla").classList.toggle("complete");
@@ -204,6 +239,10 @@ function MixingBowl() {
         vanilla = 0;
         mixingBowl = 0;
         ingredients++;
+        //remove vanilla
+        var parent = document.getElementById("tableTop2");
+        var child = document.getElementById("vanillaExtract");
+        parent.removeChild(child);
     }
     if (ingredients === 10 && directions === 3) {
         document.getElementById("step4").classList.toggle("complete");
@@ -337,44 +376,3 @@ function Stove() {
         console.log("pot is full of boiling water");
     }
 }
-
-/*
-Need Tools, Ingredients, Appliances, and Functions
-Tools:
-    Measuring cups:
-        1 cup
-        1/2 cup
-        1/4 cup
-    Measuring spoons:
-        1 teaspoon
-        1/2 teaspoon
-    2 Cake pans
-    Mixing bowl
-    Whisk
-    Pot
-
-Ingredients:
-    White sugar
-    Flour
-    Cocoa powder
-    Baking powder
-    Baking soda
-    Salt
-    Eggs
-    Milk
-    Veggie oil
-    Vanilla extract
-    Boiling water
-
-Appliances:
-    Oven
-    Stove
-    Sink
-
-Functions:
-    Measure
-    Mix
-    Pour
-    Boil
-    Bake
-*/
