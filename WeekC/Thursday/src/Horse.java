@@ -43,7 +43,7 @@ public class Horse extends Vehicle {
 
 	@Override
 	public void move(){
-		System.out.println("The horse gallops majestically through a field of lilacs");
+		System.out.println(this.name + " gallops majestically through a field of lilacs");
 	}
 
 }

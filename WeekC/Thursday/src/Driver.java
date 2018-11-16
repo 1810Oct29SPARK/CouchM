@@ -1,6 +1,20 @@
 public class Driver {
 
 	public static void main(String[] args) {
+		//make some cars
+		Car myCar = new Car(1994,"Rabbit","Volkswagon");
+		Horse myHorse = new Horse(9,"My Horse","Amazing");
+		Car myOtherCar = new Car(2018,"Model 3","Tesla");
+		myCar.setMilesSinceOilChange(100);
+		if (myCar.getMilesSinceOilChange() >= Car.milesBetweenOilChanges){
+			System.out.println("Time to change the oil");
+		} else {
+			int milesLeft = Car.milesBetweenOilChanges - myCar.getMilesSinceOilChange();
+			System.out.println("You have " + milesLeft + " miles left");
+		}
+	}
+
+	public static void init() {
 
 		System.out.println("this is the point of entry into my program");
 		//make a car object with no set fields
@@ -25,6 +39,21 @@ public class Driver {
 
 		//testout carTwo inherited move() method
 		carTwo.move();
+
+		//declared a variable 'garage'
+			//which is an array of vehicles
+		//created an empty array with 5 elements
+			//and assigned it to 'garage'
+		Vehicle[] garage = new Vehicle[5];
+		//vehicles to array
+		garage[0] = carOne;
+		garage[1] = new Horse(10,"Bojack","Depressed");
+		garage[2] = new Horse(3,"Clyde","Clydesdale");
+		garage[3] = carTwo;
+		garage[4] = new Horse(13,"Horsey McHorseface","Palamino");
+		for (int i = 0; i < garage.length; i++) {
+			garage[i].move();
+		}
 	}
 
 }
