@@ -1,6 +1,6 @@
 //First POJO!
 
-public class Car extends Vehicle {
+public class Car {
 
 	//constructor with no fields (a "no-args" constructor)
 	public Car() {
@@ -18,54 +18,24 @@ public class Car extends Vehicle {
 
 	}
 
-	//declared a static variable and assigned it a value of 5000
-	//hon hon hon hon
-	public static int milesBetweenOilChanges = 5000;
-
 	//private instance variables, accessible only within the class
 	private int yearManufactured;
 	private String model;
 	private String make;
-	private int milesSinceOilChange; //this instance variable tracks miles since last oil change
 
 	//getters and setters (accessors and mutators)
 	public int getYearManufactured(){
-		return this.yearManufactured;
-	}
 
-	public void setYearManufactured(int year){
-		this.yearManufactured = year;
+		return this.yearManufactured;
+
 	}
 
 	public String getModel(){
 		return this.model;
 	}
 
-	public void setModel(String model){
-		this.model = model;
-	}
-
 	public String getMake(){
 		return this.make;
 	}
 
-	public void setMake(String make){
-		this.make = make;
-	}
-
-	public int getMilesSinceOilChange(){
-		return this.milesSinceOilChange;
-	}
-
-	public void setMilesSinceOilChange(int miles){
-		this.milesSinceOilChange = miles;
-	}
-
-	//override inherited move() method
-	@Override	//doesn't DO anything, checks to see if method is in parent class
-	public void move(){
-		System.out.println("Car is moving");
-	}
-	//it's the same method as the one inherited from Vehicle,
-	//but with a new method body
 }

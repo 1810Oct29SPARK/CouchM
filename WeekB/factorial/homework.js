@@ -11,7 +11,7 @@ function factorial(n){
         return 1;
     }
     while (n > 1){
-        //console.log(n);
+        console.log(n);
         n--;
         result = result * n;
     }

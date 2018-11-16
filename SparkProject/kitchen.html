@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="kitchen.css" />
-    <script src="kitchen.js"></script>
+    <!--script src="kitchen.js"></script-->
 </head>
-<body class="container">
+<body>
+    <div class="container">
     <div id="kitchenFloor">
 
         <div id="tableTop1">
@@ -25,6 +26,24 @@
 
             <div onclick="Sink()" class="appliance" id="sink" title="Sink"></div>
 
+            <div onclick="MeasureCup()" class="measuringTool" id="measuringCup" title="Measuring Cup">
+                <div class="measurements" id="cup">
+                    <p onclick="OneCup()" id="1cup">1 cup</p>
+                    <p onclick="ThreeQuartersCup()" id="3/4cup">3/4 cup</p>
+                    <p onclick="HalfCup()" id="1/2cup">1/2 cup</p>
+                </div>
+            </div>
+                
+            <div onclick="MeasureSpoon()" class="measuringTool" id="measuringSpoon" title="Measuring Spoons">
+                <div class="measurements" id="spoon">
+                    <p onclick="OneTsp()" id="1tsp">1 teaspoon</p>
+                    <p onclick="HalfTsp()" id="1/2tsp">1/2 teaspoon</p>
+                </div>
+            </div>
+
+            <div onclick="Whisk()" class="tool" id="whisk" title="Whisk"></div>
+
+            <div onclick="Pot()" class="tool" id="pot" title="Pot"></div>
         </div>
 
         <div id="tableTop2">
@@ -50,51 +69,16 @@
             <div onclick="Sugar()" class="ingredient" id="sugar" title="Sugar"></div>
         </div>
 
-        <div id="tableTop3"></div>
+        <div id="tableTop3">
+            <div onclick="CakePans()" class="tool" id="cakePans" title="Cake Pans"></div>
 
-        <div onclick="MeasureCup()" class="measuringTool" id="measuringCup" title="Measuring Cup">
-            <div class="measurements" id="cup">
-                <p onclick="OneCup()" id="1cup">1 cup</p>
-                <p onclick="ThreeQuartersCup()" id="3/4cup">3/4 cup</p>
-                <p onclick="HalfCup()" id="1/2cup">1/2 cup</p>
-            </div>
+            <div onclick="MixingBowl()" class="tool" id="mixingBowl" title="Mixing Bowl"></div>
         </div>
-        
-        <div onclick="MeasureSpoon()" class="measuringTool" id="measuringSpoon" title="Measuring Spoons">
-            <div class="measurements" id="spoon">
-                <p onclick="OneTsp()" id="1tsp">1 teaspoon</p>
-                <p onclick="HalfTsp()" id="1/2tsp">1/2 teaspoon</p>
-            </div>
-        </div>
-
-        <div onclick="CakePans()" class="tool" id="cakePans" title="Cake Pans"></div>
-
-        <div onclick="MixingBowl()" class="tool" id="mixingBowl" title="Mixing Bowl"></div>
-
-        <div onclick="Whisk()" class="tool" id="whisk" title="Whisk"></div>
-
-        <div onclick="Pot()" class="tool" id="pot" title="Pot"></div>
-        
-        <!-- <div onclick="BakingPowder()" class="ingredient" id="bakingPowder" title="Baking Powder"></div>
-        
-        <div onclick="BakingSoda()" class="ingredient" id="bakingSoda" title="Baking Soda"></div>
-        
-        <div onclick="Cocoa()" class="ingredient" id="cocoaPowder" title="Cocoa Powder"></div>
-        
-        <div onclick="Oil()" class="ingredient" id="cookingOil" title="Cooking Oil"></div>
-        
-        <div onclick="Egg()" class="ingredient" id="eggs" title="Eggs"></div>
-        
-        <div onclick="Flour()" class="ingredient" id="flour" title="Flour"></div>
-        
-        <div onclick="Milk()" class="ingredient" id="milk" title="Milk"></div>
-        
-        <div onclick="Salt()" class="ingredient" id="salt" title="Salt"></div>
-        
-        <div onclick="Vanilla()" class="ingredient" id="vanillaExtract" title="Vanilla Extract"></div>
-        
-        <div onclick="Sugar()" class="ingredient" id="sugar" title="Sugar"></div> -->
     
+    </div>
+    <div id="actionLog">
+        <p id="log">Let's get started!</p>
+    </div>
     </div>
     <br>
     <br>
@@ -125,5 +109,16 @@
             <li id="step9">Bake for 30 minutes.</li>
         </ol>
     </div>
+    <br>
+    <br>
+    <div id="recipeApi">
+        <div id="searchBox">
+            <p>Recipe Search</p>
+            <input id="input" type="text" placeholder="Enter an ingredient!">
+            <button id="button" type="button">Submit!</button>
+        </div>
+        <div id="results"></div>
+    </div>
+    <script src="kitchen.js"></script>
 </body>
 </html>

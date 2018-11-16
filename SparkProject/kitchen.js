@@ -376,3 +376,51 @@ function Stove() {
         console.log("pot is full of boiling water");
     }
 }
+
+// (function () {
+//     var old = console.log;
+//     var logger = document.getElementById('log');
+//     console.log = function (message) {
+//         if (typeof message == 'object') {
+//             logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+//         } else {
+//             logger.innerHTML += message + '<br />';
+//         }
+//     }
+// })();
+
+let submit = document.querySelector('#button');
+
+submit.addEventListener('click', function() {
+    let input = document.querySelector('#input');
+    console.log(input);
+    let searchInput = input.value;
+
+    fetch("http://recipepuppyproxy.herokuapp.com/api/?q=" + searchInput)
+        .then(function(response) {
+        if (response.status !== 200) {
+            console.log("Broken: " + response.status);
+            return;
+        }
+        response.json().then(function(data) {
+            let html = "";
+            let recipes = data.results;
+            console.log(recipes);
+            let results = document.querySelector('#results')
+            for (let i = 0; i < recipes.length; i++) {
+                let href = recipes[i].href;
+                let title = recipes[i].title;
+                let thumbnail = recipes[i].thumbnail;
+                if (thumbnail === ""){
+                    thumbnail = 'http://via.placeholder.com/350x150'
+                }
+                html += `<div class="container1">
+                    <a href="${href}">Recipe</a>
+                    <p>${title}</p>
+                    <img src="${thumbnail}">
+                    </div>`
+                results.innerHTML = html;
+            }
+        })
+    })
+})
