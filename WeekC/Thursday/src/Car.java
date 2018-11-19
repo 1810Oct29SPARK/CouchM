@@ -30,12 +30,24 @@ public class Car {
 
 	}
 
+	public void setYearManufactured(int yearManufactured){
+		this.yearManufactured = yearManufactured;
+	}
+
 	public String getModel(){
 		return this.model;
 	}
 
+	public void setModel(String model){
+		this.model = model;
+	}
+
 	public String getMake(){
 		return this.make;
+	}
+
+	public void setMake(String make){
+		this.make = make;
 	}
 
 }

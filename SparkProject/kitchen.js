@@ -386,30 +386,33 @@ function Stove() {
     }
 }
 
-let submit = document.querySelector('#button');
+(function () {
+    var logger = document.getElementById("logger");
+    console.log = function (message) {
+        logger.innerHTML += message + '<br />';
+    }
+})();
 
-submit.addEventListener('click', function() {
-    let input = document.querySelector('#input');
+let submit = document.querySelector("#button");
+
+submit.addEventListener("click", function() {
+    let input = document.querySelector("#input");
     // console.log(input);
     let searchInput = input.value;
 
     fetch("http://recipepuppyproxy.herokuapp.com/api/?q=" + searchInput)
         .then(function(response) {
-        if (response.status !== 200) {
-            console.log("Broken: " + response.status);
-            return;
-        }
         response.json().then(function(data) {
             let html = "";
             let recipes = data.results;
             // console.log(recipes);
-            let results = document.querySelector('#results')
+            let results = document.querySelector("#results")
             for (let i = 0; i < recipes.length; i++) {
                 let href = recipes[i].href;
                 let title = recipes[i].title;
                 let thumbnail = recipes[i].thumbnail;
                 if (thumbnail === ""){
-                    thumbnail = 'https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg'
+                    thumbnail = "https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg"
                 }
                 html += `<div class="container">
                     <a href="${href}" target="_blank">Recipe</a>
@@ -421,30 +424,3 @@ submit.addEventListener('click', function() {
         });
     });
 });
-
-(function (logger) {
-    console.old = console.log;
-    console.log = function () {
-        var output = "", arg, i;
-
-        for (i = 0; i < arguments.length; i++) {
-            arg = arguments[i];
-            output += "<span class=\"log-" + (typeof arg) + "\">";
-
-            if (
-                typeof arg === "object" &&
-                typeof JSON === "object" &&
-                typeof JSON.stringify === "function"
-            ) {
-                output += JSON.stringify(arg);   
-            } else {
-                output += arg;   
-            }
-
-            output += "</span>&nbsp;";
-        }
-
-        logger.innerHTML += output + "<br>";
-        console.old.apply(undefined, arguments);
-    };
-})(document.getElementById("logger"));
