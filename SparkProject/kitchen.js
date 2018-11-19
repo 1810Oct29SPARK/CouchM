@@ -266,7 +266,7 @@ function MixingBowl() {
 
 //Step 6
 
-    if (water === 1 && mixingBowl === 1 && directions == 5) {
+    if (water === 1 && mixingBowl === 1 && cup === 1 && directions == 5) {
         document.getElementById("step6").classList.toggle("complete");
         document.getElementById("addBoilingWater").classList.toggle("complete");
         mixingBowl = 0;
@@ -303,8 +303,8 @@ function CakePans() {
 function Bake() {
     if (cakePans === 1 && directions === 8) {
         document.getElementById("step9").classList.toggle("complete");
-        console.log("The cake is baking for 30 minutes")
-        console.log("Congratulations! Now you're ready to try it at home")
+        console.log("The cake is baking for 30 minutes");
+        console.log("Congratulations! Now you're ready to try it at home");
     }
 }
 
@@ -315,7 +315,11 @@ function Whisk() {
 
 function Pot() {
     pot++;
+    if (stove === 1 && cup === 1){
+        console.log("of boiling water");
+    } else {
     console.log("You're holding a pot")
+    }
 }
 
 function BakingPowder() {
@@ -370,7 +374,7 @@ function Sugar() {
 
 function Sink() {
     sink++;
-    console.log("You're filling pot with water");
+    console.log("You fill the pot with water");
 }
 
 function Stove() {

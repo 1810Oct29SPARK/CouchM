@@ -92,6 +92,7 @@ body {
     display: flex;
     flex-direction: row;
 }
+
 #headerRecipeSearch {
     margin: auto;
     box-sizing: content-box;
