@@ -27,9 +27,9 @@ function UseOven() {
 
 function Preheat() {
     document.getElementById("step1").classList.toggle("complete");
-    console.log("you've preheated the oven to 350F")
+    console.log("You preheat the oven to 350F")
     directions++;
-    console.log("direction " + directions + " complete");
+    // console.log("direction " + directions + " complete");
 }
 
 let cup = 0;
@@ -82,32 +82,36 @@ function Cake() {
 
 function OneCup() {
     cup++;
-    console.log(cup + " cup");
+    console.log(cup + " cup(s)");
 }
 
 function ThreeQuartersCup() {
     cup+=.75;
-    console.log(cup + " cup");
+    console.log(cup + " cup(s)");
 }
 
 function HalfCup() {
     cup+=.5;
-    console.log(cup + " cup");
+    console.log(cup + " cup(s)");
 }
 
 function OneTsp() {
     tsp++;
-    console.log(tsp + " tsp");
+    console.log(tsp + " tsp(s)");
 }
 
 function HalfTsp() {
     tsp+=.5;
-    console.log(tsp + " tsp")
+    console.log(tsp + " tsp(s)")
 }
 
 function MixingBowl() {
     mixingBowl++;
-    console.log(mixingBowl + " item(s) added to mixing bowl")
+    if (mix === 1) {
+        console.log("You mix the ingredients together");
+    } else {
+        console.log("You add the measurement to the mixing bowl");
+    }
 
 //Step 2
 
@@ -186,7 +190,7 @@ function MixingBowl() {
     if (ingredients === 6 && directions == 1){
         document.getElementById("step2").classList.toggle("complete");
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 
 //Step 3
@@ -196,7 +200,7 @@ function MixingBowl() {
         mixingBowl = 0;
         mix = 0;
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 
 //Step 4
@@ -247,7 +251,7 @@ function MixingBowl() {
     if (ingredients === 10 && directions === 3) {
         document.getElementById("step4").classList.toggle("complete");
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 
 //Step 5
@@ -257,7 +261,7 @@ function MixingBowl() {
         mixingBowl = 0;
         mix = 0;
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 
 //Step 6
@@ -267,7 +271,7 @@ function MixingBowl() {
         document.getElementById("addBoilingWater").classList.toggle("complete");
         mixingBowl = 0;
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 
 //Step 7
@@ -278,7 +282,7 @@ function MixingBowl() {
         mix = 0;
         batter++;
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 }
 
@@ -288,9 +292,9 @@ function CakePans() {
     if (batter === 1 && directions === 7) {
         document.getElementById("step8").classList.toggle("complete");
         cakePans++;
-        console.log("cake is ready to bake");
+        console.log("Cake is ready to bake");
         directions++;
-        console.log("direction " + directions + " complete");
+        // console.log("direction " + directions + " complete");
     }
 }
 
@@ -299,101 +303,90 @@ function CakePans() {
 function Bake() {
     if (cakePans === 1 && directions === 8) {
         document.getElementById("step9").classList.toggle("complete");
-        console.log("cake is baking for 30 minutes")
+        console.log("The cake is baking for 30 minutes")
+        console.log("Congratulations! Now you're ready to try it at home")
     }
 }
 
 function Whisk() {
     mix++;
-    console.log("grabbed whisk")
+    console.log("You grab the whisk")
 }
 
 function Pot() {
     pot++;
-    console.log("holding pot")
+    console.log("You're holding a pot")
 }
 
 function BakingPowder() {
     bakingPowder++;
-    console.log(bakingPowder + " baking powder")
+    console.log(" of baking powder")
 }
 
 function BakingSoda() {
     bakingSoda++;
-    console.log(bakingSoda + " baking soda")
+    console.log(" of baking soda")
 }
 
 function Cocoa() {
     cocoa++;
-    console.log(cocoa + " cocoa");
+    console.log(" of cocoa");
 }
 
 function Oil() {
     oil++;
-    console.log(oil + " oil");
+    console.log(" of cooking oil");
 }
 
 function Egg() {
     eggs++;
-    console.log(eggs + " eggs");
+    console.log(eggs + " egg(s)");
 }
 
 function Flour() {
     flour++;
-    console.log(flour + " flour");
+    console.log(" of flour");
 }
 
 function Milk() {
     milk++;
-    console.log(milk + " milk");
+    console.log(" of milk");
 }
 
 function Salt() {
     salt++;
-    console.log(salt + " salt");
+    console.log(" of salt");
 }
 
 function Vanilla() {
     vanilla++;
-    console.log(vanilla + " vanilla");
+    console.log(" of vanilla");
 }
 
 function Sugar() {
     sugar++;
-    console.log(sugar + " sugar");
+    console.log(" of sugar");
 }
 
 function Sink() {
     sink++;
-    console.log("filling pot with water");
+    console.log("You're filling pot with water");
 }
 
 function Stove() {
     stove++;
-    console.log("boiling water on stove");
+    console.log("The water is boiling on stove");
     if (pot === 1 && sink === 1 && stove === 1) {
         water++;
-        console.log("pot is full of boiling water");
+        console.log("The pot is full of boiling water");
     }
 }
-
-// (function () {
-//     var old = console.log;
-//     var logger = document.getElementById('log');
-//     console.log = function (message) {
-//         if (typeof message == 'object') {
-//             logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
-//         } else {
-//             logger.innerHTML += message + '<br />';
-//         }
-//     }
-// })();
 
 let submit = document.querySelector('#button');
 
 submit.addEventListener('click', function() {
     let input = document.querySelector('#input');
-    console.log(input);
+    // console.log(input);
     let searchInput = input.value;
 
     fetch("http://recipepuppyproxy.herokuapp.com/api/?q=" + searchInput)
@@ -405,22 +398,49 @@ submit.addEventListener('click', function() {
         response.json().then(function(data) {
             let html = "";
             let recipes = data.results;
-            console.log(recipes);
+            // console.log(recipes);
             let results = document.querySelector('#results')
             for (let i = 0; i < recipes.length; i++) {
                 let href = recipes[i].href;
                 let title = recipes[i].title;
                 let thumbnail = recipes[i].thumbnail;
                 if (thumbnail === ""){
-                    thumbnail = 'http://via.placeholder.com/350x150'
+                    thumbnail = 'https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg'
                 }
-                html += `<div class="container1">
-                    <a href="${href}">Recipe</a>
+                html += `<div class="container">
+                    <a href="${href}" target="_blank">Recipe</a>
                     <p>${title}</p>
                     <img src="${thumbnail}">
                     </div>`
                 results.innerHTML = html;
+            };
+        });
+    });
+});
+
+(function (logger) {
+    console.old = console.log;
+    console.log = function () {
+        var output = "", arg, i;
+
+        for (i = 0; i < arguments.length; i++) {
+            arg = arguments[i];
+            output += "<span class=\"log-" + (typeof arg) + "\">";
+
+            if (
+                typeof arg === "object" &&
+                typeof JSON === "object" &&
+                typeof JSON.stringify === "function"
+            ) {
+                output += JSON.stringify(arg);   
+            } else {
+                output += arg;   
             }
-        })
-    })
-})
+
+            output += "</span>&nbsp;";
+        }
+
+        logger.innerHTML += output + "<br>";
+        console.old.apply(undefined, arguments);
+    };
+})(document.getElementById("logger"));
