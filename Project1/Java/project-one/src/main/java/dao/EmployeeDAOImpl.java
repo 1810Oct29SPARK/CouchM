@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.Accounts;
 import beans.Employee;
 import util.ConnectionUtil;
 
@@ -21,8 +20,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Employee m = null;
 
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "SELECT M.E_ID, M.E_NAME, m.e_mail, m.e_pw, M.E_BOSS, A.A_ID, a.a_number, a.a_balance, m.boss_id "
-					+ "FROM EMPLOYEE M " + "INNER JOIN accounts a " + "ON M.A_ID = A.A_ID " + "WHERE m.e_ID = ?";
+			String sql = "SELECT * FROM EMPLOYEE WHERE E_ID = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
@@ -30,14 +28,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 				int eId = rs.getInt("E_ID");
 				String eName = rs.getString("E_NAME");
 				String eMail = rs.getString("E_MAIL");
-				;
 				String ePw = rs.getString("E_PW");
 				String eBoss = rs.getString("E_BOSS");
 				int eBossId = rs.getInt("BOSS_ID");
-				int aId = rs.getInt("A_ID");
-				short aNum = rs.getShort("A_NUMBER");
-				double aBal = rs.getDouble("A_BALANCE");
-				m = new Employee(eId, eName, eMail, ePw, eBoss, new Accounts(aId, aNum, aBal), eBossId);
+				m = new Employee(eId, eName, eMail, ePw, eBoss, eBossId);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,8 +46,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		List<Employee> em = new ArrayList<>();
 
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "SELECT M.E_ID, M.E_NAME, m.e_mail, m.e_pw, M.E_BOSS, A.A_ID, a.a_number, a.a_balance, m.boss_id "
-					+ "FROM EMPLOYEE M " + "INNER JOIN accounts a " + "ON M.A_ID = A.A_ID";
+			String sql = "SELECT * FROM EMPLOYEE";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
@@ -63,10 +56,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 				String ePw = rs.getString("E_PW");
 				String eBoss = rs.getString("E_BOSS");
 				int eBossId = rs.getInt("BOSS_ID");
-				int aId = rs.getInt("A_ID");
-				short aNum = rs.getShort("A_NUMBER");
-				double aBal = rs.getDouble("A_BALANCE");
-				em.add(new Employee(eId, eName, eMail, ePw, eBoss, new Accounts(aId, aNum, aBal), eBossId));
+				em.add(new Employee(eId, eName, eMail, ePw, eBoss, eBossId));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,19 +66,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return em;
 	}
 
+	// Give ACCOUNTS E_ID instead of giving Employee an A_ID
 	@Override
-	public void createEmployee(int id, String name, String email, String pw, String eBoss, Accounts account,
-			int bossId) {
+	public void createEmployee(String name, String email, String pw, String eBoss, int bossId) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "INSERT INTO EMPLOYEE VALUES (?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO EMPLOYEE(E_NAME, E_MAIL, E_PW, E_BOSS, BOSS_ID) VALUES (?,?,?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setInt(1, id);
-			p.setString(2, name);
-			p.setString(3, email);
-			p.setString(4, pw);
-			p.setString(5, eBoss);
-			p.setObject(6, account);
-			p.setInt(7, bossId);
+			//p.setInt(1, id);
+			p.setString(1, name);
+			p.setString(2, email);
+			p.setString(3, pw);
+			p.setString(4, eBoss);
+			p.setInt(5, bossId);
 			p.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

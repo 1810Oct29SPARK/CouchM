@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import beans.Accounts;
 import beans.Employee;
 
 public interface EmployeeDAO {
@@ -11,8 +10,7 @@ public interface EmployeeDAO {
 
 	public List<Employee> getEmployees();
 
-	public void createEmployee(int id, String name, String email, String pw, String eBoss, Accounts account,
-			int bossId);
+	public void createEmployee(String name, String email, String pw, String eBoss, int bossId);
 
 	public void updateEmployee(int id, String name, String email, String pw);
 

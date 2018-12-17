@@ -1,12 +1,9 @@
 package main;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-
+import dao.AccountsDAO;
+import dao.AccountsDAOImpl;
 import dao.EmployeeDAO;
 import dao.EmployeeDAOImpl;
-import util.ConnectionUtil;
 
 public class Driver {
 
@@ -14,23 +11,37 @@ public class Driver {
 //		init();
 		
 		EmployeeDAO ed = new EmployeeDAOImpl();
+		AccountsDAO ad = new AccountsDAOImpl();
 //		System.out.println(ed.getEmployeeById(1));
-		System.out.println(ed.getEmployees());
+//		System.out.println(ed.getEmployees());
 //		System.out.println(ed.loginEmployee("zug@ork.kom", "p4ssw0rd"));
-//		ed.createEmployee(2, "Lok", "lok@ork.kom", "password", "N", null, 100);
-//		ed.deleteEmployee(2);
-//		ed.updateEmployee(2, "Tar", "tar@ork.kom", "password");
+//		ed.createEmployee(3, "Lok", "lok@ork.kom", "password", "N", 100);
+//		ed.deleteEmployee(2); //HAS AN ACCOUNT ASSOCIATED WITH HIM
+//		ed.updateEmployee(10, "Tim", "timmy@ork.kom", "pa55w0rd");
+//		ed.createEmployee("Tim", "tim@ork.kom", "password", "N", 100);
+//		ad.createRequest(150, 1, null, "stuff");
+//		ad.deleteRequest(10);
+//		ad.deleteRequest(16);
+//		ad.deleteRequest(15);
+//		ad.updateRequest(1, "APPROVED");
+//		ad.updateRequest(1, "DENIED");
+		System.out.println(ad.getAccounts());
 	}
 
-	static void init() {
-		try {
-			Connection con = ConnectionUtil.getConnection("connection.properties");
-			System.out.println(con);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	static void init() {
+//		try {
+//			Connection con = ConnectionUtil.getConnection("connection.properties");
+//			System.out.println(con);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 }
+
+
+//USER ROLE FOR WHICH SCREENS YOU SEE WHEN YOU LOG IN
+//WHETHER THERE ARE MANAGERS WITHOUT PEOPLE TO MANAGE
+//

@@ -1,7 +1,5 @@
 package beans;
 
-import beans.Accounts;
-
 public class Employee {
 
 	private int id;
@@ -9,17 +7,15 @@ public class Employee {
 	private String email;
 	private String pw;
 	private String boss;
-	private Accounts account;
 	private int bossId;
 
-	public Employee(int id, String name, String email, String pw, String eBoss, Accounts account, int bossId) {
+	public Employee(int id, String name, String email, String pw, String eBoss, int bossId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.pw = pw;
 		this.boss = eBoss;
-		this.account = account;
 		this.bossId = bossId;
 	}
 
@@ -63,14 +59,6 @@ public class Employee {
 		this.boss = boss;
 	}
 
-	public Accounts getAccount() {
-		return account;
-	}
-
-	public void setAccount(Accounts account) {
-		this.account = account;
-	}
-
 	public int getBossId() {
 		return bossId;
 	}
@@ -82,7 +70,7 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", pw=" + pw + ", boss=" + boss
-				+ ", account=" + account + ", bossId=" + bossId + "]";
+				+ ", bossId=" + bossId + "]";
 	}
 
 }
