@@ -19,13 +19,18 @@ public class Driver {
 //		ed.deleteEmployee(2); //HAS AN ACCOUNT ASSOCIATED WITH HIM
 //		ed.updateEmployee(10, "Tim", "timmy@ork.kom", "pa55w0rd");
 //		ed.createEmployee("Tim", "tim@ork.kom", "password", "N", 100);
-//		ad.createRequest(150, 1, null, "stuff");
+//		ad.createRequest(120, 2, null, "hardware");
+//		ad.createRequest(200, 3, null, "wwwaaaaaaggh");
 //		ad.deleteRequest(10);
 //		ad.deleteRequest(16);
 //		ad.deleteRequest(15);
-//		ad.updateRequest(1, "APPROVED");
-//		ad.updateRequest(1, "DENIED");
-		System.out.println(ad.getAccounts());
+//		ad.updateRequest(19, "APPROVED");
+//		ad.updateRequest(30, "DENIED");
+//		System.out.println(ad.getAccountsById(2));
+//		System.out.println(ad.viewPendingById(2));
+//		System.out.println(ad.viewDeniedById(2));
+//		System.out.println(ad.viewApprovedById(2));
+		System.out.println(ad.viewEmployeePendingByBossId(10));
 	}
 
 //	static void init() {

@@ -9,14 +9,22 @@
     <servlet-name>HelloWorld</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
-  <!--<servlet>
-    <description></description>
-    <display-name>BearServlet</display-name>
-    <servlet-name>BearServlet</servlet-name>
-    <servlet-class>com.revature.servlet.BearServlet</servlet-class>
+  <servlet>
+    <servlet-name>Calculator</servlet-name>
+    <servlet-class>servlets.CalculatorServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>BearServlet</servlet-name>
-    <url-pattern>/bears</url-pattern>
-  </servlet-mapping>-->
+    <servlet-name>Calculator</servlet-name>
+    <url-pattern>/calculator</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ResultServlet</display-name>
+    <servlet-name>ResultServlet</servlet-name>
+    <servlet-class>servlets.ResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResultServlet</servlet-name>
+    <url-pattern>/result</url-pattern>
+  </servlet-mapping>
 </web-app>

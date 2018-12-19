@@ -11,8 +11,16 @@ public interface AccountsDAO {
 	
 	public void deleteRequest(int eId);
 	
-	public List<Accounts> getAccounts();
+	public List<Accounts> getAccountsById(int id);
 	
 	public void updateRequest(int aId, String status);
+	
+	public Accounts viewPendingById(int id);
+	
+	public Accounts viewDeniedById(int id);
+	
+	public Accounts viewApprovedById(int id);
+	
+	public List<Accounts> viewEmployeePendingByBossId(int id);
 
 }
