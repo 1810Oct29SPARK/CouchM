@@ -203,4 +203,36 @@ public class AccountsDAOImpl implements AccountsDAO {
 		return ac;
 	}
 
+
+	@Override
+	public List<Accounts> viewResolvedByBossId(int id) {
+		List<Accounts> ac = new ArrayList<>();
+		try (Connection con = ConnectionUtil.getConnection(filename)) {
+			String sql = "SELECT A.A_ID, A.E_ID, A.AMOUNT, A.PHOTO, A.DESCRIPTIONS, A.STATUS, E.E_ID, E.E_NAME, E.BOSS_ID " + 
+					"FROM ACCOUNTS A " + 
+					"INNER JOIN EMPLOYEE E " + 
+					"ON A.E_ID = E.E_ID " + 
+					"WHERE A.STATUS != 'PENDING' " +
+					"AND E.BOSS_ID = ?";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setInt(1, id);
+			ResultSet rs = p.executeQuery();
+			while (rs.next()) {
+				int aId = rs.getInt("A_ID");
+				int eId = rs.getInt("E_ID");
+				int amount = rs.getInt("AMOUNT");
+				Blob photo = rs.getBlob("PHOTO");
+				String descrip = rs.getString("DESCRIPTIONS");
+				String status = rs.getString("STATUS");
+				//int eeId = rs.getInt("E.E_ID");
+				ac.add(new Accounts(aId, eId, amount, photo, descrip, status));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ac;
+	}
+
 }

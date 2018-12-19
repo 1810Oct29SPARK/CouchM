@@ -30,7 +30,8 @@ public class Driver {
 //		System.out.println(ad.viewPendingById(2));
 //		System.out.println(ad.viewDeniedById(2));
 //		System.out.println(ad.viewApprovedById(2));
-		System.out.println(ad.viewEmployeePendingByBossId(10));
+//		System.out.println(ad.viewEmployeePendingByBossId(10));
+		System.out.println(ad.viewResolvedByBossId(10));
 	}
 
 //	static void init() {

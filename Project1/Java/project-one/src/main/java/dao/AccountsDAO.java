@@ -22,5 +22,7 @@ public interface AccountsDAO {
 	public Accounts viewApprovedById(int id);
 	
 	public List<Accounts> viewEmployeePendingByBossId(int id);
+	
+	public List<Accounts> viewResolvedByBossId(int id);
 
 }
