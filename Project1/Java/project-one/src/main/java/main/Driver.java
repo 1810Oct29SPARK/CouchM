@@ -14,13 +14,20 @@ public class Driver {
 		AccountsDAO ad = new AccountsDAOImpl();
 //		System.out.println(ed.getEmployeeById(1));
 //		System.out.println(ed.getEmployees());
-//		System.out.println(ed.loginEmployee("zug@ork.kom", "p4ssw0rd"));
-//		ed.createEmployee(3, "Lok", "lok@ork.kom", "password", "N", 100);
+//		System.out.println(ed.loginEmployee("Thrall", "password"));
+//		ed.createEmployee("Garrosh", "garrosh@ork.kom", "password", "N", 100);
+//		ed.createEmployee("Thrall", "thrall@ork.kom", "password", "N", 100);
+//		ed.createEmployee("Azog", "azog@ork.kom", "password", "N", 50);
+//		ed.createEmployee("Boldog", "boldog@ork.kom", "password", "N", 50);
+//		ed.createEmployee("Bolg", "bolg@ork.kom", "password", "N", 50);
+//		ed.createEmployee("Gor", "gor@ork.kom", "password", "N", 50);
 //		ed.deleteEmployee(2); //HAS AN ACCOUNT ASSOCIATED WITH HIM
-//		ed.updateEmployee(10, "Tim", "timmy@ork.kom", "pa55w0rd");
-//		ed.createEmployee("Tim", "tim@ork.kom", "password", "N", 100);
-//		ad.createRequest(120, 2, null, "hardware");
-//		ad.createRequest(200, 3, null, "wwwaaaaaaggh");
+//		ed.updateEmployee(10, "Rik", "rik@ork.kom", "pa55w0rd");
+//		ad.createRequest(550, 51, null, "malware");
+//		ad.createRequest(100, 51, null, "dry cleaning");
+//		ad.createRequest(740, 52, null, "laptop repairs");
+//		ad.createRequest(460, 53, null, "software");
+//		ad.createRequest(210, 54, null, "lunch");
 //		ad.deleteRequest(10);
 //		ad.deleteRequest(16);
 //		ad.deleteRequest(15);
@@ -28,10 +35,10 @@ public class Driver {
 //		ad.updateRequest(30, "DENIED");
 //		System.out.println(ad.getAccountsById(2));
 //		System.out.println(ad.viewPendingById(2));
-//		System.out.println(ad.viewDeniedById(2));
-//		System.out.println(ad.viewApprovedById(2));
+//		System.out.println(ad.viewResolvedById(2));
 //		System.out.println(ad.viewEmployeePendingByBossId(10));
-		System.out.println(ad.viewResolvedByBossId(10));
+//		System.out.println(ad.viewResolvedByBossId(10));
+//		ad.uploadPhoto(32);
 	}
 
 //	static void init() {

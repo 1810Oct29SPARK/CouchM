@@ -20,6 +20,10 @@ public class HelloWorld extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter pw= resp.getWriter();
 		pw.write("Hello World");
+		//access Servlet Config - params unique to this servlet
+		pw.println(getServletConfig().getInitParameter("servletMessage"));
+		//access Servlet Context - params shared by all servlets
+		pw.println(getServletConfig().getServletContext().getInitParameter("applicationMessage"));
 	}
 
 }

@@ -1,10 +1,10 @@
-package dao;
+package service;
 
 import java.util.List;
 
 import beans.Employee;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
 	public Employee getEmployeeById(int id);
 
@@ -19,5 +19,5 @@ public interface EmployeeDAO {
 	public void deleteEmployee(int id);
 
 	public Employee loginEmployee(String user, String pass);
-
+	
 }
