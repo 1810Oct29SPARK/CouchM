@@ -21,19 +21,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void createEmployee(String name, String email, String pw, String eBoss, int bossId) {
-		ed.createEmployee(name, email, pw, eBoss, bossId);
+	public void createEmployee(Employee e) {
+		ed.createEmployee(e);
 		
 	}
 
 	@Override
-	public void updateEmployee(int id, String name, String email, String pw) {
-		ed.updateEmployee(id, name, email, pw);
+	public void updateEmployee(Employee e) {
+		ed.updateEmployee(e);
 	}
 
 	@Override
-	public void deleteEmployee(int id) {
-		ed.deleteEmployee(id);
+	public void deleteEmployee(Employee e) {
+		ed.deleteEmployee(e);
 	}
 
 	@Override

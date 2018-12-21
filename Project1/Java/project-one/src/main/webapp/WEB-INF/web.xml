@@ -45,16 +45,16 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
-  <servlet>
+  <!--servlet>
     <description></description>
     <display-name>FrontController</display-name>
     <servlet-name>FrontController</servlet-name>
     <servlet-class>servlets.FrontController</servlet-class>
   </servlet>
-  <!-- servlet-mapping>
+  < servlet-mapping>
     <servlet-name>FrontController</servlet-name>
     <url-pattern>/controller</url-pattern>
-  </servlet-mapping> -->
+  </servlet-mapping> 
   <servlet>
     <description></description>
     <display-name>DatabaseAccess</display-name>
@@ -64,7 +64,7 @@
   <servlet-mapping>
     <servlet-name>DatabaseAccess</servlet-name>
     <url-pattern>/databaseAccess</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
   <servlet>
     <description></description>
     <display-name>EmployeeServlet</display-name>
@@ -95,10 +95,18 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AccountsServlet</servlet-name>
-    <url-pattern>/account</url-pattern>
+    <url-pattern>/accounts</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AccountsServlet</servlet-name>
-    <url-pattern>/accounts</url-pattern>
+    <url-pattern>/accountsPending</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AccountsServlet</servlet-name>
+    <url-pattern>/accountsResolved</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AccountsServlet</servlet-name>
+    <url-pattern>/pendingByBossId</url-pattern>
   </servlet-mapping>
 </web-app>

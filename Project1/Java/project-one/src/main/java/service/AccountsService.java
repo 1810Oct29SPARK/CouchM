@@ -7,13 +7,13 @@ import beans.Accounts;
 
 public interface AccountsService {
 	
-	public void createRequest(int amount, int eId, Blob photo, String descrip);
+	public void createRequest(Accounts a);
 
-	public void deleteRequest(int eId);
+	public void deleteRequest(Accounts a);
 
 	public List<Accounts> getAccountsById(int id);
 
-	public void updateRequest(int aId, String status);
+	public void updateRequest(Accounts a);
 
 	public List<Accounts> viewPendingById(int id);
 

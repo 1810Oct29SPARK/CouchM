@@ -68,13 +68,15 @@ public class Accounts {
 		this.descrip = descrip;
 		this.status = status;
 	}
+	
+	public Accounts() {
+	}
 
 	@Override
 	public String toString() {
 		return "Accounts [accId=" + accId + ", eId=" + eId + ", amount=" + amount + ", photo=" + photo + ", descrip="
 				+ descrip + ", status=" + status + "]";
 	}
-
 	
 
 

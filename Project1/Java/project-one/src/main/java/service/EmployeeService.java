@@ -12,11 +12,11 @@ public interface EmployeeService {
 	
 	public List<Employee> getEmployeesByBossId(int id);
 
-	public void createEmployee(String name, String email, String pw, String eBoss, int bossId);
+	public void createEmployee(Employee e);
 
-	public void updateEmployee(int id, String name, String email, String pw);
+	public void updateEmployee(Employee e);
 
-	public void deleteEmployee(int id);
+	public void deleteEmployee(Employee e);
 
 	public Employee loginEmployee(String user, String pass);
 	

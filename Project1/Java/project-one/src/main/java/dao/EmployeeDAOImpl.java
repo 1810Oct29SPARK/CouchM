@@ -101,53 +101,53 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	
 	@Override
-	public void createEmployee(String name, String email, String pw, String eBoss, int bossId) {
+	public void createEmployee(Employee e) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "INSERT INTO EMPLOYEE(E_NAME, E_MAIL, E_PW, E_BOSS, BOSS_ID) VALUES (?,?,?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setString(1, name);
-			p.setString(2, email);
-			p.setString(3, pw);
-			p.setString(4, eBoss);
-			p.setInt(5, bossId);
+			p.setString(1, e.getName());
+			p.setString(2, e.getEmail());
+			p.setString(3, e.getPw());
+			p.setString(4, e.getBoss());
+			p.setInt(5, e.getBossId());
 			p.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException x) {
+			x.printStackTrace();
+		} catch (IOException x) {
+			x.printStackTrace();
 		}
 
 	}
 
 	
 	@Override
-	public void updateEmployee(int id, String name, String email, String pw) {
+	public void updateEmployee(Employee e) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "UPDATE EMPLOYEE SET E_NAME = ?, E_MAIL = ?, E_PW = ? WHERE E_ID = ?";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setString(1, name);
-			p.setString(2, email);
-			p.setString(3, pw);
-			p.setInt(4, id);
+			p.setString(1, e.getName());
+			p.setString(2, e.getEmail());
+			p.setString(3, e.getPw());
+			p.setInt(4, e.getId());
 			p.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException x) {
+			x.printStackTrace();
+		} catch (IOException x) {
+			x.printStackTrace();
 		}
 	}
 
 	@Override
-	public void deleteEmployee(int id) {
+	public void deleteEmployee(Employee e) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "DELETE FROM EMPLOYEE WHERE E_ID = ?";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setInt(1, id);
+			p.setInt(1, e.getId());
 			p.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException x) {
+			x.printStackTrace();
+		} catch (IOException x) {
+			x.printStackTrace();
 		}
 	}
 

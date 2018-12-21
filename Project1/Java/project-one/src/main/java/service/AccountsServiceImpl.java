@@ -12,14 +12,14 @@ public class AccountsServiceImpl implements AccountsService {
 	private AccountsDAO ad = new AccountsDAOImpl();
 
 	@Override
-	public void createRequest(int amount, int eId, Blob photo, String descrip) {
-		ad.createRequest(amount, eId, photo, descrip);
+	public void createRequest(Accounts a) {
+		ad.createRequest(a);
 		
 	}
 
 	@Override
-	public void deleteRequest(int eId) {
-		ad.deleteRequest(eId);
+	public void deleteRequest(Accounts a) {
+		ad.deleteRequest(a);
 		
 	}
 
@@ -29,8 +29,8 @@ public class AccountsServiceImpl implements AccountsService {
 	}
 
 	@Override
-	public void updateRequest(int aId, String status) {
-		ad.updateRequest(aId, status);
+	public void updateRequest(Accounts a) {
+		ad.updateRequest(a);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class AccountsServiceImpl implements AccountsService {
 
 	@Override
 	public List<Accounts> viewEmployeePendingByBossId(int id) {
-		return null;
+		return ad.viewEmployeePendingByBossId(id);
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import beans.Employee;
 import service.EmployeeService;
 import service.EmployeeServiceImpl;
 
@@ -58,7 +59,8 @@ public class EmployeeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		employeeService.createEmployee(request.getParameter("name"), request.getParameter("email"), request.getParameter("password"), request.getParameter("eBoss"), Integer.parseInt(request.getParameter("bossId")));
+//		System.out.println(om.readValue(request.getReader(), Employee.class));
+		employeeService.createEmployee(om.readValue(request.getReader(), Employee.class));
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class EmployeeServlet extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		employeeService.updateEmployee(om.readValue(request.getReader(), Employee.class));
+		employeeService.updateEmployee(om.readValue(request.getReader(), Employee.class));
 	}
 
 	/**
@@ -74,7 +76,7 @@ public class EmployeeServlet extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		employeeService.deleteEmployee(om.readValue(request.getReader(), Employee.class));
+		employeeService.deleteEmployee(om.readValue(request.getReader(), Employee.class));
 	}
 
 }

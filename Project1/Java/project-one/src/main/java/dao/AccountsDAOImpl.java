@@ -19,14 +19,14 @@ public class AccountsDAOImpl implements AccountsDAO {
 	private static final String filename = "connection.properties";
 
 	@Override
-	public void createRequest(int amount, int eId, Blob photo, String descrip) {
+	public void createRequest(Accounts a) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "INSERT INTO ACCOUNTS(AMOUNT, E_ID, PHOTO, DESCRIPTIONS) VALUES (?,?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setInt(1, amount);
-			p.setInt(2, eId);
-			p.setBlob(3, photo);
-			p.setString(4, descrip);
+			p.setDouble(1, a.getAmount());
+			p.setInt(2, a.geteId());
+			p.setBlob(3, a.getPhoto());
+			p.setString(4, a.getDescrip());
 			p.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,11 +37,11 @@ public class AccountsDAOImpl implements AccountsDAO {
 	}
 
 	@Override
-	public void deleteRequest(int aId) {
+	public void deleteRequest(Accounts a) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "DELETE FROM ACCOUNTS WHERE A_ID = ?";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setInt(1, aId);
+			p.setInt(1, a.getAccId());
 			p.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,12 +77,12 @@ public class AccountsDAOImpl implements AccountsDAO {
 	}
 
 	@Override
-	public void updateRequest(int aId, String status) {
+	public void updateRequest(Accounts a) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "UPDATE ACCOUNTS SET STATUS = ? WHERE A_ID = ?";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setString(1, status);
-			p.setInt(2, aId);
+			p.setString(1, a.getStatus());
+			p.setInt(2, a.getAccId());
 			p.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
