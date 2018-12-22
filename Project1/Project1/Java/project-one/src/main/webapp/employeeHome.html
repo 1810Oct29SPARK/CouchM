@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <title>Login Page</title>
+</head>
+
+<body class="container" style="height:100vh;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Employee Page</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Employee Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Expense Reimbursement Request</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="jumbotron">
+  <h1 class="display-4">Employee Information</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  	<p id="userId"></p>
+	<br>
+  	<p id="username"></p>
+	<br>
+	<p id="email"></p>
+	<br>
+	<p id="password"></p>
+	<br>
+	<a class="btn btn-primary btn-lg" role="button" type="submit">Update</a>
+</div>
+<div class="jumbotron">
+  <h1 class="display-4">Expense Reimbursement Request</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  	<form action="login" method="post">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Amount</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="$000.00">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">User ID #</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="XX">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Photo</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="*in-progress*">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Description</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="describe your purchase here">
+  </div>
+</form>
+	<a class="btn btn-primary btn-lg" role="button" type="submit" >Send Request</a>
+</div>
+<form action="logout" method="GET">
+	<input type="submit" value="logout">
+</form>
+<script src="script/check.js"></script>
+  <!-- <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="#">Fixed Bottom Nav Bar</a>
+  </nav> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!-- DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>employeeHome</title>
+<link rel="stylesheet" href="style/myCoolStyles.css">
+</head>
+<body>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
+      <div class="display">
+	<p id="username"></p>
+	<br>
+	<p id="email"></p>
+	<br>
+	<p id="password"></p>
+	<br>
+</div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+    </div>
+  </div>
+</div>
+<form action="logout" method="GET">
+	<input type="submit" value="logout">
+</form>
+<script src="script/check.js"></script>
+</body>
+</html>
+ -->
