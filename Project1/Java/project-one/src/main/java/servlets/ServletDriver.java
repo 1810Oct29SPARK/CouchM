@@ -20,7 +20,8 @@ public class ServletDriver {
 //		System.out.println(as.viewPendingById(10));
 //		System.out.println(as.viewResolvedById(2));
 //		System.out.println(as.viewEmployeePendingByBossId(10));
-		as.createRequest(a);
+		System.out.println(as.viewResolvedByBossId(10));
+//		as.createRequest(a);
 		
 	}
 

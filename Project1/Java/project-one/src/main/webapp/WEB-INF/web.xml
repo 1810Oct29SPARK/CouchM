@@ -109,4 +109,8 @@
     <servlet-name>AccountsServlet</servlet-name>
     <url-pattern>/pendingByBossId</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AccountsServlet</servlet-name>
+    <url-pattern>/resolvedByBossId</url-pattern>
+  </servlet-mapping>
 </web-app>

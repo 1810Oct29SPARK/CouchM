@@ -50,6 +50,11 @@ public class EmployeeServlet extends HttpServlet {
 //			response.getWriter().write("lmaoayyy");
 			response.getWriter().write(om.writeValueAsString(employeeService.getEmployees()));
 			break;
+		case "/project-one/employeesByBoss":
+//			response.getWriter().write("lmaoayyy");
+			int bId = Integer.parseInt(request.getParameter("id"));
+			response.getWriter().write(om.writeValueAsString(employeeService.getEmployeesByBossId(bId)));
+			break;
 		}
 	}
 

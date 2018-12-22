@@ -59,6 +59,11 @@ public class AccountsServlet extends HttpServlet {
 			int bId = Integer.parseInt(request.getParameter("id"));
 			response.getWriter().write(om.writeValueAsString(accountsService.viewEmployeePendingByBossId(bId)));
 			break;
+		case "/project-one/resolvedByBossId":
+//			response.getWriter().write("lmaoayyy");
+			int rbId = Integer.parseInt(request.getParameter("id"));
+			response.getWriter().write(om.writeValueAsString(accountsService.viewResolvedByBossId(rbId)));
+			break;
 		}
 	}
 

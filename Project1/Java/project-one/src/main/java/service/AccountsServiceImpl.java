@@ -22,15 +22,15 @@ public class AccountsServiceImpl implements AccountsService {
 		ad.deleteRequest(a);
 		
 	}
+	
+	@Override
+	public void updateRequest(Accounts a) {
+		ad.updateRequest(a);
+	}
 
 	@Override
 	public List<Accounts> getAccountsById(int id) {
 		return ad.getAccountsById(id);
-	}
-
-	@Override
-	public void updateRequest(Accounts a) {
-		ad.updateRequest(a);
 	}
 
 	@Override
