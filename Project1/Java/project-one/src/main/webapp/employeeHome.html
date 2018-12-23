@@ -7,11 +7,12 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+	<link rel="stylesheet" href="style/myCoolStyles.css">
 
   <title>Employee Home</title>
 </head>
 
-<body class="container" style="height:100vh;">
+<body class="container" style="height:100vh;" background="https://background-tiles.com/overview/green/patterns/small/1014.png">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Employee Page</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,34 +50,51 @@
   <h1 class="display-4">Expense Reimbursement Request</h1>
   <p class="lead"></p>
   <hr class="my-4">
-  	<form action="accounts" method="post">
-  <div class="form-group">
-    <label for="formGroupExampleInput">Amount</label>
-    <input type="number" class="form-control" id="formGroupExampleInput" name="amount" value="100" placeholder="$000">
+  	<form action="accounts" method="POST">
+  	<div class="form-group">
+    <label for="formGroupExampleInput">ID</label>
+    <input type="number" class="form-control" name="accId" value="null" placeholder="XXX" readonly>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">User ID #</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" name="eId" placeholder="XX">
+    <label for="formGroupExampleInput">Amount</label>
+    <input type="number" class="form-control" name="amount" placeholder="$000">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Employee ID #</label>
+    <input type="number" class="form-control" name="eId" placeholder="XX">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Photo</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" name="photo" placeholder="*in-progress*">
+    <input type="text" class="form-control" name="photo" value="null" placeholder="*under construction*" readonly>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Description</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" name="descrip" placeholder="describe your purchase here">
+    <input type="text" class="form-control" name="descrip" placeholder="describe your purchase here">
   </div>
-  <button type="submit" value="accounts" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Status</label>
+    <input type="text" class="form-control" name="status" value="PENDING" placeholder="PENDING" readonly>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <br>
 </div>
-        <div>
-        	<h2>Pending Requests</h2>
+            
+        <div class="jumbotron">
+  <h1 class="display-4">Pending Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="pendingInput" type="text" placeholder="Enter your ID #">
+            <button id="pendingButton" type="button">Search</button>
     		<ul id="pending"></ul>
         </div>
         <br>
-        <div>
-        	<h2>Resolved Requests</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Resolved Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="resolvedInput" type="text" placeholder="Enter your ID #">
+            <button id="resolvedButton" type="button">Search</button>
 			<ul id ="resolved"></ul>
         </div> 
         <br>

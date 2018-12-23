@@ -186,6 +186,7 @@ public class AccountsDAOImpl implements AccountsDAO {
 				Blob photo = rs.getBlob("PHOTO");
 				String descrip = rs.getString("DESCRIPTIONS");
 				String status = rs.getString("STATUS");
+//				int bossId = rs.getInt("E.BOSS_ID");
 				// int eeId = rs.getInt("E.E_ID");
 				ac.add(new Accounts(aId, eId, amount, photo, descrip, status));
 			}

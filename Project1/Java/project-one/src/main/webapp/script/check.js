@@ -13,12 +13,12 @@ function append(parent, el) {
 
 window.onload = function(){
 	populateUser();
-	viewPending();
-	viewResolved();
-	viewPendingByBoss();
-	viewResolvedByBoss();
 	viewEmployees();
-	viewRequestsById();
+//	viewPending();
+//	viewResolved();
+//	viewPendingByBoss();
+//	viewResolvedByBoss();
+//	viewRequestsById();
 }
 
 function populateUser(){
@@ -46,54 +46,69 @@ function populateUser(){
 	});
 	
 }
+let pSubmit = document.getElementById('pendingButton');
 
-function viewPending(){
+pSubmit.addEventListener("click", function() {
+    let input = document.getElementById('pendingInput');
+    let searchInput = input.value;
 	const ul = document.getElementById('pending');
-	const url = 'http://localhost:7001/project-one/accountsPending?id=2';
-	fetch(url)
+	const url = 'http://localhost:7001/project-one/accountsPending?id=';
+	fetch(url + searchInput)
 	.then(function(response){
 		return response.json();
 	}).then(function(data){
 		let accounts = data;
 		return accounts.map(function(account) {
 			let li = createNode('li'),
-//				img = createNode('img'),
+// img = createNode('img'),
 				span = createNode('span');
-//			img.src = employee.picture.medium;
-			span.innerHTML = `Account ID: ${account.accID}, Amount: ${account.amount}, Description: ${account.descrip}`;
-//			append(li, img);
+// img.src = employee.picture.medium;
+			span.innerHTML = `<div class="card">
+								<div class="card-body">
+									Account ID: ${account.accId}, Amount: ${account.amount}, Description: ${account.descrip}
+								</div>
+							</div>`;
+// append(li, img);
 			append(li, span);
 			append(ul, li);
 		})
 	})
 	.catch(function(error) {
 		console.log(JSON.stringify(error));
-	});  
-}
+	})
+});
 
-function viewResolved(){
+let rSubmit = document.getElementById('resolvedButton');
+
+rSubmit.addEventListener("click", function() {
+    let input = document.getElementById('resolvedInput');
+    let searchInput = input.value;
 	const ul = document.getElementById('resolved');
-	const url = 'http://localhost:7001/project-one/accountsResolved?id=2';
-	fetch(url)
+	const url = 'http://localhost:7001/project-one/accountsResolved?id=';
+	fetch(url + searchInput)
 	.then(function(response){
 		return response.json();
 	}).then(function(data){
 		let accounts = data;
 		return accounts.map(function(account) {
 			let li = createNode('li'),
-//				img = createNode('img'),
+// img = createNode('img'),
 				span = createNode('span');
-//			img.src = employee.picture.medium;
-			span.innerHTML = `Account ID: ${account.accID}, Amount: ${account.amount}, Description: ${account.descrip}, Status: ${account.status}`;
-//			append(li, img);
+// img.src = employee.picture.medium;
+			span.innerHTML = `<div class="card">
+								<div class="card-body">
+									Account ID: ${account.accId}, Amount: ${account.amount}, Description: ${account.descrip}, Status: ${account.status}
+								</div>
+							</div>`;
+// append(li, img);
 			append(li, span);
 			append(ul, li);
 		})
 	})
 	.catch(function(error) {
 		console.log(JSON.stringify(error));
-	});  
-}
+	})
+});
 
 function viewEmployees(){
 	const ul = document.getElementById('employees');
@@ -105,11 +120,15 @@ function viewEmployees(){
 		let employees = data;
 		return employees.map(function(employee) {
 			let li = createNode('li'),
-//				img = createNode('img'),
+// img = createNode('img'),
 				span = createNode('span');
-//			img.src = employee.picture.medium;
-			span.innerHTML = `Employee ID: ${employee.id}, Name: ${employee.name}, Email: ${employee.email}, Boss ID: ${employee.bossId}`;
-//			append(li, img);
+// img.src = employee.picture.medium;
+			span.innerHTML = `<div class="card">
+								<div class="card-body">
+									Employee ID: ${employee.id}, Name: ${employee.name}, Email: ${employee.email}, Boss ID: ${employee.bossId}
+								</div>
+							</div>`;
+// append(li, img);
 			append(li, span);
 			append(ul, li);
 		})
@@ -119,21 +138,33 @@ function viewEmployees(){
 	});  
 }
 
-function viewPendingByBoss(){
+let epSubmit = document.getElementById('epButton');
+
+epSubmit.addEventListener("click", function() {
+    let input = document.getElementById('epInput');
+    let searchInput = input.value;
 	const ul = document.getElementById('pendingEmployees');
-	const url = 'http://localhost:7001/project-one/pendingByBossId?id=51';
-	fetch(url)
+	const url = 'http://localhost:7001/project-one/pendingByBossId?id=';
+	fetch(url + searchInput)
 	.then(function(response){
 		return response.json();
 	}).then(function(data){
 		let accounts = data;
 		return accounts.map(function(account) {
 			let li = createNode('li'),
-//				img = createNode('img'),
+// img = createNode('img'),
 				span = createNode('span');
-//			img.src = employee.picture.medium;
-			span.innerHTML = `Amount: ${account.amount}, Employee ID: ${account.eId}, Description: ${account.descrip}`;
-//			append(li, img);
+// img.src = employee.picture.medium;
+			span.innerHTML = `<div class="card">
+								<div class="card-body">
+									Amount: ${account.amount}, Employee ID: ${account.eId}, Description: ${account.descrip}
+									<span class="btn-group" role="group" aria-label="Basic example">
+										<button type="button" class="btn btn-secondary" id="approve">Approve</button>
+										<button type="button" class="btn btn-secondary" id="deny">Deny</button>
+									</span>
+								</div>
+							</div>`;
+// append(li, img);
 			append(li, span);
 			append(ul, li);
 		})
@@ -141,23 +172,31 @@ function viewPendingByBoss(){
 	.catch(function(error) {
 		console.log(JSON.stringify(error));
 	});  
-}
+});
 
-function viewResolvedByBoss(){
+let erSubmit = document.getElementById('erButton');
+
+erSubmit.addEventListener("click", function() {
+    let input = document.getElementById('erInput');
+    let searchInput = input.value;
 	const ul = document.getElementById('resolvedEmployees');
-	const url = 'http://localhost:7001/project-one/resolvedByBossId?id=10';
-	fetch(url)
+	const url = 'http://localhost:7001/project-one/resolvedByBossId?id=';
+	fetch(url + searchInput)
 	.then(function(response){
 		return response.json();
 	}).then(function(data){
 		let accounts = data;
 		return accounts.map(function(account) {
 			let li = createNode('li'),
-//				img = createNode('img'),
+// img = createNode('img'),
 				span = createNode('span');
-//			img.src = employee.picture.medium;
-			span.innerHTML = `Amount: ${account.amount}, Employee ID: ${account.eId}, Description: ${account.descrip}, Status: ${account.status}`;
-//			append(li, img);
+// img.src = employee.picture.medium;
+			span.innerHTML = `<div class="card">
+								<div class="card-body">
+									Amount: ${account.amount}, Employee ID: ${account.eId}, Description: ${account.descrip}, Status: ${account.status}
+								</div>
+							</div>`;
+// append(li, img);
 			append(li, span);
 			append(ul, li);
 		})
@@ -165,23 +204,31 @@ function viewResolvedByBoss(){
 	.catch(function(error) {
 		console.log(JSON.stringify(error));
 	});  
-}
+});
 
-function viewRequestsById(){
+let esSubmit = document.getElementById('esButton');
+
+esSubmit.addEventListener("click", function() {
+    let input = document.getElementById('esInput');
+    let searchInput = input.value;
 	const ul = document.getElementById('employeeRequests');
-	const url = 'http://localhost:7001/project-one/accounts?id=50';
-	fetch(url)
+	const url = 'http://localhost:7001/project-one/accounts?id=';
+	fetch(url + searchInput)
 	.then(function(response){
 		return response.json();
 	}).then(function(data){
 		let accounts = data;
 		return accounts.map(function(account) {
 			let li = createNode('li'),
-//				img = createNode('img'),
+// img = createNode('img'),
 				span = createNode('span');
-//			img.src = employee.picture.medium;
-			span.innerHTML = `Amount: ${account.amount}, Employee ID: ${account.eId}, Description: ${account.descrip}, Status: ${account.status}`;
-//			append(li, img);
+// img.src = employee.picture.medium;
+			span.innerHTML = `<div class="card">
+								<div class="card-body">
+									Amount: ${account.amount}, Employee ID: ${account.eId}, Description: ${account.descrip}, Status: ${account.status}
+								</div>
+							</div>`;
+// append(li, img);
 			append(li, span);
 			append(ul, li);
 		})
@@ -189,4 +236,4 @@ function viewRequestsById(){
 	.catch(function(error) {
 		console.log(JSON.stringify(error));
 	});  
-}
+});

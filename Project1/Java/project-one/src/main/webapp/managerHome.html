@@ -11,7 +11,7 @@
   <title>Manager Home</title>
 </head>
 
-<body class="container" style="height:100vh;">
+<body class="container" style="height:100vh;" background="https://previews.123rf.com/images/karenr/karenr1506/karenr150600007/40831894-blue-and-white-striped-gingham-tile-pattern-repeat-background-that-is-seamless-and-repeats.jpg">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Manager Page</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,33 +70,55 @@
 </form>
 <br>
 </div>
-        <div>
-        	<h2>Pending Requests</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Pending Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="pendingInput" type="text" placeholder="Enter your ID #">
+            <button id="pendingButton" type="button">Search</button>
     		<ul id="pending"></ul>
         </div>
         <br>
-        <div>
-        	<h2>Resolved Requests</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Resolved Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="resolvedInput" type="text" placeholder="Enter your ID #">
+            <button id="resolvedButton" type="button">Search</button>
 			<ul id ="resolved"></ul>
         </div> 
         <br>
-        <div>
-        	<h2>Employees</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Employees</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
   			<ul id="employees"></ul>
         </div>
         <br>
-        <div>
-        	<h2>Pending Employee Requests</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Pending Employee Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="epInput" type="text" placeholder="Enter your ID #">
+            <button id="epButton" type="button">Search</button>
   			<ul id="pendingEmployees"></ul>
         </div>
         <br>
-        <div>
-        	<h2>Resolved Employee Requests</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Resolved Employee Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="erInput" type="text" placeholder="Enter your ID #">
+            <button id="erButton" type="button">Search</button>
         	<ul id="resolvedEmployees"></ul>
         </div>
         <br>
-        <div>
-        	<h2>Employee Reimbursement Requests</h2>
+        <div class="jumbotron">
+  <h1 class="display-4">Employee Reimbursement Requests</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+        	<input id="esInput" type="text" placeholder="Enter your Employee's ID #">
+            <button id="esButton" type="button">Search</button>
         	<ul id="employeeRequests"></ul>
         </div>
         <br>
