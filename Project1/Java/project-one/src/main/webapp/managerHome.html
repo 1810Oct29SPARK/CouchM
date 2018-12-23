@@ -1,22 +1,116 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>managerHome</title>
-<link rel="stylesheet" href="style/myCoolStyles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <title>Manager Home</title>
 </head>
-<body>
-<div class="display">
-	<p id="username"></p>
+
+<body class="container" style="height:100vh;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Manager Page</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Employee Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Expense Reimbursement Request</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="jumbotron">
+  <h1 class="display-4">Manager Information</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  	<p id="userId"></p>
+	<br>
+  	<p id="username"></p>
 	<br>
 	<p id="email"></p>
 	<br>
 	<p id="password"></p>
 	<br>
+	<a class="btn btn-primary btn-lg" role="button" type="submit">Update</a>
 </div>
+<div class="jumbotron">
+  <h1 class="display-4">Expense Reimbursement Request</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  	<form action="accounts" method="post">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Amount</label>
+    <input type="number" class="form-control" id="formGroupExampleInput" name="amount" value="100" placeholder="$000">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">User ID #</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="eId" placeholder="XX">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Photo</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="photo" placeholder="*in-progress*">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Description</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="descrip" placeholder="describe your purchase here">
+  </div>
+  <button type="submit" value="accounts" class="btn btn-primary">Submit</button>
+</form>
+<br>
+</div>
+        <div>
+        	<h2>Pending Requests</h2>
+    		<ul id="pending"></ul>
+        </div>
+        <br>
+        <div>
+        	<h2>Resolved Requests</h2>
+			<ul id ="resolved"></ul>
+        </div> 
+        <br>
+        <div>
+        	<h2>Employees</h2>
+  			<ul id="employees"></ul>
+        </div>
+        <br>
+        <div>
+        	<h2>Pending Employee Requests</h2>
+  			<ul id="pendingEmployees"></ul>
+        </div>
+        <br>
+        <div>
+        	<h2>Resolved Employee Requests</h2>
+        	<ul id="resolvedEmployees"></ul>
+        </div>
+        <br>
+        <div>
+        	<h2>Employee Reimbursement Requests</h2>
+        	<ul id="employeeRequests"></ul>
+        </div>
+        <br>
+        
 <form action="logout" method="GET">
 	<input type="submit" value="logout">
 </form>
 <script src="script/check.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

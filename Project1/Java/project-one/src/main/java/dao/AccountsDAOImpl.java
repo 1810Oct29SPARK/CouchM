@@ -21,11 +21,11 @@ public class AccountsDAOImpl implements AccountsDAO {
 	@Override
 	public void createRequest(Accounts a) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "INSERT INTO ACCOUNTS(AMOUNT, E_ID, PHOTO, DESCRIPTIONS) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO ACCOUNTS(AMOUNT, E_ID, DESCRIPTIONS) VALUES (?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setDouble(1, a.getAmount());
 			p.setInt(2, a.geteId());
-			p.setBlob(3, a.getPhoto());
+//			p.setBlob(3, a.getPhoto());
 			p.setString(4, a.getDescrip());
 			p.executeUpdate();
 		} catch (SQLException e) {
