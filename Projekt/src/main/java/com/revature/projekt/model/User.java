@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Value;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User implements Serializable {
 
 	/**

@@ -31,7 +31,7 @@ public class UserController {
 	}
 
 	/**
-	 * returns all users, tested successfully with postman
+	 * returns all users, tested with Postman
 	 */
 	@GetMapping("/all")
 	public ResponseEntity<List<User>> getAllUsers() {
@@ -39,7 +39,7 @@ public class UserController {
 	}
 
 	/**
-	 * returns user by their id, tested successfully with postman
+	 * returns user by their id, tested with Postman
 	 */
 	@GetMapping(value = "/users/{requestId}")
 	public ResponseEntity<User> getUserById(@PathVariable String requestId) {
@@ -48,7 +48,7 @@ public class UserController {
 	}
 
 	/**
-	 * returns user by their name, tested successfully with postman
+	 * returns user by their name, tested with Postman
 	 */
 	@GetMapping(value = "/{name}")
 	public ResponseEntity<User> getUserByName(@PathVariable String name) {
