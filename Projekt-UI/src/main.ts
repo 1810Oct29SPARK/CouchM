@@ -1,3 +1,6 @@
+/**this is the first code that gets executed on app start up
+ */
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -8,5 +11,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic().bootstrapModule(AppModule) /** this will bootstrap the app.module.ts as its argument */
   .catch(err => console.error(err));
