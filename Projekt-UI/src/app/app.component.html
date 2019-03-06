@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-xs-12">
       <input type="text" [(ngModel)]="name">
-      <!-- 
-          above is called a "directive"
-          is basically tells angular to listen to anything entered above, and store it in the "name" variable in the .ts and output below
-        -->
       <h3>Greetings, {{ name }}</h3>
-      <!-- we will add new components within THIS html file, not the index.html -->
-      <hr>
-      <app-calculator></app-calculator>
-      <hr>
-      <app-perk-chart></app-perk-chart>
     </div>
   </div>
+</div>
+<hr>
+<div id="stat-page">
+<div id="calc">
+  <app-calculator></app-calculator>
+</div>
+<div id="chart">
+  <app-perk-chart></app-perk-chart>
+</div>
 </div>

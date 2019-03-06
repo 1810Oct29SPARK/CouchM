@@ -1,3 +1,13 @@
-/* h3 {
-    color: whitesmoke;
-} */
+#stat-page {
+    display: flex;
+    flex-direction: row;
+}
+
+#calc{
+    width: 20%;
+}
+
+#chart{
+    width: 75%;
+    float: right;
+}
