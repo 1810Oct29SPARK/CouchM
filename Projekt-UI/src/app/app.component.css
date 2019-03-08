@@ -5,9 +5,11 @@
 
 #calc{
     width: 20%;
+    background-color: aquamarine;
 }
 
 #chart{
     width: 75%;
     float: right;
+    background-color: antiquewhite;
 }
