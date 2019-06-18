@@ -20,7 +20,7 @@ import com.revature.projekt.service.UserService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/user")
+@RequestMapping("/api")
 public class UserController {
 
 	private UserService us;

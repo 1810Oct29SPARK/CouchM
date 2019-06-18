@@ -8,7 +8,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  allUserData = 'http://localhost:8085/user/all';
+  allUserData = 'http://localhost:8085/api/all';
 
   getData(){
     return this.http.get(this.allUserData);
