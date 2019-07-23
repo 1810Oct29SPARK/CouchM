@@ -1,4 +1,17 @@
-.container{
+.container {
     text-align: center;
-    /* background: grey; */
+    margin-top: 1%;
+}
+
+.stat {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 2%;
+    padding-left: 10%;
+}
+
+input {
+    width: 50%;
 }

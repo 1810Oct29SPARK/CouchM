@@ -3,13 +3,16 @@
     flex-direction: row;
 }
 
-#calc{
+#calc {
     width: 20%;
     background-color: aquamarine;
 }
 
-#chart{
-    width: 75%;
-    float: right;
+#chart {
+    width: 100%;
     background-color: antiquewhite;
+}
+
+.row {
+    margin-top: 2%;
 }

@@ -23,8 +23,6 @@ export class CalculatorComponent implements OnInit {
     luck: 0
   }
 
-  @Input() userInfo: object;
-
   ngOnInit() {
     this.dataService.getData().subscribe(data => {
       this.specialStats.strength = data['strength'];

@@ -1,18 +1,44 @@
 <div class="container">
-  <h2>The Perk-Chart!</h2>
+    <h2>Perk Chart</h2>
 </div>
 <!-- need a 7 x 11 table for each stat horizontal and each level vertical
   th is the level, data bind to stat on calc
   td is each perk, made available depending on the the # in the calc
 -->
-<table style="width: 100%;">
-  <tr>
-    <th>Strength</th>
-    <th>Perception</th> 
-    <th>Endurance</th>
-    <th>Charisma</th>
-    <th>Intelligence</th> 
-    <th>Agility</th>
-    <th>Luck</th>
-  </tr>
-</table>
+<div class="row stat">
+    <div class="col rank">Strength
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.strength }}" readonly />
+        </div>
+    </div>
+    <div class="col rank">Perception
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.perception }}" readonly />
+        </div>
+    </div>
+    <div class="col rank">Endurance
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.endurance }}" readonly />
+        </div>
+    </div>
+    <div class="col rank">Charisma
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.charisma }}" readonly />
+        </div>
+    </div>
+    <div class="col rank">Intelligence
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.intelligence }}" readonly />
+        </div>
+    </div>
+    <div class="col rank">Agility
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.agility }}" readonly />
+        </div>
+    </div>
+    <div class="col rank">Luck
+        <div>
+            <input type="number" min="1" max="11" class="form-control field" value="{{ specialStats.luck }}" readonly />
+        </div>
+    </div>
+</div>
