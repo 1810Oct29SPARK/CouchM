@@ -1,54 +1,68 @@
 <div class="container" id="calc">
-  <h2>S.P.E.C.I.A.L.</h2>
-  <hr>
-  <div class="table">
-    <h3>Strength</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button class="glyphicon glyphicon-chevron-right"></button>
-    </span>
-    <br>
-    <h3>Perception</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button></button>
-    </span>
-    <br>
-    <h3>Endurance</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button></button>
-    </span>
-    <br>
-    <h3>Charisma</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button></button>
-    </span>
-    <br>
-    <h3>Intelligence</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button></button>
-    </span>
-    <br>
-    <h3>Agility</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button></button>
-    </span>
-    <br>
-    <h3>Luck</h3>
-    <span class="pull-right">
-      <button></button>
-      <input type="number" min="1" max="10" class="form-control" value="1" readonly />
-      <button></button>
-    </span>
-  </div>
+    <h2>S.P.E.C.I.A.L.</h2>
+    <hr>
+    <div class="col special">
+        <div class="row stat">
+            <div class="col label">
+                <label>Strength</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.strength }}" readonly />
+            </div>
+        </div>
+        <br>
+        <div class="row stat">
+            <div class="col label">
+                <label>Perception</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.perception }}" readonly />
+            </div>
+        </div>
+        <br>
+        <div class="row stat">
+            <div class="col label">
+                <label>Endurance</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.endurance }}" readonly />
+            </div>
+        </div>
+        <br>
+        <div class="row stat">
+            <div class="col label">
+                <label>Charisma</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.charisma }}" readonly />
+            </div>
+        </div>
+        <br>
+        <div class="row stat">
+            <div class="col label">
+                <label>Intelligence</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.intelligence }}" readonly />
+            </div>
+        </div>
+        <br>
+        <div class="row stat">
+            <div class="col label">
+                <label>Agility</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.agility }}" readonly />
+            </div>
+        </div>
+        <br>
+        <div class="row stat">
+            <div class="col label">
+                <label>Luck</label>
+            </div>
+            <div class="col rank">
+                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.luck }}" readonly />
+            </div>
+        </div>
+    </div>
 </div>
