@@ -10,7 +10,7 @@ export class PerkChartComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  specialStats = {
+  userInfo = {
     strength: 0,
     perception: 0,
     endurance: 0,
@@ -20,16 +20,20 @@ export class PerkChartComponent implements OnInit {
     luck: 0
   }
 
-  ngOnInit() {
+  getUserInfo() {
     this.dataService.getData().subscribe(data => {
-      this.specialStats.strength = data['strength'];
-      this.specialStats.perception = data['perception'];
-      this.specialStats.endurance = data['endurance'];
-      this.specialStats.charisma = data['charisma'];
-      this.specialStats.intelligence = data['intelligence'];
-      this.specialStats.agility = data['agility'];
-      this.specialStats.luck = data['luck'];
+      this.userInfo.strength = data['strength'];
+      this.userInfo.perception = data['perception'];
+      this.userInfo.endurance = data['endurance'];
+      this.userInfo.charisma = data['charisma'];
+      this.userInfo.intelligence = data['intelligence'];
+      this.userInfo.agility = data['agility'];
+      this.userInfo.luck = data['luck'];
     })
+  }
+
+  ngOnInit() {
+    
   }
 
 }

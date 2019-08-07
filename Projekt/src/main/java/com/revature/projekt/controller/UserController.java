@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.projekt.model.User;
 import com.revature.projekt.service.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class UserController {
 
@@ -67,10 +68,11 @@ public class UserController {
 
 	/**
 	 * creates user with only inputting a name, tested successfully with postman
+	 * @ModelAttribute("user")
 	 */
 	@PostMapping(value = "/create")
-	public ResponseEntity<User> createUser(@RequestBody String userString) {
-		JSONObject json = new JSONObject(userString);
+	public ResponseEntity<User> createUser(@RequestBody String name) {
+		JSONObject json = new JSONObject(name);
 		User user = new User();
 
 		if (json != null) {

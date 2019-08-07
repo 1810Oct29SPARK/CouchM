@@ -14,25 +14,38 @@ export class CalculatorComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   specialStats = {
-    strength: 0,
-    perception: 0,
-    endurance: 0,
-    charisma: 0,
-    intelligence: 0,
-    agility: 0,
-    luck: 0
+    strength: 1,
+    perception: 1,
+    endurance: 1,
+    charisma: 1,
+    intelligence: 1,
+    agility: 1,
+    luck: 1
+  }
+
+  addStr(){
+    this.specialStats.strength += 1;
+  }
+
+  subStr(){
+    this.specialStats.strength -= 1;
   }
 
   ngOnInit() {
-    this.dataService.getData().subscribe(data => {
-      this.specialStats.strength = data['strength'];
-      this.specialStats.perception = data['perception'];
-      this.specialStats.endurance = data['endurance'];
-      this.specialStats.charisma = data['charisma'];
-      this.specialStats.intelligence = data['intelligence'];
-      this.specialStats.agility = data['agility'];
-      this.specialStats.luck = data['luck'];
-    })
+
+
+
+    // code below fetches the info from the db; keep for now
+
+    // this.dataService.getData().subscribe(data => {
+    //   this.specialStats.strength = data['strength'];
+    //   this.specialStats.perception = data['perception'];
+    //   this.specialStats.endurance = data['endurance'];
+    //   this.specialStats.charisma = data['charisma'];
+    //   this.specialStats.intelligence = data['intelligence'];
+    //   this.specialStats.agility = data['agility'];
+    //   this.specialStats.luck = data['luck'];
+    // })
   }
 
 }

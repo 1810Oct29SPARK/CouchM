@@ -9,9 +9,8 @@
     justify-content: center;
     margin: auto;
     margin-bottom: 2%;
-    padding-left: 10%;
 }
 
-input {
-    width: 50%;
+.rank {
+    text-align: center;
 }

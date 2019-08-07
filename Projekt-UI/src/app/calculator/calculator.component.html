@@ -1,68 +1,98 @@
 <div class="container" id="calc">
-    <h2>S.P.E.C.I.A.L.</h2>
+    <h2 class="headline">S.P.E.C.I.A.L.</h2>
     <hr>
     <div class="col special">
-        <div class="row stat">
-            <div class="col label">
-                <label>Strength</label>
+        <form>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Strength</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons minus" (click)=subStr()> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.strength }}" readonly />
+                        <i class="material-icons plus" (click)=addStr()> add_box </i>
+                    </div>
+                </div>
             </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.strength }}" readonly />
+            <br>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Perception</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons"> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.perception }}" readonly />
+                        <i class="material-icons"> add_box </i>
+                    </div>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row stat">
-            <div class="col label">
-                <label>Perception</label>
+            <br>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Endurance</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons"> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.endurance }}" readonly />
+                        <i class="material-icons"> add_box </i>
+                    </div>
+                </div>
             </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.perception }}" readonly />
+            <br>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Charisma</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons"> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.charisma }}" readonly />
+                        <i class="material-icons"> add_box </i>
+                    </div>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row stat">
-            <div class="col label">
-                <label>Endurance</label>
+            <br>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Intelligence</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons"> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.intelligence }}" readonly />
+                        <i class="material-icons"> add_box </i>
+                    </div>
+                </div>
             </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.endurance }}" readonly />
+            <br>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Agility</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons"> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.agility }}" readonly />
+                        <i class="material-icons"> add_box </i>
+                    </div>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row stat">
-            <div class="col label">
-                <label>Charisma</label>
+            <br>
+            <div class="row stat">
+                <div class="col label">
+                    <label>Luck</label>
+                </div>
+                <div class="col rank">
+                    <div class="row up-down">
+                        <i class="material-icons"> indeterminate_check_box</i>
+                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.luck }}" readonly />
+                        <i class="material-icons"> add_box </i>
+                    </div>
+                </div>
             </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.charisma }}" readonly />
-            </div>
-        </div>
-        <br>
-        <div class="row stat">
-            <div class="col label">
-                <label>Intelligence</label>
-            </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.intelligence }}" readonly />
-            </div>
-        </div>
-        <br>
-        <div class="row stat">
-            <div class="col label">
-                <label>Agility</label>
-            </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.agility }}" readonly />
-            </div>
-        </div>
-        <br>
-        <div class="row stat">
-            <div class="col label">
-                <label>Luck</label>
-            </div>
-            <div class="col rank">
-                <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.luck }}" readonly />
-            </div>
-        </div>
+        </form>
     </div>
 </div>

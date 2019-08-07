@@ -1,18 +1,30 @@
-.container {
-    text-align: center;
-}
-
-.special {
-    margin-bottom: 10%;
-}
-
-.stat {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-input {
-    width: 60%;
-    justify-content: center
-}
+    .container {
+        margin-top: 5%;
+    }
+    
+    .headline {
+        text-align: center;
+    }
+    
+    .special {
+        margin-bottom: 10%;
+    }
+    
+    .stat {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+    input {
+        width: 40%;
+        justify-content: center
+    }
+    
+    .plus:hover {
+        background-color: #0A0;
+    }
+    
+    .plus:active {
+        background-color: #A9A;
+        top: +2px;
+    }
