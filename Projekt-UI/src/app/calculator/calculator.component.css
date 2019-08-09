@@ -24,7 +24,12 @@
         background-color: #0A0;
     }
     
-    .plus:active {
-        background-color: #A9A;
-        top: +2px;
+    .minus:hover {
+        background-color: red;
+    }
+    
+    .minus,
+    .plus {
+        cursor: pointer;
+        /* position: relative; */
     }
