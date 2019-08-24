@@ -8,3 +8,8 @@ const routes: Routes = [];
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+/*
+dude just look at what we're doing at work as a reference
+ya jackass.
+*/

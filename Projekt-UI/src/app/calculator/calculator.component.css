@@ -1,3 +1,8 @@
+    /* does not scale well on smaller screens
+    please, gods, consider revising
+    like, it looks good on the pc, but on a laptop, gaahhhhhhbage
+    */
+    
     .container {
         margin-top: 5%;
     }
