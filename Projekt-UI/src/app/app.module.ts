@@ -8,22 +8,35 @@ import { HttpClientModule } from '@angular/common/http';
  */
 
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { PerkChartComponent } from './perk-chart/perk-chart.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+
+const appRoutes: Routes = [
+  { path: '', component: AppComponent },
+  { path: 'calculator', component: CalculatorComponent },
+  { path: 'parks', component: PerkChartComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculatorComponent,
-    PerkChartComponent
+    PerkChartComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent] /** lists all the components it analyzes our index.html file */

@@ -10,6 +10,5 @@ const routes: Routes = [];
 export class AppRoutingModule { }
 
 /*
-dude just look at what we're doing at work as a reference
-ya jackass.
+dude just look at what we're doing at work as a reference, ya jackass.
 */
