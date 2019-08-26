@@ -15,9 +15,9 @@ import { PerkChartComponent } from './perk-chart/perk-chart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: WelcomeComponent },
   { path: 'calculator', component: CalculatorComponent },
-  { path: 'parks', component: PerkChartComponent }
+  { path: 'perks', component: PerkChartComponent }
 ];
 
 @NgModule({
