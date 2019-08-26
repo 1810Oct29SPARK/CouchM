@@ -5,6 +5,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome', /** the selector is how Angular can take the entire component and insert it into another html file*/
@@ -16,10 +17,8 @@ export class WelcomeComponent {
 
   allowUserInput = false;
 
-  constructor(private dataService: DataService, private fb: FormBuilder) {
-    setTimeout(() => {
-      this.allowUserInput = true;
-    }, 2000);
+  constructor(private dataService: DataService, private fb: FormBuilder, private router: Router) {
+
   }
 
   disable = false;
@@ -52,25 +51,16 @@ export class WelcomeComponent {
     console.log(event);
   }
 
+  submitted = true;
+
   createNewUser() {
     console.log(this.userInfo.value)
     this.dataService.createUser(this.userInfo.value).subscribe(data => console.log(data))
     this.traveler = this.userInfo.value.name;
     this.userInfo.get("name").disable();
-  }
-
-  getUserInfo() {
-    this.dataService.getData().subscribe(data => {
-      this.userInfo.value.id = data['id'];
-      this.userInfo.value.name = data['name'];
-      this.userInfo.value.strength = data['strength'];
-      this.userInfo.value.perception = data['perception'];
-      this.userInfo.value.endurance = data['endurance'];
-      this.userInfo.value.charisma = data['charisma'];
-      this.userInfo.value.intelligence = data['intelligence'];
-      this.userInfo.value.agility = data['agility'];
-      this.userInfo.value.luck = data['luck'];
-    })
+    setTimeout(() => {
+      this.router.navigateByUrl('/calculator');
+    }, 2000);
   }
 
   ngOnInit() {

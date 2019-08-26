@@ -4,9 +4,10 @@
       <h2>Greetings, {{ traveler }}.</h2>
       <form [formGroup]="userInfo" (ngSubmit)="createNewUser()" name="userInfo" id="userInfo">
         <input type="text" class="form-control" formControlName="name" id="name" placeholder="What's your name?"
-          (input)="onNameEnter($event)">
-        <span><button type="button" class="btn btn-primary" (mouseenter)="onHoverWelcome()"
-            (mouseleave)="offHoverWelcome()" (click)="createNewUser()">{{ welcomeButton }}</button></span>
+          required>
+        <span><button [disabled]="userInfo.value.name === ''" type="button" class="btn btn-primary"
+            (mouseenter)="onHoverWelcome()" (mouseleave)="offHoverWelcome()"
+            (click)="createNewUser()">{{ welcomeButton }}</button></span>
       </form>
     </div>
   </div>
