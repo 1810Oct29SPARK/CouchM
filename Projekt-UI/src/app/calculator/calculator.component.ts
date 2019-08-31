@@ -13,6 +13,7 @@ export class CalculatorComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
+  // local test
   specialStats = {
     strength: 1,
     perception: 1,
@@ -23,13 +24,65 @@ export class CalculatorComponent implements OnInit {
     luck: 1
   }
 
-  addStr(){
+  // i know this is not even remotely elegant, don't look at me.
+
+  addStr() {
     this.specialStats.strength += 1;
   }
 
-  subStr(){
+  subStr() {
     this.specialStats.strength -= 1;
   }
+
+  addPer() {
+    this.specialStats.perception += 1;
+  }
+
+  subPer() {
+    this.specialStats.perception -= 1;
+  }
+
+  addEnd() {
+    this.specialStats.endurance += 1;
+  }
+
+  subEnd() {
+    this.specialStats.endurance -= 1;
+  }
+
+  addCha() {
+    this.specialStats.charisma += 1;
+  }
+
+  subCha() {
+    this.specialStats.charisma -= 1;
+  }
+
+  addInt() {
+    this.specialStats.intelligence += 1;
+  }
+
+  subInt() {
+    this.specialStats.intelligence -= 1;
+  }
+
+  addAgi() {
+    this.specialStats.agility += 1;
+  }
+
+  subAgi() {
+    this.specialStats.agility -= 1;
+  }
+
+  addLuck() {
+    this.specialStats.luck += 1;
+  }
+
+  subLuck() {
+    this.specialStats.luck -= 1;
+  }
+
+  // there's gotta be a better way to do this ^
 
   ngOnInit() {
 

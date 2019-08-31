@@ -10,7 +10,8 @@
                 <div class="col-md-6 rank">
                     <div class="row up-down">
                         <i class="material-icons minus" (click)=subStr()> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.strength }}" readonly />
+                        <input type="number" name="strength" min="1" max="11" class="form-control input"
+                            [(ngModel)]="specialStats.strength" readonly />
                         <i class="material-icons plus" (click)=addStr()> add_box </i>
                     </div>
                 </div>
@@ -22,9 +23,10 @@
                 </div>
                 <div class="col-md-6 rank">
                     <div class="row up-down">
-                        <i class="material-icons minus"> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.perception }}" readonly />
-                        <i class="material-icons plus"> add_box </i>
+                        <i class="material-icons minus" (click)=subPer()> indeterminate_check_box</i>
+                        <input type="number" name="perception" min="1" max="11" class="form-control input"
+                            [(ngModel)]="specialStats.perception" readonly />
+                        <i class="material-icons plus" (click)=addPer()> add_box </i>
                     </div>
                 </div>
             </div>
@@ -35,9 +37,10 @@
                 </div>
                 <div class="col-md-6 rank">
                     <div class="row up-down">
-                        <i class="material-icons minus"> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.endurance }}" readonly />
-                        <i class="material-icons plus"> add_box </i>
+                        <i class="material-icons minus" (click)=subEnd()> indeterminate_check_box</i>
+                        <input type="number" name="endurance" min="1" max="11" class="form-control input"
+                            [(ngModel)]="specialStats.endurance" readonly />
+                        <i class="material-icons plus" (click)=addEnd()> add_box </i>
                     </div>
                 </div>
             </div>
@@ -48,9 +51,10 @@
                 </div>
                 <div class="col-md-6 rank">
                     <div class="row up-down">
-                        <i class="material-icons minus"> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.charisma }}" readonly />
-                        <i class="material-icons plus"> add_box </i>
+                        <i class="material-icons minus" (click)=subCha()> indeterminate_check_box</i>
+                        <input type="number" name="charisma" min="1" max="11" class="form-control input"
+                            [(ngModel)]="specialStats.charisma" readonly />
+                        <i class="material-icons plus" (click)=addCha()> add_box </i>
                     </div>
                 </div>
             </div>
@@ -61,9 +65,10 @@
                 </div>
                 <div class="col-md-6 rank">
                     <div class="row up-down">
-                        <i class="material-icons minus"> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.intelligence }}" readonly />
-                        <i class="material-icons plus"> add_box </i>
+                        <i class="material-icons minus" (click)=subInt()> indeterminate_check_box</i>
+                        <input type="number" name="intelligence" min="1" max="11" class="form-control input"
+                        [(ngModel)]="specialStats.intelligence" readonly />
+                        <i class="material-icons plus" (click)=addInt()> add_box </i>
                     </div>
                 </div>
             </div>
@@ -74,9 +79,10 @@
                 </div>
                 <div class="col-md-6 rank">
                     <div class="row up-down">
-                        <i class="material-icons minus"> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.agility }}" readonly />
-                        <i class="material-icons plus"> add_box </i>
+                        <i class="material-icons minus" (click)=subAgi()> indeterminate_check_box</i>
+                        <input type="number" name="agility" min="1" max="11" class="form-control input"
+                        [(ngModel)]="specialStats.agility" readonly />
+                        <i class="material-icons plus" (click)=addAgi()> add_box </i>
                     </div>
                 </div>
             </div>
@@ -87,9 +93,10 @@
                 </div>
                 <div class="col-md-6 rank">
                     <div class="row up-down">
-                        <i class="material-icons minus"> indeterminate_check_box</i>
-                        <input type="number" min="1" max="11" class="form-control input" value="{{ specialStats.luck }}" readonly />
-                        <i class="material-icons plus"> add_box </i>
+                        <i class="material-icons minus" (click)=subLuck()> indeterminate_check_box</i>
+                        <input type="number" name="luck" min="1" max="11" class="form-control input"
+                        [(ngModel)]="specialStats.luck" readonly />
+                        <i class="material-icons plus" (click)=addLuck()> add_box </i>
                     </div>
                 </div>
             </div>
