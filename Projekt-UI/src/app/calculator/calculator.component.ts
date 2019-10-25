@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import { UserInfoCookieService } from '../user-info-cookie.service';
 
 @Component({
   selector: 'app-calculator', /** it is possible to use [app-calculator] to reference this component as an attribute of a div,
@@ -11,7 +12,7 @@ import { DataService } from '../data.service';
 })
 export class CalculatorComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private userCookie: UserInfoCookieService) { }
 
   // local test
   specialStats = {
@@ -84,9 +85,13 @@ export class CalculatorComponent implements OnInit {
 
   // there's gotta be a better way to do this ^
 
+  userInfo: any = [];
+
+  key;
+
   ngOnInit() {
 
-
+    // this.userCookie.getUserInfoCookie()
 
     // code below fetches the info from the db; keep for now
 

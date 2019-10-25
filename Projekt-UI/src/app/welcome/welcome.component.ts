@@ -2,10 +2,11 @@
  * this file is being referenced by the app.module.ts as what should be recognized by Angular at start up
  */
 
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserInfoCookieService } from '../user-info-cookie.service';
 
 @Component({
   selector: 'app-welcome', /** the selector is how Angular can take the entire component and insert it into another html file*/
@@ -17,7 +18,7 @@ export class WelcomeComponent {
 
   allowUserInput = false;
 
-  constructor(private dataService: DataService, private fb: FormBuilder, private router: Router) {
+  constructor(private dataService: DataService, private fb: FormBuilder, private router: Router, private userCookie: UserInfoCookieService) {
 
   }
 
@@ -53,9 +54,17 @@ export class WelcomeComponent {
 
   submitted = true;
 
+  userDataCookie: any = [];
+
   createNewUser() {
     console.log(this.userInfo.value)
-    this.dataService.createUser(this.userInfo.value).subscribe(data => console.log(data))
+    this.dataService.createUser(this.userInfo.value).subscribe(data => {
+      this.userDataCookie = data['body'];
+      let val = this.userDataCookie;
+      let key = this.userDataCookie.id;
+      this.userCookie.saveUserInfoCookie(key, val)
+      console.log(this.userDataCookie.id);
+    })
     this.traveler = this.userInfo.value.name;
     this.userInfo.get("name").disable();
     setTimeout(() => {

@@ -24,8 +24,10 @@ public class UserService {
 		this.ur = ur;
 	}
 	
-	public void createUser(User user) {
-		ur.save(user);
+	public User createUser(User user) {
+		User u = new User();
+		u = ur.save(user);
+		return u;
 	}
 	
 	public int updateUser(User user) {

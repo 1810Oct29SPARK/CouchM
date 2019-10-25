@@ -85,9 +85,9 @@ public class UserController {
 		user.setIntelligence(1);
 		user.setAgility(1);
 		user.setLuck(1);
-		us.createUser(user);
+		User returnUserData = us.createUser(user);
 
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(returnUserData ,HttpStatus.OK);
 	}
 
 	/**

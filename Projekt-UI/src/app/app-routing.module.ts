@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { PerkChartComponent } from './perk-chart/perk-chart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { IntroComponent } from './intro/intro.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'calculator', component: CalculatorComponent },
   { path: 'perks', component: PerkChartComponent },
+  { path: 'intro', component: IntroComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
