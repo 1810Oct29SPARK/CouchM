@@ -1,2 +1,0 @@
-INSERT INTO USER (name, strength, perception, endurance, charisma, intelligence, agility, luck) VALUES('Alex', 3,4,3,8,3,4,3);
-INSERT INTO USER (name, strength, perception, endurance, charisma, intelligence, agility, luck) VALUES('Buster', 8,1,8,1,1,8,1);
