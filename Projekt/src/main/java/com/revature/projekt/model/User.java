@@ -2,18 +2,11 @@ package com.revature.projekt.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import org.springframework.beans.factory.annotation.Value;
-
-@Entity
-@Table(name = "USERS")
+@Document(collection = "users")
 public class User implements Serializable {
 
 	/**
@@ -22,60 +15,27 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@Column
-	@NotNull
-	@Value("Wastelander")
+	private ObjectId _id;
 	private String name;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int strength;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int perception;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int endurance;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int charisma;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int intelligence;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int agility;
-
-	@Column
-	@NotNull
-	@Value("1")
 	private int luck;
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", strength=" + strength + ", perception=" + perception
-				+ ", endurance=" + endurance + ", charisma=" + charisma + ", intelligence=" + intelligence
-				+ ", agility=" + agility + ", luck=" + luck + "]";
+		return "User [name=" + name + ", strength=" + strength + ", perception=" + perception + ", endurance="
+				+ endurance + ", charisma=" + charisma + ", intelligence=" + intelligence + ", agility=" + agility
+				+ ", luck=" + luck + "]";
 	}
 
-	public User(int id, String name, int strength, int perception, int endurance, int charisma, int intelligence,
+	public User(ObjectId id, String name, int strength, int perception, int endurance, int charisma, int intelligence,
 			int agility, int luck) {
 		super();
-		this.id = id;
+		this._id = id;
 		this.name = name;
 		this.strength = strength;
 		this.perception = perception;
@@ -86,8 +46,8 @@ public class User implements Serializable {
 		this.luck = luck;
 	}
 
-	public User(@NotNull String name, @NotNull int strength, @NotNull int perception, @NotNull int endurance,
-			@NotNull int charisma, @NotNull int intelligence, @NotNull int agility, @NotNull int luck) {
+	public User(String name, int strength, int perception, int endurance, int charisma, int intelligence, int agility,
+			int luck) {
 		super();
 		this.name = name;
 		this.strength = strength;
@@ -98,8 +58,8 @@ public class User implements Serializable {
 		this.agility = agility;
 		this.luck = luck;
 	}
-	
-	public User(@NotNull String name) {
+
+	public User(String name) {
 		super();
 		this.name = "Wastelander " + name;
 	}
@@ -108,12 +68,12 @@ public class User implements Serializable {
 		super();
 	}
 
-	public int getId() {
-		return id;
+	public ObjectId getId() {
+		return _id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(ObjectId id) {
+		this._id = id;
 	}
 
 	public String getName() {

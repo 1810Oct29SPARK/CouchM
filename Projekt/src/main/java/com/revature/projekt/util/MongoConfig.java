@@ -18,8 +18,8 @@ public class MongoConfig {
 			database.createCollection("locations");
 			MongoCollection<Document> mongoCollection = database.getCollection("users");
 			System.out.println(mongoCollection);
-		} catch (com.mongodb.MongoSocketOpenException msoe) {
-			msoe.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

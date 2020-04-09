@@ -1,9 +1,13 @@
 package com.revature.projekt.service;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.revature.projekt.model.User;
@@ -12,55 +16,46 @@ import com.revature.projekt.repository.UserRepository;
 @Service("userService")
 public class UserService {
 
+	@Autowired
 	private UserRepository ur;
 
-	/**
-	 * Simply a setter method that will initialize the UserRepository
-	 * 
-	 * @param userRepo
-	 */
 	@Autowired
-	public void setUserRepository(UserRepository ur) {
-		this.ur = ur;
-	}
-	
+	MongoTemplate mongoTemplate;
+
+	Query query = new Query();
+
 	public User createUser(User user) {
-		User u = new User();
-		u = ur.save(user);
-		return u;
-	}
-	
-	public int updateUser(User user) {
-		User u = ur.save(user);
-		if ( u!= null) {
-			return u.getId();
-		} else {
-			return 0;
-		}
+		return ur.save(user);
 	}
 
-	/**
-	 * @return a list of all users in database with the UserRepository method
-	 */
-	public List<User> findAllUsers() {
+	public Collection<User> getAllUsers() {
 		return ur.findAll();
 	}
-	
-	public void deleteUserbyId(int id) {
-		ur.deleteById(id);
-	}
-	
-	public User getUserById(int id) {
-		Optional<User> u = ur.findById(id);
-		if (u.isPresent()) {
-			return u.get();
+
+	public User updateUser(User user) {
+		User u = ur.save(user);
+		if (u != null) {
+			return u;
 		} else {
 			return null;
 		}
 	}
-	
+
+	public void deleteUserbyId(String id) {
+		User user = this.getUserById(id);
+		ur.delete(user);
+	}
+
+	public User getUserById(String id) {
+		User data = mongoTemplate.findById(id, User.class);
+		return data;
+	}
+
 	public User findByName(String name) {
-		return ur.findByName(name);
+		Criteria userName = Criteria.where("name").is(name);
+		query.addCriteria(userName);
+		User data = mongoTemplate.findOne(query, User.class);
+		return data;
 	}
 
 }

@@ -1,7 +1,8 @@
 package com.revature.projekt.controller;
 
-import java.util.List;
+import java.util.Collection;
 
+import org.bson.types.ObjectId;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,23 +35,22 @@ public class UserController {
 	 * returns all users, tested with Postman
 	 */
 	@GetMapping("/all")
-	public ResponseEntity<List<User>> getAllUsers() {
-		return new ResponseEntity<>(us.findAllUsers(), HttpStatus.OK);
+	public ResponseEntity<Collection<User>> getAllUsers() {
+		return new ResponseEntity<>(us.getAllUsers(), HttpStatus.OK);
 	}
 
 	/**
 	 * returns user by their id, tested with Postman
 	 */
-	@GetMapping(value = "/users/{requestId}")
-	public ResponseEntity<User> getUserById(@PathVariable String requestId) {
-		int id = Integer.parseInt(requestId);
+	@GetMapping(value = "/users/{id}")
+	public ResponseEntity<User> getUserById(@PathVariable String id) {
 		return new ResponseEntity<>(us.getUserById(id), HttpStatus.OK);
 	}
 
 	/**
 	 * returns user by their name, tested with Postman
 	 */
-	@GetMapping(value = "/{name}")
+	@GetMapping(value = "/name/{name}")
 	public ResponseEntity<User> getUserByName(@PathVariable String name) {
 		return new ResponseEntity<>(us.findByName(name), HttpStatus.OK);
 	}
@@ -61,15 +61,15 @@ public class UserController {
 	@PostMapping(value = "/delete")
 	public void deleteUserById(@RequestBody String user) {
 		JSONObject js = new JSONObject(user);
-		int id = js.getInt("id");
+		String id = js.getString("_id");
 		us.deleteUserbyId(id);
 	}
 
 	/**
-	 * creates user with only inputting a name, tested successfully with postman
-	 * @ModelAttribute("user")
+	 * creates user with only inputting a name, tested successfully with
+	 * postman @ModelAttribute("user")
 	 */
-	@PostMapping(value = "/create")
+	@PostMapping(value = "/create/name")
 	public ResponseEntity<User> createUser(@RequestBody String name) {
 		JSONObject json = new JSONObject(name);
 		User user = new User();
@@ -78,6 +78,8 @@ public class UserController {
 			user.setName(json.getString("name"));
 		}
 
+		ObjectId id = new ObjectId();
+		user.setId(id);
 		user.setStrength(1);
 		user.setPerception(1);
 		user.setEndurance(1);
@@ -87,29 +89,61 @@ public class UserController {
 		user.setLuck(1);
 		User returnUserData = us.createUser(user);
 
-		return new ResponseEntity<>(returnUserData ,HttpStatus.OK);
+		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
 	}
 
 	/**
-	 * updates user by their id with new values for SPECIAL stats, tested successfully with postman
+	 * creates user with all fields, tested successfully with
+	 * postman @ModelAttribute("user")
+	 */
+	@PostMapping(value = "/create/stats")
+	public ResponseEntity<User> createUser(@RequestBody User user) {
+		JSONObject json = new JSONObject(user);
+		User newUser = new User();
+
+		if (json != null) {
+			ObjectId id = new ObjectId();
+			newUser.setId(id);
+			newUser.setName(json.getString("name"));
+			newUser.setStrength(json.getInt("strength"));
+			newUser.setPerception(json.getInt("perception"));
+			newUser.setEndurance(json.getInt("endurance"));
+			newUser.setCharisma(json.getInt("charisma"));
+			newUser.setIntelligence(json.getInt("intelligence"));
+			newUser.setAgility(json.getInt("agility"));
+			newUser.setLuck(json.getInt("luck"));
+		}
+		User returnUserData = us.createUser(newUser);
+
+		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
+	}
+
+	/**
+	 * updates user by their id with new values for SPECIAL stats, will need to
+	 * search for user by id
+	 * 
+	 * in the meantime, do not create user until they've entered their stats
 	 */
 	@PutMapping(value = "/update")
-	public void updateUser(@RequestBody String userString) {
+	public User updateUser(@RequestBody String userString) {
 		JSONObject json = new JSONObject(userString);
 		User user = new User();
 
 		if (json != null) {
-			user.setId(json.getInt("id"));
-			user.setName(json.getString("name"));
-			user.setStrength(json.getInt("strength"));
-			user.setPerception(json.getInt("perception"));
-			user.setEndurance(json.getInt("endurance"));
-			user.setCharisma(json.getInt("charisma"));
-			user.setIntelligence(json.getInt("intelligence"));
-			user.setAgility(json.getInt("agility"));
-			user.setLuck(json.getInt("luck"));
-			us.updateUser(user);
+			user = us.getUserById(json.getString("_id"));
+			if (user != null) {
+
+				user.setName(json.getString("name"));
+				user.setStrength(json.getInt("strength"));
+				user.setPerception(json.getInt("perception"));
+				user.setEndurance(json.getInt("endurance"));
+				user.setCharisma(json.getInt("charisma"));
+				user.setIntelligence(json.getInt("intelligence"));
+				user.setAgility(json.getInt("agility"));
+				user.setLuck(json.getInt("luck"));
+			}
 		}
+		return us.updateUser(user);
 	}
 
 }
