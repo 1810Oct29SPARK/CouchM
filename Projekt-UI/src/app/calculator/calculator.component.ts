@@ -23,64 +23,115 @@ export class CalculatorComponent implements OnInit {
     intelligence: 1,
     agility: 1,
     luck: 1
-  }
+  };
+
+  points = 21;
+  minLimitStr: boolean = false;
+  minLimitPer: boolean = false;
+  minLimitEnd: boolean = false;
+  minLimitCha: boolean = false;
+  minLimitInt: boolean = false;
+  minLimitAgi: boolean = false;
+  minLimitLuck: boolean = false;
 
   // i know this is not even remotely elegant, don't look at me.
 
   addStr() {
     this.specialStats.strength += 1;
+    console.log(this.specialStats.strength);
   }
 
   subStr() {
-    this.specialStats.strength -= 1;
+    if (this.specialStats.strength > 1) {
+      this.specialStats.strength -= 1;
+    } else {
+      this.minLimitStr = true;
+    }
+    console.log(this.specialStats.strength);
   }
 
   addPer() {
     this.specialStats.perception += 1;
+    console.log(this.specialStats.perception);
   }
 
   subPer() {
-    this.specialStats.perception -= 1;
+    if (this.specialStats.perception > 1) {
+      this.specialStats.perception -= 1;
+    } else {
+      this.minLimitPer = true;
+    }
+    console.log(this.specialStats.perception);
   }
 
   addEnd() {
     this.specialStats.endurance += 1;
+    console.log(this.specialStats.endurance);
   }
 
   subEnd() {
-    this.specialStats.endurance -= 1;
+    if (this.specialStats.endurance > 1) {
+      this.specialStats.endurance -= 1;
+    } else {
+      this.minLimitEnd = true;
+    }
+    console.log(this.specialStats.endurance);
   }
 
   addCha() {
     this.specialStats.charisma += 1;
+    console.log(this.specialStats.charisma);
   }
 
   subCha() {
-    this.specialStats.charisma -= 1;
+    if (this.specialStats.charisma > 1) {
+      this.specialStats.charisma -= 1;
+    } else {
+      this.minLimitCha = true;
+    }
+    console.log(this.specialStats.charisma);
   }
 
   addInt() {
     this.specialStats.intelligence += 1;
+    console.log(this.specialStats.intelligence);
   }
 
   subInt() {
-    this.specialStats.intelligence -= 1;
+    if (this.specialStats.intelligence > 1) {
+      this.specialStats.intelligence -= 1;
+    } else {
+      this.minLimitInt = true;
+    }
+    console.log(this.specialStats.intelligence);
   }
 
   addAgi() {
     this.specialStats.agility += 1;
+    console.log(this.specialStats.agility);
   }
 
   subAgi() {
-    this.specialStats.agility -= 1;
+    if (this.specialStats.agility > 1) {
+      this.specialStats.agility -= 1;
+    } else {
+      this.minLimitAgi = true;
+    }
+    console.log(this.specialStats.agility);
   }
 
   addLuck() {
     this.specialStats.luck += 1;
+    console.log(this.specialStats.luck);
   }
 
   subLuck() {
-    this.specialStats.luck -= 1;
+    if (this.specialStats.luck > 1) {
+      this.specialStats.luck -= 1;
+    } else {
+      this.minLimitLuck = true;
+    }
+    console.log(this.specialStats.luck);
   }
 
   // there's gotta be a better way to do this ^

@@ -2,39 +2,50 @@
     please, gods, consider revising
     like, it looks good on the pc, but on a laptop, gaahhhhhhbage
     */
-    
+
     .container {
         margin-top: 5%;
     }
-    
+
     .headline {
         text-align: center;
     }
-    
+
     .special {
         margin-bottom: 10%;
     }
-    
+
     .stat {
         display: flex;
         flex-flow: row wrap;
     }
-    
+
     input {
         width: 50%;
         justify-content: center
     }
-    
-    .plus:hover {
+
+    .plus-bg:hover {
         background-color: #0A0;
     }
-    
-    .minus:hover {
+
+    .minus-bg:hover {
         background-color: red;
     }
-    
-    .minus,
-    .plus {
+
+    .minus, .plus {
         cursor: pointer;
-        /* position: relative; */
+        top: 1vh;
+        position: relative;
+        z-index: 1;
+    }
+
+    .form-control {
+        width: 3vw;
+        text-align: center;
+        padding-right: 0vw;
+    }
+
+    label {
+        font-size: 3vh;
     }

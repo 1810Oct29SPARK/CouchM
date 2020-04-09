@@ -11,7 +11,7 @@ export class DataService {
   // allUserData = 'http://localhost:8085/api/all';
   alexData = 'http://localhost:8085/api/Alex';
 
-  createApi = 'http://localhost:8085/api/create';
+  createApi = 'http://localhost:8085/api/create/name';
 
   getData(){
     // return this.http.get(this.allUserData);
