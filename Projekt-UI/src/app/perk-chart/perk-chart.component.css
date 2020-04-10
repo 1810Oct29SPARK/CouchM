@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    margin-top: 1%;
+    margin-top: 10%;
 }
 
 .stat {
@@ -13,4 +13,12 @@
 
 .rank {
     text-align: center;
+}
+
+.perk-label {
+    font-size: 2vh;
+}
+
+.perk-display {
+    margin-top: 2vh;
 }

@@ -1,24 +1,32 @@
 <div class="container">
     <h2>Perk Chart</h2>
-</div>
-<!-- need a 7 x 11 table for each stat horizontal and each level vertical
+    <!-- need a 3 x 11 table for each stat horizontal and each level vertical
   th is the level, data bind to stat on calc
   td is each perk, made available depending on the the # in the calc
 -->
-<div class="row stat">
-    <div class="col rank">Ranger
-        <div>
-            <h3><span class="badge badge-secondary">{{ userInfo.value.ranger }}</span></h3>
+    <div class="row stat">
+        <div class="col-md-12 perk-display">
+            <label class="total-label">{{traveler}}, there are perks to being so R.A.D.</label>
         </div>
     </div>
-    <div class="col rank">Assault
-        <div>
-            <h3><span class="badge badge-secondary">{{ userInfo.value.assault }}</span></h3>
+    <div class="row stat">
+        <div class="col-md-3"></div>
+        <div class="col-md-2 rank">Ranger
+            <div>
+                <h3><span class="badge badge-secondary">{{ userInfo.value.ranger }}</span></h3>
+            </div>
         </div>
-    </div>
-    <div class="col rank">Defense
-        <div>
-            <h3><span class="badge badge-secondary">{{ userInfo.value.defense }}</span></h3>
+        <div class="col-md-2 rank">Assault
+            <div>
+                <h3><span class="badge badge-secondary">{{ userInfo.value.assault }}</span></h3>
+            </div>
         </div>
+        <div class="col-md-2 rank">Defense
+            <div>
+                <h3><span class="badge badge-secondary">{{ userInfo.value.defense }}</span></h3>
+            </div>
+        </div>
+
+        <div class="col-md-3"></div>
     </div>
 </div>

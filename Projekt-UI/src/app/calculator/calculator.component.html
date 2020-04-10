@@ -5,8 +5,8 @@
         <form [formGroup]="userInfo" (ngSubmit)="updateUserStats()" name="userInfo" id="userInfo">
             <div class="row stat">
                 <div class="col-md-12 total-display">
-                    <label class="total-label">{{traveler}}, you have {{totalPoints}} points to spend on what makes you
-                        rad.</label>
+                    <label class="total-label">{{traveler}}, you have {{totalPoints}} points to spend to make you
+                        R.A.D.</label>
                 </div>
             </div>
             <div class="row stat">
@@ -68,6 +68,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row stat">
                 <div class="col-md-4"></div>
                 <div class="col-md-2 submit-button">
@@ -75,8 +76,8 @@
                             (mouseenter)="onHoverUpdate()" (mouseleave)="offHoverUpdate()"
                             (click)="enterUserStats()">{{ updateButton }}</button></span>
                 </div>
-                <div class="col-md-2 submit-button">
-                    <span><button [disabled]="totalPoints === 21" type="button" class="btn btn-danger"
+                <div class="col-md-2 reset-button">
+                    <span><button [disabled]="totalPoints === 9" type="button" class="btn btn-danger"
                             (click)="resetUserStats()">Reset</button></span>
                 </div>
                 <div class="col-md-4"></div>

@@ -1,9 +1,8 @@
-.container {
-    margin-left: 40%;
+.welcome {
+    text-align: center;
     margin-top: 20%;
 }
 
-.btn {
-    margin-top: 2%;
-    margin-left: 38%;
+.intro {
+    text-align: center;
 }

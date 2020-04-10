@@ -4,7 +4,7 @@
     */
 
     .container {
-        margin-top: 5%;
+        margin-top: 10%;
     }
 
     .headline {
@@ -48,6 +48,7 @@
 
     label {
         font-size: 3vh;
+        margin-left: 3vw;
     }
 
     .total-label {
@@ -62,4 +63,13 @@
     .submit-button {
         text-align: center;
         margin-top: 3vh;
+    }
+
+    .reset-button {
+        text-align: center;
+        margin-top: 3vh;
+    }
+
+    .up-down {
+        margin-left: 1vw;
     }

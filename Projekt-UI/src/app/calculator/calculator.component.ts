@@ -127,7 +127,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   resetUserStats() {
-    this.totalPoints = 21;
+    this.totalPoints = 9;
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
