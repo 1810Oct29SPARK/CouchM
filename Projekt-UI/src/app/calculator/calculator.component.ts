@@ -49,11 +49,11 @@ export class CalculatorComponent implements OnInit {
 
   updateButton = "Enter";
 
-  onHoverWelcome() {
+  onHoverUpdate() {
     this.updateButton = "Let's Continue";
   }
 
-  offHoverWelcome() {
+  offHoverUpdate() {
     this.updateButton = "Enter";
   }
 
@@ -188,12 +188,34 @@ export class CalculatorComponent implements OnInit {
   // there's gotta be a better way to do this ^
 
   enterUserStats() {
+    this.updateButton = "Let's Continue";
     this.dataService.userStats(this.userInfo.value).subscribe(data => {
-      console.log(data.body);
+      let dbInfo = data.body;
+      this.id = dbInfo['id'];
+      this.strength = dbInfo['strength'];
+      this.perception = dbInfo['perception'];
+      this.endurance = dbInfo['endurance'];
+      this.charisma = dbInfo['charisma'];
+      this.intelligence = dbInfo['intelligence'];
+      this.agility = dbInfo['agility'];
+      this.luck = dbInfo['luck'];
+      this.changeUserInfo();
     })
     setTimeout(() => {
       this.router.navigateByUrl('/perks');
     }, 2000);
+  }
+
+  changeUserInfo() {
+    this.dataService.changeUserId(this.id);
+    this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserStr(this.strength);
+    this.dataService.changeUserPer(this.perception);
+    this.dataService.changeUserEnd(this.endurance);
+    this.dataService.changeUserCha(this.charisma);
+    this.dataService.changeUserInt(this.intelligence);
+    this.dataService.changeUserAgi(this.agility);
+    this.dataService.changeUserLuck(this.luck);
   }
 
   ngOnInit() {
@@ -207,7 +229,6 @@ export class CalculatorComponent implements OnInit {
     this.dataService.intelligence.subscribe(intelligence => this.intelligence = intelligence);
     this.dataService.agility.subscribe(agility => this.agility = agility);
     this.dataService.luck.subscribe(luck => this.luck = luck);
-    console.log(this.id);
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
