@@ -150,11 +150,18 @@
                 </div>
             </div>
             <div class="row stat">
-                <div class="col-md-12 submit-button">
+                <div class="col-md-5"></div>
+                <div class="col-md-1 submit-button">
                     <span><button [disabled]="totalPoints !== 0" type="button" class="btn btn-primary"
                             (mouseenter)="onHoverUpdate()" (mouseleave)="offHoverUpdate()"
                             (click)="enterUserStats()">{{ updateButton }}</button></span>
                 </div>
+                <div class="col-md-1 submit-button">
+                    <span><button [disabled]="totalPoints === 21" type="button" class="btn btn-danger"
+                            (click)="resetUserStats()">Reset</button></span>
+                </div>
+
+                <div class="col-md-5"></div>
             </div>
         </form>
     </div>

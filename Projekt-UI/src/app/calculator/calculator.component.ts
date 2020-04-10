@@ -28,14 +28,26 @@ export class CalculatorComponent implements OnInit {
   userInfo = this.fb.group({
     id: '',
     name: '',
-    strength: 0,
-    perception: 0,
-    endurance: 0,
-    charisma: 0,
-    intelligence: 0,
-    agility: 0,
-    luck: 0
+    strength: 1,
+    perception: 1,
+    endurance: 1,
+    charisma: 1,
+    intelligence: 1,
+    agility: 1,
+    luck: 1
   });
+
+  resetValues = {
+    id: this.id,
+    name: this.traveler,
+    strength: 1,
+    perception: 1,
+    endurance: 1,
+    charisma: 1,
+    intelligence: 1,
+    agility: 1,
+    luck: 1
+  }
 
   totalPoints = 21;
   minLimitStr: boolean = false;
@@ -204,6 +216,22 @@ export class CalculatorComponent implements OnInit {
     setTimeout(() => {
       this.router.navigateByUrl('/perks');
     }, 2000);
+  }
+
+  resetUserStats() {
+    this.totalPoints = 21;
+    this.userInfo.setValue({
+      id: this.id,
+      name: this.traveler,
+      strength: this.strength,
+      perception: this.perception,
+      endurance: this.endurance,
+      charisma: this.charisma,
+      intelligence: this.intelligence,
+      agility: this.agility,
+      luck: this.luck
+    })
+    console.log(this.userInfo.value)
   }
 
   changeUserInfo() {
