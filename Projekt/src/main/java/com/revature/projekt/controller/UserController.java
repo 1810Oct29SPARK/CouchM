@@ -1,8 +1,6 @@
 package com.revature.projekt.controller;
 
 import java.util.Collection;
-
-import org.bson.types.ObjectId;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -61,7 +59,7 @@ public class UserController {
 	@PostMapping(value = "/delete")
 	public void deleteUserById(@RequestBody String user) {
 		JSONObject js = new JSONObject(user);
-		String id = js.getString("_id");
+		String id = js.getString("id");
 		us.deleteUserbyId(id);
 	}
 
@@ -78,13 +76,9 @@ public class UserController {
 			user.setName(json.getString("name"));
 		}
 
-		user.setStrength(1);
-		user.setPerception(1);
-		user.setEndurance(1);
-		user.setCharisma(1);
-		user.setIntelligence(1);
-		user.setAgility(1);
-		user.setLuck(1);
+		user.setRanger(1);
+		user.setAssault(1);
+		user.setDefense(1);
 		User returnUserData = us.createUser(user);
 
 		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
@@ -101,13 +95,9 @@ public class UserController {
 
 		if (json != null) {
 			newUser.setName(json.getString("name"));
-			newUser.setStrength(json.getInt("strength"));
-			newUser.setPerception(json.getInt("perception"));
-			newUser.setEndurance(json.getInt("endurance"));
-			newUser.setCharisma(json.getInt("charisma"));
-			newUser.setIntelligence(json.getInt("intelligence"));
-			newUser.setAgility(json.getInt("agility"));
-			newUser.setLuck(json.getInt("luck"));
+			newUser.setRanger(json.getInt("ranger"));
+			newUser.setAssault(json.getInt("assault"));
+			newUser.setDefense(json.getInt("defense"));
 		}
 		User returnUserData = us.createUser(newUser);
 
@@ -130,13 +120,9 @@ public class UserController {
 			if (user != null) {
 
 				user.setName(json.getString("name"));
-				user.setStrength(json.getInt("strength"));
-				user.setPerception(json.getInt("perception"));
-				user.setEndurance(json.getInt("endurance"));
-				user.setCharisma(json.getInt("charisma"));
-				user.setIntelligence(json.getInt("intelligence"));
-				user.setAgility(json.getInt("agility"));
-				user.setLuck(json.getInt("luck"));
+				user.setRanger(json.getInt("ranger"));
+				user.setAssault(json.getInt("assault"));
+				user.setDefense(json.getInt("defense"));
 			}
 		}
 		return us.updateUser(user);

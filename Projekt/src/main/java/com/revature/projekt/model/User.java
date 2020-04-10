@@ -2,7 +2,6 @@ package com.revature.projekt.model;
 
 import java.io.Serializable;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,53 +14,27 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String _id;
+	private String id;
 	private String name;
-	private int strength;
-	private int perception;
-	private int endurance;
-	private int charisma;
-	private int intelligence;
-	private int agility;
-	private int luck;
+	private int ranger;
+	private int assault;
+	private int defense;
 
-	@Override
-	public String toString() {
-		return "User [name=" + name + ", strength=" + strength + ", perception=" + perception + ", endurance="
-				+ endurance + ", charisma=" + charisma + ", intelligence=" + intelligence + ", agility=" + agility
-				+ ", luck=" + luck + "]";
-	}
-
-	public User(String id, String name, int strength, int perception, int endurance, int charisma, int intelligence,
-			int agility, int luck) {
+	public User(String id, String name, int ranger, int assault, int defense) {
 		super();
-		this._id = id;
+		this.id = id;
 		this.name = name;
-		this.strength = strength;
-		this.perception = perception;
-		this.endurance = endurance;
-		this.charisma = charisma;
-		this.intelligence = intelligence;
-		this.agility = agility;
-		this.luck = luck;
+		this.ranger = ranger;
+		this.assault = assault;
+		this.defense = defense;
 	}
 
-	public User(String name, int strength, int perception, int endurance, int charisma, int intelligence, int agility,
-			int luck) {
+	public User(String name, int ranger, int assault, int defense) {
 		super();
 		this.name = name;
-		this.strength = strength;
-		this.perception = perception;
-		this.endurance = endurance;
-		this.charisma = charisma;
-		this.intelligence = intelligence;
-		this.agility = agility;
-		this.luck = luck;
-	}
-
-	public User(String name) {
-		super();
-		this.name = "Wastelander " + name;
+		this.ranger = ranger;
+		this.assault = assault;
+		this.defense = defense;
 	}
 
 	public User() {
@@ -69,11 +42,11 @@ public class User implements Serializable {
 	}
 
 	public String getId() {
-		return _id;
+		return id;
 	}
 
 	public void setId(String id) {
-		this._id = id;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -84,60 +57,28 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	public int getStrength() {
-		return strength;
+	public int getRanger() {
+		return ranger;
 	}
 
-	public void setStrength(int strength) {
-		this.strength = strength;
+	public void setRanger(int ranger) {
+		this.ranger = ranger;
 	}
 
-	public int getPerception() {
-		return perception;
+	public int getAssault() {
+		return assault;
 	}
 
-	public void setPerception(int perception) {
-		this.perception = perception;
+	public void setAssault(int assault) {
+		this.assault = assault;
 	}
 
-	public int getEndurance() {
-		return endurance;
+	public int getDefense() {
+		return defense;
 	}
 
-	public void setEndurance(int endurance) {
-		this.endurance = endurance;
-	}
-
-	public int getCharisma() {
-		return charisma;
-	}
-
-	public void setCharisma(int charisma) {
-		this.charisma = charisma;
-	}
-
-	public int getIntelligence() {
-		return intelligence;
-	}
-
-	public void setIntelligence(int intelligence) {
-		this.intelligence = intelligence;
-	}
-
-	public int getAgility() {
-		return agility;
-	}
-
-	public void setAgility(int agility) {
-		this.agility = agility;
-	}
-
-	public int getLuck() {
-		return luck;
-	}
-
-	public void setLuck(int luck) {
-		this.luck = luck;
+	public void setDefense(int defense) {
+		this.defense = defense;
 	}
 
 }

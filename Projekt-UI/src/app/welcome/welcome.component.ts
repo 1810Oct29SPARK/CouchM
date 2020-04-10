@@ -26,24 +26,16 @@ export class WelcomeComponent {
   userInfo = this.fb.group({
     id: '',
     name: '',
-    strength: 0,
-    perception: 0,
-    endurance: 0,
-    charisma: 0,
-    intelligence: 0,
-    agility: 0,
-    luck: 0
+    ranger: 0,
+    assault: 0,
+    defense: 0,
   });
 
   id: any;
   traveler;
-  strength;
-  perception;
-  endurance;
-  charisma;
-  intelligence;
-  agility;
-  luck;
+  ranger;
+  assault;
+  defense;
 
   welcomeButton = "Enter";
 
@@ -64,14 +56,11 @@ export class WelcomeComponent {
   createNewUser() {
     this.dataService.createUser(this.userInfo.value).subscribe(data => {
       let dbInfo = data.body;
+      console.log(dbInfo)
       this.id = dbInfo['id'];
-      this.strength = dbInfo['strength'];
-      this.perception = dbInfo['perception'];
-      this.endurance = dbInfo['endurance'];
-      this.charisma = dbInfo['charisma'];
-      this.intelligence = dbInfo['intelligence'];
-      this.agility = dbInfo['agility'];
-      this.luck = dbInfo['luck'];
+      this.ranger = dbInfo['ranger'];
+      this.assault = dbInfo['assault'];
+      this.defense = dbInfo['defense'];
       this.changeUserInfo();
     })
     this.traveler = this.userInfo.value.name;
@@ -84,24 +73,16 @@ export class WelcomeComponent {
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
     this.dataService.changeUserName(this.traveler);
-    this.dataService.changeUserStr(this.strength);
-    this.dataService.changeUserPer(this.perception);
-    this.dataService.changeUserEnd(this.endurance);
-    this.dataService.changeUserCha(this.charisma);
-    this.dataService.changeUserInt(this.intelligence);
-    this.dataService.changeUserAgi(this.agility);
-    this.dataService.changeUserLuck(this.luck);
+    this.dataService.changeUserRan(this.ranger);
+    this.dataService.changeUserAss(this.assault);
+    this.dataService.changeUserDef(this.defense);
   }
 
   ngOnInit() {
     this.dataService.id.subscribe(id => this.id = id);
     this.dataService.traveler.subscribe(name => this.traveler = name);
-    this.dataService.strength.subscribe(strength => this.strength = strength);
-    this.dataService.perception.subscribe(perception => this.perception = perception);
-    this.dataService.endurance.subscribe(endurance => this.endurance = endurance);
-    this.dataService.charisma.subscribe(charisma => this.charisma = charisma);
-    this.dataService.intelligence.subscribe(intelligence => this.intelligence = intelligence);
-    this.dataService.agility.subscribe(agility => this.agility = agility);
-    this.dataService.luck.subscribe(luck => this.luck = luck);
+    this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
+    this.dataService.assault.subscribe(assault => this.assault = assault);
+    this.dataService.defense.subscribe(defense => this.defense = defense);
   }
 }

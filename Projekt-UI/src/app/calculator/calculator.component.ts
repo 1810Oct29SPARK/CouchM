@@ -17,46 +17,30 @@ export class CalculatorComponent implements OnInit {
 
   id = "";
   traveler = "";
-  strength;
-  perception;
-  endurance;
-  charisma;
-  intelligence;
-  agility;
-  luck;
+  ranger;
+  assault;
+  defense;
 
   userInfo = this.fb.group({
     id: '',
     name: '',
-    strength: 1,
-    perception: 1,
-    endurance: 1,
-    charisma: 1,
-    intelligence: 1,
-    agility: 1,
-    luck: 1
+    ranger: 1,
+    assault: 1,
+    defense: 1
   });
 
   resetValues = {
     id: this.id,
     name: this.traveler,
-    strength: 1,
-    perception: 1,
-    endurance: 1,
-    charisma: 1,
-    intelligence: 1,
-    agility: 1,
-    luck: 1
+    ranger: 1,
+    assault: 1,
+    defense: 1
   }
 
-  totalPoints = 21;
-  minLimitStr: boolean = false;
-  minLimitPer: boolean = false;
-  minLimitEnd: boolean = false;
-  minLimitCha: boolean = false;
-  minLimitInt: boolean = false;
-  minLimitAgi: boolean = false;
-  minLimitLuck: boolean = false;
+  totalPoints = 9;
+  minLimitRan: boolean = false;
+  minLimitAss: boolean = false;
+  minLimitDef: boolean = false;
   maxLimit: boolean = false;
 
   updateButton = "Enter";
@@ -71,129 +55,57 @@ export class CalculatorComponent implements OnInit {
 
   // i know this is not even remotely elegant, don't look at me.
 
-  addStr() {
+  addRan() {
     if (this.totalPoints > 0) {
-      this.userInfo.value.strength += 1;
+      this.userInfo.value.ranger += 1;
       this.totalPoints--;
     } else {
       this.maxLimit = true;
     }
   }
 
-  subStr() {
-    if (this.userInfo.value.strength > 1) {
-      this.userInfo.value.strength -= 1;
+  subRan() {
+    if (this.userInfo.value.ranger > 1) {
+      this.userInfo.value.ranger -= 1;
       this.totalPoints++;
     } else {
-      this.minLimitStr = true;
+      this.minLimitRan = true;
     }
   }
 
-  addPer() {
+  addAss() {
     if (this.totalPoints > 0) {
-      this.userInfo.value.perception += 1;
+      this.userInfo.value.assault += 1;
       this.totalPoints--;
     } else {
       this.maxLimit = true;
     }
   }
 
-  subPer() {
-    if (this.userInfo.value.perception > 1) {
-      this.userInfo.value.perception -= 1;
+  subAss() {
+    if (this.userInfo.value.assault > 1) {
+      this.userInfo.value.assault -= 1;
       this.totalPoints++;
     } else {
-      this.minLimitPer = true;
+      this.minLimitAss = true;
     }
   }
 
-  addEnd() {
+  addDef() {
     if (this.totalPoints > 0) {
-      this.userInfo.value.endurance += 1;
+      this.userInfo.value.defense += 1;
       this.totalPoints--;
     } else {
       this.maxLimit = true;
     }
   }
 
-  subEnd() {
-    if (this.userInfo.value.endurance > 1) {
-      this.userInfo.value.endurance -= 1;
+  subDef() {
+    if (this.userInfo.value.defense > 1) {
+      this.userInfo.value.defense -= 1;
       this.totalPoints++;
     } else {
-      this.minLimitEnd = true;
-    }
-  }
-
-  addCha() {
-    if (this.totalPoints > 0) {
-      this.userInfo.value.charisma += 1;
-      this.totalPoints--;
-    } else {
-      this.maxLimit = true;
-    }
-  }
-
-  subCha() {
-    if (this.userInfo.value.charisma > 1) {
-      this.userInfo.value.charisma -= 1;
-      this.totalPoints++;
-    } else {
-      this.minLimitCha = true;
-    }
-  }
-
-  addInt() {
-    if (this.totalPoints > 0) {
-      this.userInfo.value.intelligence += 1;
-      this.totalPoints--;
-    } else {
-      this.maxLimit = true;
-    }
-  }
-
-  subInt() {
-    if (this.userInfo.value.intelligence > 1) {
-      this.userInfo.value.intelligence -= 1;
-      this.totalPoints++;
-    } else {
-      this.minLimitInt = true;
-    }
-  }
-
-  addAgi() {
-    if (this.totalPoints > 0) {
-      this.userInfo.value.agility += 1;
-      this.totalPoints--;
-    } else {
-      this.maxLimit = true;
-    }
-  }
-
-  subAgi() {
-    if (this.userInfo.value.agility > 1) {
-      this.userInfo.value.agility -= 1;
-      this.totalPoints++;
-    } else {
-      this.minLimitAgi = true;
-    }
-  }
-
-  addLuck() {
-    if (this.totalPoints > 0) {
-      this.userInfo.value.luck += 1;
-      this.totalPoints--;
-    } else {
-      this.maxLimit = true;
-    }
-  }
-
-  subLuck() {
-    if (this.userInfo.value.luck > 1) {
-      this.userInfo.value.luck -= 1;
-      this.totalPoints++;
-    } else {
-      this.minLimitLuck = true;
+      this.minLimitDef = true;
     }
   }
 
@@ -204,13 +116,9 @@ export class CalculatorComponent implements OnInit {
     this.dataService.userStats(this.userInfo.value).subscribe(data => {
       let dbInfo = data.body;
       this.id = dbInfo['id'];
-      this.strength = dbInfo['strength'];
-      this.perception = dbInfo['perception'];
-      this.endurance = dbInfo['endurance'];
-      this.charisma = dbInfo['charisma'];
-      this.intelligence = dbInfo['intelligence'];
-      this.agility = dbInfo['agility'];
-      this.luck = dbInfo['luck'];
+      this.ranger = dbInfo['ranger'];
+      this.assault = dbInfo['assault'];
+      this.defense = dbInfo['defense'];
       this.changeUserInfo();
     })
     setTimeout(() => {
@@ -223,13 +131,9 @@ export class CalculatorComponent implements OnInit {
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
-      strength: this.strength,
-      perception: this.perception,
-      endurance: this.endurance,
-      charisma: this.charisma,
-      intelligence: this.intelligence,
-      agility: this.agility,
-      luck: this.luck
+      ranger: this.ranger,
+      assault: this.assault,
+      defense: this.defense
     })
     console.log(this.userInfo.value)
   }
@@ -237,36 +141,24 @@ export class CalculatorComponent implements OnInit {
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
     this.dataService.changeUserName(this.traveler);
-    this.dataService.changeUserStr(this.strength);
-    this.dataService.changeUserPer(this.perception);
-    this.dataService.changeUserEnd(this.endurance);
-    this.dataService.changeUserCha(this.charisma);
-    this.dataService.changeUserInt(this.intelligence);
-    this.dataService.changeUserAgi(this.agility);
-    this.dataService.changeUserLuck(this.luck);
+    this.dataService.changeUserRan(this.ranger);
+    this.dataService.changeUserAss(this.assault);
+    this.dataService.changeUserDef(this.defense);
   }
 
   ngOnInit() {
 
     this.dataService.id.subscribe(id => this.id = id);
     this.dataService.traveler.subscribe(name => this.traveler = name);
-    this.dataService.strength.subscribe(strength => this.strength = strength);
-    this.dataService.perception.subscribe(perception => this.perception = perception);
-    this.dataService.endurance.subscribe(endurance => this.endurance = endurance);
-    this.dataService.charisma.subscribe(charisma => this.charisma = charisma);
-    this.dataService.intelligence.subscribe(intelligence => this.intelligence = intelligence);
-    this.dataService.agility.subscribe(agility => this.agility = agility);
-    this.dataService.luck.subscribe(luck => this.luck = luck);
+    this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
+    this.dataService.assault.subscribe(assault => this.assault = assault);
+    this.dataService.defense.subscribe(defense => this.defense = defense);
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
-      strength: this.strength,
-      perception: this.perception,
-      endurance: this.endurance,
-      charisma: this.charisma,
-      intelligence: this.intelligence,
-      agility: this.agility,
-      luck: this.luck
+      ranger: this.ranger,
+      assault: this.assault,
+      defense: this.defense
     })
 
     console.log(this.userInfo.value);
