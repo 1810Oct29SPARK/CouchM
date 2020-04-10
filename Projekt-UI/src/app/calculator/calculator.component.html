@@ -20,8 +20,8 @@
                             <i class="material-icons minus" ng-disabled="minLimitRan == true" (click)=subRan()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" formControlName="ranger" class="form-control input"
-                            [(ngModel)]="userInfo.value.ranger" readonly />
+                        <input type="number" formControlName="ranger" [ngModel]="userInfo.value.ranger"
+                            class="form-control input" readonly />
                         <div class="plus-bg">
                             <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addRan()> add_box </i>
                         </div>
@@ -40,8 +40,8 @@
                             <i class="material-icons minus" ng-disabled="minLimitAss == true" (click)=subAss()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" formControlName="assault" class="form-control input"
-                            [(ngModel)]="userInfo.value.assault" readonly />
+                        <input type="number" formControlName="assault" [ngModel]="userInfo.value.assault"
+                            class="form-control input" readonly />
                         <div class="plus-bg">
                             <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addAss()> add_box </i>
                         </div>
@@ -60,8 +60,8 @@
                             <i class="material-icons minus" ng-disabled="minLimitDef == true" (click)=subDef()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" formControlName="defense" class="form-control input"
-                            [(ngModel)]="userInfo.value.defense" readonly />
+                        <input type="number" formControlName="defense" [ngModel]="userInfo.value.defense"
+                            class="form-control input" readonly />
                         <div class="plus-bg">
                             <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addDef()> add_box </i>
                         </div>
