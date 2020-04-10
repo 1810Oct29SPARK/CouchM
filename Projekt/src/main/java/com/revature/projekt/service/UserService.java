@@ -25,7 +25,9 @@ public class UserService {
 	Query query = new Query();
 
 	public User createUser(User user) {
-		return ur.save(user);
+		User u = new User();
+		u = ur.save(user);
+		return u;
 	}
 
 	public Collection<User> getAllUsers() {

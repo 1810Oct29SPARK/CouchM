@@ -15,7 +15,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private ObjectId _id;
+	private String _id;
 	private String name;
 	private int strength;
 	private int perception;
@@ -32,7 +32,7 @@ public class User implements Serializable {
 				+ ", luck=" + luck + "]";
 	}
 
-	public User(ObjectId id, String name, int strength, int perception, int endurance, int charisma, int intelligence,
+	public User(String id, String name, int strength, int perception, int endurance, int charisma, int intelligence,
 			int agility, int luck) {
 		super();
 		this._id = id;
@@ -68,11 +68,11 @@ public class User implements Serializable {
 		super();
 	}
 
-	public ObjectId getId() {
+	public String getId() {
 		return _id;
 	}
 
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this._id = id;
 	}
 

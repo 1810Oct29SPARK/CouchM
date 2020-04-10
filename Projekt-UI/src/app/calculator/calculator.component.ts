@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { UserInfoCookieService } from '../user-info-cookie.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-calculator', /** it is possible to use [app-calculator] to reference this component as an attribute of a div,
@@ -12,20 +12,31 @@ import { UserInfoCookieService } from '../user-info-cookie.service';
 })
 export class CalculatorComponent implements OnInit {
 
-  constructor(private dataService: DataService, private userCookie: UserInfoCookieService) { }
+  constructor(private dataService: DataService, private fb: FormBuilder) { }
 
-  // local test
-  specialStats = {
-    strength: 1,
-    perception: 1,
-    endurance: 1,
-    charisma: 1,
-    intelligence: 1,
-    agility: 1,
-    luck: 1
-  };
+  id = "";
+  traveler = "";
+  strength;
+  perception;
+  endurance;
+  charisma;
+  intelligence;
+  agility;
+  luck;
 
-  points = 21;
+  userInfo = this.fb.group({
+    id: this.id,
+    name: this.traveler,
+    strength: this.strength,
+    perception: this.perception,
+    endurance: this.endurance,
+    charisma: this.charisma,
+    intelligence: this.intelligence,
+    agility: this.agility,
+    luck: this.luck
+  });
+
+  totalPoints = 21;
   minLimitStr: boolean = false;
   minLimitPer: boolean = false;
   minLimitEnd: boolean = false;
@@ -33,128 +44,152 @@ export class CalculatorComponent implements OnInit {
   minLimitInt: boolean = false;
   minLimitAgi: boolean = false;
   minLimitLuck: boolean = false;
+  maxLimit: boolean = false;
 
   // i know this is not even remotely elegant, don't look at me.
 
   addStr() {
-    this.specialStats.strength += 1;
-    console.log(this.specialStats.strength);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.strength += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subStr() {
-    if (this.specialStats.strength > 1) {
-      this.specialStats.strength -= 1;
+    if (this.userInfo.value.strength > 1) {
+      this.userInfo.value.strength -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitStr = true;
     }
-    console.log(this.specialStats.strength);
   }
 
   addPer() {
-    this.specialStats.perception += 1;
-    console.log(this.specialStats.perception);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.perception += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subPer() {
-    if (this.specialStats.perception > 1) {
-      this.specialStats.perception -= 1;
+    if (this.userInfo.value.perception > 1) {
+      this.userInfo.value.perception -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitPer = true;
     }
-    console.log(this.specialStats.perception);
   }
 
   addEnd() {
-    this.specialStats.endurance += 1;
-    console.log(this.specialStats.endurance);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.endurance += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subEnd() {
-    if (this.specialStats.endurance > 1) {
-      this.specialStats.endurance -= 1;
+    if (this.userInfo.value.endurance > 1) {
+      this.userInfo.value.endurance -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitEnd = true;
     }
-    console.log(this.specialStats.endurance);
   }
 
   addCha() {
-    this.specialStats.charisma += 1;
-    console.log(this.specialStats.charisma);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.charisma += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subCha() {
-    if (this.specialStats.charisma > 1) {
-      this.specialStats.charisma -= 1;
+    if (this.userInfo.value.charisma > 1) {
+      this.userInfo.value.charisma -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitCha = true;
     }
-    console.log(this.specialStats.charisma);
   }
 
   addInt() {
-    this.specialStats.intelligence += 1;
-    console.log(this.specialStats.intelligence);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.intelligence += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subInt() {
-    if (this.specialStats.intelligence > 1) {
-      this.specialStats.intelligence -= 1;
+    if (this.userInfo.value.intelligence > 1) {
+      this.userInfo.value.intelligence -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitInt = true;
     }
-    console.log(this.specialStats.intelligence);
   }
 
   addAgi() {
-    this.specialStats.agility += 1;
-    console.log(this.specialStats.agility);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.agility += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subAgi() {
-    if (this.specialStats.agility > 1) {
-      this.specialStats.agility -= 1;
+    if (this.userInfo.value.agility > 1) {
+      this.userInfo.value.agility -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitAgi = true;
     }
-    console.log(this.specialStats.agility);
   }
 
   addLuck() {
-    this.specialStats.luck += 1;
-    console.log(this.specialStats.luck);
+    if (this.totalPoints > 0) {
+      this.userInfo.value.luck += 1;
+      this.totalPoints--;
+    } else {
+      this.maxLimit = true;
+    }
   }
 
   subLuck() {
-    if (this.specialStats.luck > 1) {
-      this.specialStats.luck -= 1;
+    if (this.userInfo.value.luck > 1) {
+      this.userInfo.value.luck -= 1;
+      this.totalPoints++;
     } else {
       this.minLimitLuck = true;
     }
-    console.log(this.specialStats.luck);
   }
 
   // there's gotta be a better way to do this ^
 
-  userInfo: any = [];
-
-  key;
-
   ngOnInit() {
 
-    // this.userCookie.getUserInfoCookie()
+    this.dataService.id.subscribe(id => this.id = id);
+    this.dataService.traveler.subscribe(name => this.traveler = name);
+    this.dataService.strength.subscribe(strength => this.strength = strength);
+    this.dataService.perception.subscribe(perception => this.perception = perception);
+    this.dataService.endurance.subscribe(endurance => this.endurance = endurance);
+    this.dataService.charisma.subscribe(charisma => this.charisma = charisma);
+    this.dataService.intelligence.subscribe(intelligence => this.intelligence = intelligence);
+    this.dataService.agility.subscribe(agility => this.agility = agility);
+    this.dataService.luck.subscribe(luck => this.luck = luck);
 
-    // code below fetches the info from the db; keep for now
+    console.log(this.userInfo.value);
 
-    // this.dataService.getData().subscribe(data => {
-    //   this.specialStats.strength = data['strength'];
-    //   this.specialStats.perception = data['perception'];
-    //   this.specialStats.endurance = data['endurance'];
-    //   this.specialStats.charisma = data['charisma'];
-    //   this.specialStats.intelligence = data['intelligence'];
-    //   this.specialStats.agility = data['agility'];
-    //   this.specialStats.luck = data['luck'];
-    // })
   }
 
 }

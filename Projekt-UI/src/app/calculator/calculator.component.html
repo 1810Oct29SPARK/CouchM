@@ -2,7 +2,13 @@
     <h2 class="headline">S.P.E.C.I.A.L.</h2>
     <hr>
     <div class="col special">
-        <form>
+        <form [formGroup]="userInfo" (ngSubmit)="updateUserStats()" name="userInfo" id="userInfo">
+            <div class="row stat">
+                <div class="col-md-12 total-display">
+                    <label class="total-label">{{traveler}}, you have {{totalPoints}} points to spend on what makes you
+                        special.</label>
+                </div>
+            </div>
             <div class="row stat">
                 <div class="col-md-4"></div>
                 <div class="col-md-2 label">
@@ -14,10 +20,10 @@
                             <i class="material-icons minus" ng-disabled="minLimitStr == true" (click)=subStr()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="strength" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.strength" readonly />
+                        <input type="number" formControlName="strength" class="form-control input"
+                            [(ngModel)]="userInfo.value.strength" readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addStr()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addStr()> add_box </i>
                         </div>
                     </div>
                 </div>
@@ -34,10 +40,10 @@
                             <i class="material-icons minus" ng-disabled="minLimitPer == true" (click)=subPer()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="perception" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.perception" readonly />
+                        <input type="number" formControlName="perception" class="form-control input"
+                            [(ngModel)]="userInfo.value.perception" readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addPer()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addPer()> add_box </i>
                         </div>
                     </div>
                 </div>
@@ -54,10 +60,10 @@
                             <i class="material-icons minus" ng-disabled="minLimitEnd == true" (click)=subEnd()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="endurance" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.endurance" readonly />
+                        <input type="number" formControlName="endurance" class="form-control input"
+                            [(ngModel)]="userInfo.value.endurance" readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addEnd()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addEnd()> add_box </i>
                         </div>
                     </div>
                 </div>
@@ -71,12 +77,13 @@
                 <div class="col-md-6 rank">
                     <div class="row up-down">
                         <div class="minus-bg">
-                            <i class="material-icons minus" ng-disabled="minLimitCha == true" (click)=subCha()> indeterminate_check_box</i>
+                            <i class="material-icons minus" ng-disabled="minLimitCha == true" (click)=subCha()>
+                                indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="charisma" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.charisma" readonly />
+                        <input type="number" formControlName="charisma" class="form-control input"
+                            [(ngModel)]="userInfo.value.charisma" readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addCha()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addCha()> add_box </i>
                         </div>
                     </div>
                 </div>
@@ -90,12 +97,13 @@
                 <div class="col-md-6 rank">
                     <div class="row up-down">
                         <div class="minus-bg">
-                            <i class="material-icons minus" ng-disabled="minLimitInt == true" (click)=subInt()> indeterminate_check_box</i>
+                            <i class="material-icons minus" ng-disabled="minLimitInt == true" (click)=subInt()>
+                                indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="intelligence" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.intelligence" readonly />
+                        <input type="number" formControlName="intelligence" class="form-control input"
+                            [(ngModel)]="userInfo.value.intelligence" readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addInt()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addInt()> add_box </i>
                         </div>
                     </div>
                 </div>
@@ -109,12 +117,13 @@
                 <div class="col-md-6 rank">
                     <div class="row up-down">
                         <div class="minus-bg">
-                            <i class="material-icons minus" ng-disabled="minLimitAgi == true" (click)=subAgi()> indeterminate_check_box</i>
+                            <i class="material-icons minus" ng-disabled="minLimitAgi == true" (click)=subAgi()>
+                                indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="agility" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.agility" readonly />
+                        <input type="number" formControlName="agility" class="form-control input"
+                            [(ngModel)]="userInfo.value.agility" readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addAgi()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addAgi()> add_box </i>
                         </div>
                     </div>
                 </div>
@@ -128,12 +137,14 @@
                 <div class="col-md-6 rank">
                     <div class="row up-down">
                         <div class="minus-bg">
-                            <i class="material-icons minus" ng-disabled="minLimitLuck == true" (click)=subLuck()> indeterminate_check_box</i>
+                            <i class="material-icons minus" ng-disabled="minLimitLuck == true" (click)=subLuck()>
+                                indeterminate_check_box</i>
                         </div>
-                        <input type="number" name="luck" min="1" max="11" class="form-control input"
-                            [(ngModel)]="specialStats.luck" readonly />
+                        <input type="number" formControlName="luck" class="form-control input" [(ngModel)]="userInfo.value.luck"
+                            readonly />
                         <div class="plus-bg">
-                            <i class="material-icons plus" (click)=addLuck()> add_box </i>
+                            <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addLuck()> add_box
+                            </i>
                         </div>
                     </div>
                 </div>

@@ -78,8 +78,6 @@ public class UserController {
 			user.setName(json.getString("name"));
 		}
 
-		ObjectId id = new ObjectId();
-		user.setId(id);
 		user.setStrength(1);
 		user.setPerception(1);
 		user.setEndurance(1);
@@ -102,8 +100,6 @@ public class UserController {
 		User newUser = new User();
 
 		if (json != null) {
-			ObjectId id = new ObjectId();
-			newUser.setId(id);
 			newUser.setName(json.getString("name"));
 			newUser.setStrength(json.getInt("strength"));
 			newUser.setPerception(json.getInt("perception"));
