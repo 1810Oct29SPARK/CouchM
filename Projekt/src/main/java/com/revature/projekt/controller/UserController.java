@@ -126,7 +126,7 @@ public class UserController {
 		User user = new User();
 
 		if (json != null) {
-			user = us.getUserById(json.getString("_id"));
+			user = us.getUserById(json.getString("id"));
 			if (user != null) {
 
 				user.setName(json.getString("name"));

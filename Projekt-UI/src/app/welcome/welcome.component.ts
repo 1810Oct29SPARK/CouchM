@@ -35,8 +35,8 @@ export class WelcomeComponent {
     luck: 0
   });
 
-  id = "";
-  traveler = "";
+  id: any;
+  traveler;
   strength;
   perception;
   endurance;
@@ -61,15 +61,10 @@ export class WelcomeComponent {
 
   submitted = true;
 
-  userDataCookie: any = [];
-
   createNewUser() {
     this.dataService.createUser(this.userInfo.value).subscribe(data => {
-      console.log(data.body);
       let dbInfo = data.body;
-      console.log(dbInfo['id'])
       this.id = dbInfo['id'];
-      console.log(this.id)
       this.strength = dbInfo['strength'];
       this.perception = dbInfo['perception'];
       this.endurance = dbInfo['endurance'];
@@ -77,33 +72,24 @@ export class WelcomeComponent {
       this.intelligence = dbInfo['intelligence'];
       this.agility = dbInfo['agility'];
       this.luck = dbInfo['luck'];
+      this.changeUserInfo();
     })
     this.traveler = this.userInfo.value.name;
     this.userInfo.get("name").disable();
-    this.changeUserInfo();
     setTimeout(() => {
       this.router.navigateByUrl('/calculator');
     }, 2000);
   }
 
   changeUserInfo() {
-    console.log(this.id)
     this.dataService.changeUserId(this.id);
-    console.log(this.traveler)
     this.dataService.changeUserName(this.traveler);
-    console.log(this.strength)
     this.dataService.changeUserStr(this.strength);
-    console.log(this.perception)
     this.dataService.changeUserPer(this.perception);
-    console.log(this.endurance)
     this.dataService.changeUserEnd(this.endurance);
-    console.log(this.charisma)
     this.dataService.changeUserCha(this.charisma);
-    console.log(this.intelligence)
     this.dataService.changeUserInt(this.intelligence);
-    console.log(this.agility)
     this.dataService.changeUserAgi(this.agility);
-    console.log(this.luck)
     this.dataService.changeUserLuck(this.luck);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calculator', /** it is possible to use [app-calculator] to reference this component as an attribute of a div,
@@ -12,7 +13,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CalculatorComponent implements OnInit {
 
-  constructor(private dataService: DataService, private fb: FormBuilder) { }
+  constructor(private dataService: DataService, private fb: FormBuilder, private router: Router) { }
 
   id = "";
   traveler = "";
@@ -25,15 +26,15 @@ export class CalculatorComponent implements OnInit {
   luck;
 
   userInfo = this.fb.group({
-    id: this.id,
-    name: this.traveler,
-    strength: this.strength,
-    perception: this.perception,
-    endurance: this.endurance,
-    charisma: this.charisma,
-    intelligence: this.intelligence,
-    agility: this.agility,
-    luck: this.luck
+    id: '',
+    name: '',
+    strength: 0,
+    perception: 0,
+    endurance: 0,
+    charisma: 0,
+    intelligence: 0,
+    agility: 0,
+    luck: 0
   });
 
   totalPoints = 21;
@@ -45,6 +46,16 @@ export class CalculatorComponent implements OnInit {
   minLimitAgi: boolean = false;
   minLimitLuck: boolean = false;
   maxLimit: boolean = false;
+
+  updateButton = "Enter";
+
+  onHoverWelcome() {
+    this.updateButton = "Let's Continue";
+  }
+
+  offHoverWelcome() {
+    this.updateButton = "Enter";
+  }
 
   // i know this is not even remotely elegant, don't look at me.
 
@@ -176,6 +187,15 @@ export class CalculatorComponent implements OnInit {
 
   // there's gotta be a better way to do this ^
 
+  enterUserStats() {
+    this.dataService.userStats(this.userInfo.value).subscribe(data => {
+      console.log(data.body);
+    })
+    setTimeout(() => {
+      this.router.navigateByUrl('/perks');
+    }, 2000);
+  }
+
   ngOnInit() {
 
     this.dataService.id.subscribe(id => this.id = id);
@@ -187,6 +207,18 @@ export class CalculatorComponent implements OnInit {
     this.dataService.intelligence.subscribe(intelligence => this.intelligence = intelligence);
     this.dataService.agility.subscribe(agility => this.agility = agility);
     this.dataService.luck.subscribe(luck => this.luck = luck);
+    console.log(this.id);
+    this.userInfo.setValue({
+      id: this.id,
+      name: this.traveler,
+      strength: this.strength,
+      perception: this.perception,
+      endurance: this.endurance,
+      charisma: this.charisma,
+      intelligence: this.intelligence,
+      agility: this.agility,
+      luck: this.luck
+    })
 
     console.log(this.userInfo.value);
 

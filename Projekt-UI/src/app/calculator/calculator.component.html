@@ -140,13 +140,20 @@
                             <i class="material-icons minus" ng-disabled="minLimitLuck == true" (click)=subLuck()>
                                 indeterminate_check_box</i>
                         </div>
-                        <input type="number" formControlName="luck" class="form-control input" [(ngModel)]="userInfo.value.luck"
-                            readonly />
+                        <input type="number" formControlName="luck" class="form-control input"
+                            [(ngModel)]="userInfo.value.luck" readonly />
                         <div class="plus-bg">
                             <i class="material-icons plus" ng-disabled="maxLimit == true" (click)=addLuck()> add_box
                             </i>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row stat">
+                <div class="col-md-12 submit-button">
+                    <span><button [disabled]="totalPoints !== 0" type="button" class="btn btn-primary"
+                            (mouseenter)="onHoverUpdate()" (mouseleave)="offHoverUpdate()"
+                            (click)="enterUserStats()">{{ updateButton }}</button></span>
                 </div>
             </div>
         </form>

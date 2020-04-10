@@ -32,40 +32,50 @@ export class DataService {
   // allUserData = 'http://localhost:8085/api/all';
   alexData = 'http://localhost:8085/api/Alex';
   createApi = 'http://localhost:8085/api/create/name';
+  updateApi = 'http://localhost:8085/api/update';
 
   changeUserId(id: string) {
+    console.log(id)
     this.userId.next(id);
   }
 
   changeUserName(name: string) {
+    console.log(name)
     this.userName.next(name);
   }
 
   changeUserStr(num: number) {
+    console.log(num)
     this.userStr.next(num);
   }
 
   changeUserPer(num: number) {
+    console.log(num)
     this.userPer.next(num);
   }
 
   changeUserEnd(num: number) {
+    console.log(num)
     this.userEnd.next(num);
   }
 
   changeUserCha(num: number) {
+    console.log(num)
     this.userCha.next(num);
   }
 
   changeUserInt(num: number) {
+    console.log(num)
     this.userInt.next(num);
   }
 
   changeUserAgi(num: number) {
+    console.log(num)
     this.userAgi.next(num);
   }
 
   changeUserLuck(num: number) {
+    console.log(num)
     this.userLuck.next(num);
   }
 
@@ -76,6 +86,10 @@ export class DataService {
 
   createUser(data: string) {
     return this.http.post<string>(this.createApi, data, { observe: "response" });
+  }
+
+  userStats(data) {
+    return this.http.put(this.updateApi, data, { observe: "response" })
   }
 
 }
