@@ -8,7 +8,7 @@
     flex-flow: row wrap;
     justify-content: center;
     margin: auto;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 .rank {
@@ -21,4 +21,9 @@
 
 .perk-display {
     margin-top: 2vh;
+}
+
+button {
+    height: 15vh;
+    border: 3px solid white;
 }

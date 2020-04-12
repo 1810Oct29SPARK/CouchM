@@ -29,4 +29,25 @@
 
         <div class="col-md-3"></div>
     </div>
+    <div class="row stat">
+        <div class="col-md-3"></div>
+        <table class="col-md-6">
+            <tr class="row">
+                <button class="col-md-4">Ranger Perk 1</button>
+                <button class="col-md-4">Assault Perk 1</button>
+                <button class="col-md-4">Defense Perk 1</button>
+            </tr>
+            <tr class="row">
+                <button class="col-md-4" [disabled]="!lvlTwoRan">Ranger Perk 2</button>
+                <button class="col-md-4" [disabled]="!lvlTwoAss">Assault Perk 2</button>
+                <button class="col-md-4" [disabled]="!lvlTwoDef">Defense Perk 2</button>
+            </tr>
+            <tr class="row">
+                <button class="col-md-4" [disabled]="!lvlThreeRan">Ranger Perk 3</button>
+                <button class="col-md-4" [disabled]="!lvlThreeAss">Assault Perk 3</button>
+                <button class="col-md-4" [disabled]="!lvlThreeDef">Defense Perk 3</button>
+            </tr>
+        </table>
+        <div class="col-md-3"></div>
+    </div>
 </div>

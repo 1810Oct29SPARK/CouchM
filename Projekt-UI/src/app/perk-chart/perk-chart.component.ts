@@ -26,6 +26,40 @@ export class PerkChartComponent implements OnInit {
     defense: 0
   });
 
+  lvlTwoRan: boolean = false;
+  lvlTwoAss: boolean = false;
+  lvlTwoDef: boolean = false;
+  lvlThreeRan: boolean = false;
+  lvlThreeAss: boolean = false;
+  lvlThreeDef: boolean = false;
+
+  checkStats() {
+    if (this.userInfo.value.ranger > 3) {
+      this.lvlTwoRan = true;
+      console.log(this.lvlTwoRan);
+    }
+    if (this.userInfo.value.assault > 3) {
+      this.lvlTwoAss = true;
+      console.log(this.lvlTwoAss);
+    }
+    if (this.userInfo.value.defense > 3) {
+      this.lvlTwoDef = true;
+      console.log(this.lvlTwoDef);
+    }
+    if (this.userInfo.value.ranger > 6) {
+      this.lvlThreeRan = true;
+      console.log(this.lvlThreeRan);
+    }
+    if (this.userInfo.value.assault > 6) {
+      this.lvlThreeAss = true;
+      console.log(this.lvlThreeAss);
+    }
+    if (this.userInfo.value.defense > 6) {
+      this.lvlThreeDef = true;
+      console.log(this.lvlThreeDef);
+    }
+  }
+
   ngOnInit() {
 
     this.dataService.id.subscribe(id => this.id = id);
@@ -42,7 +76,7 @@ export class PerkChartComponent implements OnInit {
     })
 
     console.log(this.userInfo.value);
-
+    this.checkStats();
   }
 
 }
