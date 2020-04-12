@@ -37,7 +37,7 @@ export class CalculatorComponent implements OnInit {
     defense: 1
   }
 
-  totalPoints = 9;
+  totalPoints = 3;
   minLimitRan: boolean = false;
   minLimitAss: boolean = false;
   minLimitDef: boolean = false;
@@ -127,7 +127,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   resetUserStats() {
-    this.totalPoints = 9;
+    this.totalPoints = 3;
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,

@@ -32,31 +32,46 @@ export class PerkChartComponent implements OnInit {
   lvlThreeRan: boolean = false;
   lvlThreeAss: boolean = false;
   lvlThreeDef: boolean = false;
+  lvlFourRan: boolean = false;
+  lvlFourAss: boolean = false;
+  lvlFourDef: boolean = false;
 
   checkStats() {
-    if (this.userInfo.value.ranger > 3) {
+    if (this.userInfo.value.ranger > 1) {
       this.lvlTwoRan = true;
       console.log(this.lvlTwoRan);
     }
-    if (this.userInfo.value.assault > 3) {
+    if (this.userInfo.value.assault > 1) {
       this.lvlTwoAss = true;
       console.log(this.lvlTwoAss);
     }
-    if (this.userInfo.value.defense > 3) {
+    if (this.userInfo.value.defense > 1) {
       this.lvlTwoDef = true;
       console.log(this.lvlTwoDef);
     }
-    if (this.userInfo.value.ranger > 6) {
+    if (this.userInfo.value.ranger > 2) {
       this.lvlThreeRan = true;
       console.log(this.lvlThreeRan);
     }
-    if (this.userInfo.value.assault > 6) {
+    if (this.userInfo.value.assault > 2) {
       this.lvlThreeAss = true;
       console.log(this.lvlThreeAss);
     }
-    if (this.userInfo.value.defense > 6) {
+    if (this.userInfo.value.defense > 2) {
       this.lvlThreeDef = true;
       console.log(this.lvlThreeDef);
+    }
+    if (this.userInfo.value.ranger > 3) {
+      this.lvlFourRan = true;
+      console.log(this.lvlFourRan);
+    }
+    if (this.userInfo.value.assault > 3) {
+      this.lvlFourAss = true;
+      console.log(this.lvlFourAss);
+    }
+    if (this.userInfo.value.defense > 3) {
+      this.lvlFourDef = true;
+      console.log(this.lvlFourDef);
     }
   }
 
