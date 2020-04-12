@@ -10,44 +10,51 @@
         </div>
     </div>
     <div class="row stat">
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
         <div class="col-md-2 rank">Ranger
             <div>
                 <h3><span class="badge badge-secondary">{{ userInfo.value.ranger }}</span></h3>
             </div>
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2 rank">Assault
             <div>
                 <h3><span class="badge badge-secondary">{{ userInfo.value.assault }}</span></h3>
             </div>
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2 rank">Defense
             <div>
                 <h3><span class="badge badge-secondary">{{ userInfo.value.defense }}</span></h3>
             </div>
         </div>
-
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
     </div>
     <div class="row stat">
-        <div class="col-md-3"></div>
-        <table class="col-md-6">
-            <tr class="row">
-                <button class="col-md-4 perk-button">Ranger Perk 1</button>
-                <button class="col-md-4 perk-button">Assault Perk 1</button>
-                <button class="col-md-4 perk-button">Defense Perk 1</button>
-            </tr>
-            <tr class="row">
-                <button class="col-md-4 perk-button" [disabled]="!lvlTwoRan">Ranger Perk 2</button>
-                <button class="col-md-4 perk-button" [disabled]="!lvlTwoAss">Assault Perk 2</button>
-                <button class="col-md-4 perk-button" [disabled]="!lvlTwoDef">Defense Perk 2</button>
-            </tr>
-            <tr class="row">
-                <button class="col-md-4 perk-button" [disabled]="!lvlThreeRan">Ranger Perk 3</button>
-                <button class="col-md-4 perk-button" [disabled]="!lvlThreeAss">Assault Perk 3</button>
-                <button class="col-md-4 perk-button" [disabled]="!lvlThreeDef">Defense Perk 3</button>
-            </tr>
-        </table>
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
+        <button class="col-md-2 perk-button">Ranger Perk 1</button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 perk-button">Assault Perk 1</button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 perk-button">Defense Perk 1</button>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row stat">
+        <div class="col-md-2"></div>
+        <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan">Ranger Perk 2</button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss">Assault Perk 2</button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef">Defense Perk 2</button>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row stat">
+        <div class="col-md-2"></div>
+        <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan">Ranger Perk 3</button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss">Assault Perk 3</button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef">Defense Perk 3</button>
+        <div class="col-md-2"></div>
     </div>
 </div>
