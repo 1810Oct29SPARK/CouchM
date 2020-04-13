@@ -26,6 +26,8 @@ export class PerkChartComponent implements OnInit {
     defense: 0
   });
 
+  selectedPerks: string[] = [];
+
   lvlTwoRan: boolean = false;
   lvlTwoAss: boolean = false;
   lvlTwoDef: boolean = false;
@@ -35,6 +37,16 @@ export class PerkChartComponent implements OnInit {
   lvlFourRan: boolean = false;
   lvlFourAss: boolean = false;
   lvlFourDef: boolean = false;
+
+  choosePerk(perk) {
+    if (this.selectedPerks.includes(perk)) {
+      this.selectedPerks.splice(this.selectedPerks.indexOf(perk), 1);
+      console.log(this.selectedPerks);
+    } else {
+      this.selectedPerks.push(perk);
+      console.log(this.selectedPerks);
+    }
+  }
 
   checkStats() {
     if (this.userInfo.value.ranger > 1) {

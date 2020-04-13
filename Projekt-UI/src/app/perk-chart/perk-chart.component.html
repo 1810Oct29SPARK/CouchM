@@ -32,38 +32,38 @@
     </div>
     <div class="row stat">
         <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button">Ranger Perk 1</button>
+        <button class="col-md-2 perk-button" (click)="choosePerk('RP1')">Ranger Perk 1</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button">Assault Perk 1</button>
+        <button class="col-md-2 perk-button" (click)="choosePerk('AP1')">Assault Perk 1</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button">Defense Perk 1</button>
+        <button class="col-md-2 perk-button" (click)="choosePerk('DP1')">Defense Perk 1</button>
         <div class="col-md-2"></div>
     </div>
     <div class="row stat">
         <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan">Ranger Perk 2</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan" (click)="choosePerk('RP2')">Ranger Perk 2</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss">Assault Perk 2</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss" (click)="choosePerk('AP2')">Assault Perk 2</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef">Defense Perk 2</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef" (click)="choosePerk('DP2')">Defense Perk 2</button>
         <div class="col-md-2"></div>
     </div>
     <div class="row stat">
         <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan">Ranger Perk 3</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan" (click)="choosePerk('RP3')">Ranger Perk 3</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss">Assault Perk 3</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss" (click)="choosePerk('RP3')">Assault Perk 3</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef">Defense Perk 3</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef" (click)="choosePerk('RP3')">Defense Perk 3</button>
         <div class="col-md-2"></div>
     </div>
     <div class="row stat">
         <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlFourRan">Ranger Perk 4</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlFourRan" (click)="choosePerk('RP4')">Ranger Perk 4</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlFourAss">Assault Perk 4</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlFourAss" (click)="choosePerk('RP4')">Assault Perk 4</button>
         <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlFourDef">Defense Perk 4</button>
+        <button class="col-md-2 perk-button" [disabled]="!lvlFourDef" (click)="choosePerk('RP4')">Defense Perk 4</button>
         <div class="col-md-2"></div>
     </div>
 </div>
