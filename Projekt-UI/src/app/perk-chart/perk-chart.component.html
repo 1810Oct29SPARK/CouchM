@@ -29,46 +29,58 @@
         </div>
         <div class="row stat">
             <div class="col-md-2"></div>
-            <button class="col-md-2 perk-button" (click)="choosePerk('RP1')">Ranger Perk 1</button>
+            <button class="col-md-2 perk-button" (click)="choosePerk('RP1')" (mouseenter)="onHover('RP1')"
+                (mouseleave)="offHover()">Ranger Perk 1</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" (click)="choosePerk('AP1')">Assault Perk 1</button>
+            <button class="col-md-2 perk-button" (click)="choosePerk('AP1')" (mouseenter)="onHover('AP1')"
+                (mouseleave)="offHover()">Assault Perk 1</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" (click)="choosePerk('DP1')">Defense Perk 1</button>
+            <button class="col-md-2 perk-button" (click)="choosePerk('DP1')" (mouseenter)="onHover('DP1')"
+                (mouseleave)="offHover()">Defense Perk 1</button>
             <div class="col-md-2"></div>
         </div>
         <div class="row stat">
             <div class="col-md-2"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan" (click)="choosePerk('RP2')">Ranger Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan" (click)="choosePerk('RP2')"
+                (mouseenter)="onHover('RP2')" (mouseleave)="offHover()">Ranger Perk
                 2</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss" (click)="choosePerk('AP2')">Assault Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss" (click)="choosePerk('AP2')"
+                (mouseenter)="onHover('AP2')" (mouseleave)="offHover()">Assault Perk
                 2</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef" (click)="choosePerk('DP2')">Defense Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef" (click)="choosePerk('DP2')"
+                (mouseenter)="onHover('DP2')" (mouseleave)="offHover()">Defense Perk
                 2</button>
             <div class="col-md-2"></div>
         </div>
         <div class="row stat">
             <div class="col-md-2"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan" (click)="choosePerk('RP3')">Ranger Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan" (click)="choosePerk('RP3')"
+                (mouseenter)="onHover('RP3')" (mouseleave)="offHover()">Ranger Perk
                 3</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss" (click)="choosePerk('AP3')">Assault Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss" (click)="choosePerk('AP3')"
+                (mouseenter)="onHover('AP3')" (mouseleave)="offHover()">Assault Perk
                 3</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef" (click)="choosePerk('DP3')">Defense Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef" (click)="choosePerk('DP3')"
+                (mouseenter)="onHover('DP3')" (mouseleave)="offHover()">Defense Perk
                 3</button>
             <div class="col-md-2"></div>
         </div>
         <div class="row stat">
             <div class="col-md-2"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlFourRan" (click)="choosePerk('RP4')">Ranger Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlFourRan" (click)="choosePerk('RP4')"
+                (mouseenter)="onHover('RP4')" (mouseleave)="offHover()">Ranger Perk
                 4</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlFourAss" (click)="choosePerk('AP4')">Assault Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlFourAss" (click)="choosePerk('AP4')"
+                (mouseenter)="onHover('AP4')" (mouseleave)="offHover()">Assault Perk
                 4</button>
             <div class="col-md-1"></div>
-            <button class="col-md-2 perk-button" [disabled]="!lvlFourDef" (click)="choosePerk('DP4')">Defense Perk
+            <button class="col-md-2 perk-button" [disabled]="!lvlFourDef" (click)="choosePerk('DP4')"
+                (mouseenter)="onHover('DP4')" (mouseleave)="offHover()">Defense Perk
                 4</button>
             <div class="col-md-2"></div>
         </div>

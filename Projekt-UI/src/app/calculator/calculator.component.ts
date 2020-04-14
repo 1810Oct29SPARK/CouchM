@@ -48,13 +48,13 @@ export class CalculatorComponent implements OnInit {
 
   updateButton = "Enter";
 
-  onHoverUpdate() {
-    this.updateButton = "Let's Continue";
-  }
+  // onHoverUpdate() {
+  //   this.updateButton = "Let's Continue";
+  // }
 
-  offHoverUpdate() {
-    this.updateButton = "Enter";
-  }
+  // offHoverUpdate() {
+  //   this.updateButton = "Enter";
+  // }
 
   // i know this is not even remotely elegant, don't look at me.
 

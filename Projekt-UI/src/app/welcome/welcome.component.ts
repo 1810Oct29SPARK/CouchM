@@ -41,14 +41,6 @@ export class WelcomeComponent {
 
   welcomeButton = "Enter";
 
-  onHoverWelcome() {
-    this.welcomeButton = "Welcome";
-  }
-
-  offHoverWelcome() {
-    this.welcomeButton = "Enter";
-  }
-
   onNameEnter(event: any) {
     console.log(event);
   }
@@ -68,6 +60,7 @@ export class WelcomeComponent {
     })
     this.traveler = this.userInfo.value.name;
     this.userInfo.get("name").disable();
+    this.welcomeButton = "Welcome";
     setTimeout(() => {
       this.router.navigateByUrl('/calculator');
     }, 2000);

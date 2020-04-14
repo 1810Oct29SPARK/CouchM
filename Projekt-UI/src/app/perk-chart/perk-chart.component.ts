@@ -44,6 +44,49 @@ export class PerkChartComponent implements OnInit {
   lvlFourAss: boolean = false;
   lvlFourDef: boolean = false;
 
+  onHover(string) {
+    if (string === 'RP1') {
+      this.description = 'Ranger Perk level 1';
+    }
+    if (string === 'AP1') {
+      this.description = 'Assault Perk level 1';
+    }
+    if (string === 'DP1') {
+      this.description = 'Defense Perk level 1';
+    }
+    if (string === 'RP2') {
+      this.description = 'Ranger Perk level 2';
+    }
+    if (string === 'AP2') {
+      this.description = 'Assault Perk level 2';
+    }
+    if (string === 'DP2') {
+      this.description = 'Defense Perk level 2';
+    }
+    if (string === 'RP3') {
+      this.description = 'Ranger Perk level 3';
+    }
+    if (string === 'AP3') {
+      this.description = 'Assault Perk level 3';
+    }
+    if (string === 'DP3') {
+      this.description = 'Defense Perk level 3';
+    }
+    if (string === 'RP4') {
+      this.description = 'Ranger Perk level 4';
+    }
+    if (string === 'AP4') {
+      this.description = 'Assault Perk level 4';
+    }
+    if (string === 'DP4') {
+      this.description = 'Defense Perk level 4';
+    }
+  }
+
+  offHover() {
+    // this.description = "Hover over perks to learn their benefits";
+  }
+
   choosePerk(perk) {
     if (this.selectedPerks.includes(perk)) {
       this.selectedPerks.splice(this.selectedPerks.indexOf(perk), 1);
