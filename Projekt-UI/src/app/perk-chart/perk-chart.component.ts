@@ -17,16 +17,22 @@ export class PerkChartComponent implements OnInit {
   ranger;
   assault;
   defense;
+  perks: Array<string>;
 
   userInfo = this.fb.group({
     id: '',
     name: '',
     ranger: 0,
     assault: 0,
-    defense: 0
+    defense: 0,
+    perks: []
   });
 
   selectedPerks: string[] = [];
+
+  description: string = "Hover over perks to learn their benefits";
+
+  perkButton: string = "Submit";
 
   lvlTwoRan: boolean = false;
   lvlTwoAss: boolean = false;
@@ -41,50 +47,68 @@ export class PerkChartComponent implements OnInit {
   choosePerk(perk) {
     if (this.selectedPerks.includes(perk)) {
       this.selectedPerks.splice(this.selectedPerks.indexOf(perk), 1);
-      console.log(this.selectedPerks);
     } else {
-      this.selectedPerks.push(perk);
-      console.log(this.selectedPerks);
+      if (this.selectedPerks.length < 3) {
+        this.selectedPerks.push(perk);
+      }
     }
   }
 
   checkStats() {
     if (this.userInfo.value.ranger > 1) {
       this.lvlTwoRan = true;
-      console.log(this.lvlTwoRan);
     }
     if (this.userInfo.value.assault > 1) {
       this.lvlTwoAss = true;
-      console.log(this.lvlTwoAss);
     }
     if (this.userInfo.value.defense > 1) {
       this.lvlTwoDef = true;
-      console.log(this.lvlTwoDef);
     }
     if (this.userInfo.value.ranger > 2) {
       this.lvlThreeRan = true;
-      console.log(this.lvlThreeRan);
     }
     if (this.userInfo.value.assault > 2) {
       this.lvlThreeAss = true;
-      console.log(this.lvlThreeAss);
     }
     if (this.userInfo.value.defense > 2) {
       this.lvlThreeDef = true;
-      console.log(this.lvlThreeDef);
     }
     if (this.userInfo.value.ranger > 3) {
       this.lvlFourRan = true;
-      console.log(this.lvlFourRan);
     }
     if (this.userInfo.value.assault > 3) {
       this.lvlFourAss = true;
-      console.log(this.lvlFourAss);
     }
     if (this.userInfo.value.defense > 3) {
       this.lvlFourDef = true;
-      console.log(this.lvlFourDef);
     }
+  } 
+  
+  enterUserPerks() {
+    this.perkButton = "Let's Continue";
+    this.userInfo.value.perks = this.selectedPerks;
+    console.log(this.userInfo.value);
+    this.dataService.userStats(this.userInfo.value).subscribe(data => {
+      let dbInfo = data.body;
+      this.id = dbInfo['id'];
+      this.ranger = dbInfo['ranger'];
+      this.assault = dbInfo['assault'];
+      this.defense = dbInfo['defense'];
+      this.perks = dbInfo['perks'];
+      this.changeUserInfo();
+    })
+    setTimeout(() => {
+      this.router.navigateByUrl('/perks');
+    }, 2000);
+  }
+
+  changeUserInfo() {
+    this.dataService.changeUserId(this.id);
+    this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserRan(this.ranger);
+    this.dataService.changeUserAss(this.assault);
+    this.dataService.changeUserDef(this.defense);
+    this.dataService.changeUserPerks(this.perks);
   }
 
   ngOnInit() {
@@ -94,12 +118,14 @@ export class PerkChartComponent implements OnInit {
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
+    this.dataService.perks.subscribe(perks => this.perks = perks);
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
       ranger: this.ranger,
       assault: this.assault,
-      defense: this.defense
+      defense: this.defense,
+      perks: this.perks
     })
 
     console.log(this.userInfo.value);

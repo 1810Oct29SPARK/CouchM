@@ -20,13 +20,15 @@ export class CalculatorComponent implements OnInit {
   ranger;
   assault;
   defense;
+  perks: Array<string>;
 
   userInfo = this.fb.group({
     id: '',
     name: '',
     ranger: 1,
     assault: 1,
-    defense: 1
+    defense: 1,
+    perks: []
   });
 
   resetValues = {
@@ -34,7 +36,8 @@ export class CalculatorComponent implements OnInit {
     name: this.traveler,
     ranger: 1,
     assault: 1,
-    defense: 1
+    defense: 1,
+    perks: []
   }
 
   totalPoints = 3;
@@ -119,6 +122,7 @@ export class CalculatorComponent implements OnInit {
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
+      this.perks = dbInfo['perks'];
       this.changeUserInfo();
     })
     setTimeout(() => {
@@ -133,7 +137,8 @@ export class CalculatorComponent implements OnInit {
       name: this.traveler,
       ranger: this.ranger,
       assault: this.assault,
-      defense: this.defense
+      defense: this.defense,
+      perks: this.perks
     })
     console.log(this.userInfo.value)
   }
@@ -144,6 +149,7 @@ export class CalculatorComponent implements OnInit {
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
+    this.dataService.changeUserPerks(this.perks);
   }
 
   ngOnInit() {
@@ -153,12 +159,14 @@ export class CalculatorComponent implements OnInit {
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
+    this.dataService.perks.subscribe(perks => this.perks = perks);
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
       ranger: this.ranger,
       assault: this.assault,
-      defense: this.defense
+      defense: this.defense,
+      perks: this.perks
     })
 
     console.log(this.userInfo.value);

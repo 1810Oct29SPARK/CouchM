@@ -29,6 +29,7 @@ export class WelcomeComponent {
     ranger: 0,
     assault: 0,
     defense: 0,
+    perks: []
   });
 
   id: any;
@@ -36,6 +37,7 @@ export class WelcomeComponent {
   ranger;
   assault;
   defense;
+  perks: Array<string>;
 
   welcomeButton = "Enter";
 
@@ -61,6 +63,7 @@ export class WelcomeComponent {
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
+      this.perks = dbInfo['perks'];
       this.changeUserInfo();
     })
     this.traveler = this.userInfo.value.name;
@@ -76,6 +79,7 @@ export class WelcomeComponent {
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
+    this.dataService.changeUserPerks(this.perks);
   }
 
   ngOnInit() {
@@ -84,5 +88,6 @@ export class WelcomeComponent {
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
+    this.dataService.perks.subscribe(perks => this.perks = perks);
   }
 }

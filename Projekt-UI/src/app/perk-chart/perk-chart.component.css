@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    margin-top: 4%;
+    margin: 5% auto;
 }
 
 .stat {
@@ -19,12 +19,25 @@
     font-size: 2vh;
 }
 
+.perk-descrip {
+    margin-top: 4vh;
+}
+
 .perk-display {
+    margin-top: 5vh;
+}
+
+.perk-buttons {
     margin-top: 2vh;
 }
 
+.perk-submit {
+    margin-top: 2vh;
+    position: relative;
+}
+
 .perk-button {
-    height: 15vh;
+    height: 12vh;
     background-color: gray;
     border: 3px outset white;
 }

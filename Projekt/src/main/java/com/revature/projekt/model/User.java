@@ -1,6 +1,7 @@
 package com.revature.projekt.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,22 +20,16 @@ public class User implements Serializable {
 	private int ranger;
 	private int assault;
 	private int defense;
+	private String[] perks;
 
-	public User(String id, String name, int ranger, int assault, int defense) {
+	public User(String id, String name, int ranger, int assault, int defense, String[] perks) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.ranger = ranger;
 		this.assault = assault;
 		this.defense = defense;
-	}
-
-	public User(String name, int ranger, int assault, int defense) {
-		super();
-		this.name = name;
-		this.ranger = ranger;
-		this.assault = assault;
-		this.defense = defense;
+		this.perks = perks;
 	}
 
 	public User() {
@@ -79,6 +74,20 @@ public class User implements Serializable {
 
 	public void setDefense(int defense) {
 		this.defense = defense;
+	}
+
+	public String[] getPerks() {
+		return perks;
+	}
+
+	public void setPerks(String[] perks) {
+		this.perks = perks;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", ranger=" + ranger + ", assault=" + assault + ", defense="
+				+ defense + ", perks=" + Arrays.toString(perks) + "]";
 	}
 
 }

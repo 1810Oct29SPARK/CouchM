@@ -1,6 +1,8 @@
 package com.revature.projekt.controller;
 
 import java.util.Collection;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -76,30 +78,14 @@ public class UserController {
 			user.setName(json.getString("name"));
 		}
 
+		String[] perks = new String[3];
+
 		user.setRanger(1);
 		user.setAssault(1);
 		user.setDefense(1);
+		user.setPerks(perks);
 		User returnUserData = us.createUser(user);
-
-		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
-	}
-
-	/**
-	 * creates user with all fields, tested successfully with
-	 * postman @ModelAttribute("user")
-	 */
-	@PostMapping(value = "/create/stats")
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-		JSONObject json = new JSONObject(user);
-		User newUser = new User();
-
-		if (json != null) {
-			newUser.setName(json.getString("name"));
-			newUser.setRanger(json.getInt("ranger"));
-			newUser.setAssault(json.getInt("assault"));
-			newUser.setDefense(json.getInt("defense"));
-		}
-		User returnUserData = us.createUser(newUser);
+		System.out.println(returnUserData.toString());
 
 		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
 	}
@@ -113,6 +99,7 @@ public class UserController {
 	@PutMapping(value = "/update")
 	public User updateUser(@RequestBody String userString) {
 		JSONObject json = new JSONObject(userString);
+		System.out.println(json);
 		User user = new User();
 
 		if (json != null) {
@@ -123,6 +110,16 @@ public class UserController {
 				user.setRanger(json.getInt("ranger"));
 				user.setAssault(json.getInt("assault"));
 				user.setDefense(json.getInt("defense"));
+
+				String[] perks = new String[3];
+				JSONArray arr = new JSONArray();
+				arr = json.getJSONArray("perks");
+				for (int i = 0; i < arr.length(); i++) {
+					perks[i] = arr.optString(i);
+				}
+				
+				user.setPerks(perks);
+				System.out.println(user);
 			}
 		}
 		return us.updateUser(user);

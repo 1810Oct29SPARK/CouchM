@@ -14,12 +14,14 @@ export class DataService {
   private userRan = new BehaviorSubject<number>(1);
   private userAss = new BehaviorSubject<number>(1);
   private userDef = new BehaviorSubject<number>(1);
+  private userPerks = new BehaviorSubject<Array<string>>([""]);
 
   id = this.userId.asObservable();
   traveler = this.userName.asObservable();
   ranger = this.userRan.asObservable();
   assault = this.userAss.asObservable();
   defense = this.userDef.asObservable();
+  perks = this.userPerks.asObservable();
 
   // allUserData = 'http://localhost:8085/api/all';
   alexData = 'http://localhost:8085/api/Alex';
@@ -49,6 +51,11 @@ export class DataService {
   changeUserDef(num: number) {
     console.log(num)
     this.userDef.next(num);
+  }
+
+  changeUserPerks(array: Array<string>) {
+    console.log(array)
+    this.userPerks.next(array);
   }
 
   getData() {

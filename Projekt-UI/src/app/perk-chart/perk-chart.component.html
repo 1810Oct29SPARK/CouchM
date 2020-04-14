@@ -1,69 +1,102 @@
-<div class="container">
-    <h2>Perk Chart</h2>
-    <!-- need a 3 x 11 table for each stat horizontal and each level vertical
-  th is the level, data bind to stat on calc
-  td is each perk, made available depending on the the # in the calc
--->
-    <div class="row stat">
-        <div class="col-md-12 perk-display">
-            <label class="total-label">{{traveler}}, there are perks to being so R.A.D.</label>
-        </div>
-    </div>
-    <div class="row stat">
-        <div class="col-md-2"></div>
-        <div class="col-md-2 rank">Ranger
-            <div>
-                <h3><span class="badge badge-secondary">{{ userInfo.value.ranger }}</span></h3>
+<div class="row container">
+    <div class="col-md-8">
+        <h2>Perk Chart</h2>
+        <div class="row stat">
+            <div class="col-md-12 perk-buttons">
+                <label class="total-label">{{traveler}}, there are perks to being so R.A.D.</label>
             </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2 rank">Assault
-            <div>
-                <h3><span class="badge badge-secondary">{{ userInfo.value.assault }}</span></h3>
+        <div class="row stat">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 rank">Ranger
+                <div>
+                    <h3><span class="badge badge-secondary">{{ userInfo.value.ranger }}</span></h3>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2 rank">Assault
+                <div>
+                    <h3><span class="badge badge-secondary">{{ userInfo.value.assault }}</span></h3>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2 rank">Defense
+                <div>
+                    <h3><span class="badge badge-secondary">{{ userInfo.value.defense }}</span></h3>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row stat">
+            <div class="col-md-2"></div>
+            <button class="col-md-2 perk-button" (click)="choosePerk('RP1')">Ranger Perk 1</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" (click)="choosePerk('AP1')">Assault Perk 1</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" (click)="choosePerk('DP1')">Defense Perk 1</button>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row stat">
+            <div class="col-md-2"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan" (click)="choosePerk('RP2')">Ranger Perk
+                2</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss" (click)="choosePerk('AP2')">Assault Perk
+                2</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef" (click)="choosePerk('DP2')">Defense Perk
+                2</button>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row stat">
+            <div class="col-md-2"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan" (click)="choosePerk('RP3')">Ranger Perk
+                3</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss" (click)="choosePerk('AP3')">Assault Perk
+                3</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef" (click)="choosePerk('DP3')">Defense Perk
+                3</button>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row stat">
+            <div class="col-md-2"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlFourRan" (click)="choosePerk('RP4')">Ranger Perk
+                4</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlFourAss" (click)="choosePerk('AP4')">Assault Perk
+                4</button>
+            <div class="col-md-1"></div>
+            <button class="col-md-2 perk-button" [disabled]="!lvlFourDef" (click)="choosePerk('DP4')">Defense Perk
+                4</button>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Perk Description</h5>
             </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2 rank">Defense
-            <div>
-                <h3><span class="badge badge-secondary">{{ userInfo.value.defense }}</span></h3>
+        <div class="row perk-descrip">
+            <div class="col-md-12">{{ description }}</div>
+        </div>
+        <div class="row perk-display">
+            <div class="col-md-12">
+                <h5>Selected Perks</h5>
             </div>
         </div>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row stat">
-        <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" (click)="choosePerk('RP1')">Ranger Perk 1</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" (click)="choosePerk('AP1')">Assault Perk 1</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" (click)="choosePerk('DP1')">Defense Perk 1</button>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row stat">
-        <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlTwoRan" (click)="choosePerk('RP2')">Ranger Perk 2</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlTwoAss" (click)="choosePerk('AP2')">Assault Perk 2</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlTwoDef" (click)="choosePerk('DP2')">Defense Perk 2</button>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row stat">
-        <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlThreeRan" (click)="choosePerk('RP3')">Ranger Perk 3</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlThreeAss" (click)="choosePerk('RP3')">Assault Perk 3</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlThreeDef" (click)="choosePerk('RP3')">Defense Perk 3</button>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row stat">
-        <div class="col-md-2"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlFourRan" (click)="choosePerk('RP4')">Ranger Perk 4</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlFourAss" (click)="choosePerk('RP4')">Assault Perk 4</button>
-        <div class="col-md-1"></div>
-        <button class="col-md-2 perk-button" [disabled]="!lvlFourDef" (click)="choosePerk('RP4')">Defense Perk 4</button>
-        <div class="col-md-2"></div>
+        <div class="row perks">
+            <div class="col-md-12">
+                <div *ngFor="let perk of selectedPerks">{{ perk }}</div>
+            </div>
+        </div>
+        <div class="row perk-submit">
+            <div class="col-md-12">
+                <button [disabled]="selectedPerks.length !== 3" type="button" class="btn btn-primary"
+                    (click)="enterUserPerks()">{{ perkButton }}</button>
+            </div>
+        </div>
     </div>
 </div>
