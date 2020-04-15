@@ -80,6 +80,7 @@ public class UserController {
 
 		String[] perks = new String[3];
 
+		user.setHealth(10);
 		user.setRanger(1);
 		user.setAssault(1);
 		user.setDefense(1);
@@ -106,19 +107,32 @@ public class UserController {
 			user = us.getUserById(json.getString("id"));
 			if (user != null) {
 
-				user.setName(json.getString("name"));
-				user.setRanger(json.getInt("ranger"));
-				user.setAssault(json.getInt("assault"));
-				user.setDefense(json.getInt("defense"));
-
-				String[] perks = new String[3];
-				JSONArray arr = new JSONArray();
-				arr = json.getJSONArray("perks");
-				for (int i = 0; i < arr.length(); i++) {
-					perks[i] = arr.optString(i);
+				if (json.getString("name") != null) {
+					user.setName(json.getString("name"));
 				}
-				
-				user.setPerks(perks);
+				if ((Integer) json.getInt("health") != null) {
+					user.setHealth(json.getInt("health"));
+				}
+				if ((Integer) json.getInt("ranger") != null) {
+					user.setRanger(json.getInt("ranger"));
+				}
+				if ((Integer) json.getInt("assault") != null) {
+					user.setAssault(json.getInt("assault"));
+				}
+				if ((Integer) json.getInt("defense") != null) {
+					user.setDefense(json.getInt("defense"));
+				}
+
+				if (json.getJSONArray("perks") != null) {
+					String[] perks = new String[3];
+					JSONArray arr = new JSONArray();
+					arr = json.getJSONArray("perks");
+					for (int i = 0; i < arr.length(); i++) {
+						perks[i] = arr.optString(i);
+					}
+					user.setPerks(perks);
+				}
+
 				System.out.println(user);
 			}
 		}

@@ -26,6 +26,7 @@ export class WelcomeComponent {
   userInfo = this.fb.group({
     id: '',
     name: '',
+    health: 0,
     ranger: 0,
     assault: 0,
     defense: 0,
@@ -34,6 +35,7 @@ export class WelcomeComponent {
 
   id: any;
   traveler;
+  health;
   ranger;
   assault;
   defense;
@@ -52,6 +54,7 @@ export class WelcomeComponent {
       let dbInfo = data.body;
       console.log(dbInfo)
       this.id = dbInfo['id'];
+      this.health = dbInfo['health'];
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
@@ -69,6 +72,7 @@ export class WelcomeComponent {
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
     this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserHealth(this.health);
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
@@ -78,6 +82,7 @@ export class WelcomeComponent {
   ngOnInit() {
     this.dataService.id.subscribe(id => this.id = id);
     this.dataService.traveler.subscribe(name => this.traveler = name);
+    this.dataService.health.subscribe(health => this.health = health);
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);

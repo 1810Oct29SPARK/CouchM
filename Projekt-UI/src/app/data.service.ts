@@ -11,6 +11,7 @@ export class DataService {
 
   private userId = new BehaviorSubject<string>("");
   private userName = new BehaviorSubject<string>("Traveler");
+  private userHealth = new BehaviorSubject<number>(10);
   private userRan = new BehaviorSubject<number>(1);
   private userAss = new BehaviorSubject<number>(1);
   private userDef = new BehaviorSubject<number>(1);
@@ -18,6 +19,7 @@ export class DataService {
 
   id = this.userId.asObservable();
   traveler = this.userName.asObservable();
+  health = this.userHealth.asObservable();
   ranger = this.userRan.asObservable();
   assault = this.userAss.asObservable();
   defense = this.userDef.asObservable();
@@ -36,6 +38,11 @@ export class DataService {
   changeUserName(name: string) {
     console.log(name)
     this.userName.next(name);
+  }
+
+  changeUserHealth(num: number) {
+    console.log(num)
+    this.userHealth.next(num);
   }
 
   changeUserRan(num: number) {

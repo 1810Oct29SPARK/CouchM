@@ -17,15 +17,17 @@ public class User implements Serializable {
 	@Id
 	private String id;
 	private String name;
+	private int health;
 	private int ranger;
 	private int assault;
 	private int defense;
 	private String[] perks;
 
-	public User(String id, String name, int ranger, int assault, int defense, String[] perks) {
+	public User(String id, String name, int health, int ranger, int assault, int defense, String[] perks) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.health = health;
 		this.ranger = ranger;
 		this.assault = assault;
 		this.defense = defense;
@@ -50,6 +52,14 @@ public class User implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
 	}
 
 	public int getRanger() {
@@ -86,7 +96,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", ranger=" + ranger + ", assault=" + assault + ", defense="
+		return "User [id=" + id + ", name=" + name + ", health=" + health + ", ranger=" + ranger + ", assault=" + assault + ", defense="
 				+ defense + ", perks=" + Arrays.toString(perks) + "]";
 	}
 

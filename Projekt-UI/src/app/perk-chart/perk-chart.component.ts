@@ -14,6 +14,7 @@ export class PerkChartComponent implements OnInit {
 
   id = "";
   traveler = "";
+  health;
   ranger;
   assault;
   defense;
@@ -22,6 +23,7 @@ export class PerkChartComponent implements OnInit {
   userInfo = this.fb.group({
     id: '',
     name: '',
+    health: 10,
     ranger: 0,
     assault: 0,
     defense: 0,
@@ -134,6 +136,7 @@ export class PerkChartComponent implements OnInit {
     this.dataService.userStats(this.userInfo.value).subscribe(data => {
       let dbInfo = data.body;
       this.id = dbInfo['id'];
+      this.health = dbInfo['health'];
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
@@ -148,6 +151,7 @@ export class PerkChartComponent implements OnInit {
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
     this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserHealth(this.health);
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
@@ -158,6 +162,7 @@ export class PerkChartComponent implements OnInit {
 
     this.dataService.id.subscribe(id => this.id = id);
     this.dataService.traveler.subscribe(name => this.traveler = name);
+    this.dataService.health.subscribe(health => this.health = health);
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
@@ -165,6 +170,7 @@ export class PerkChartComponent implements OnInit {
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
+      health: this.health,
       ranger: this.ranger,
       assault: this.assault,
       defense: this.defense,

@@ -17,6 +17,7 @@ export class CalculatorComponent implements OnInit {
 
   id = "";
   traveler = "";
+  health;
   ranger;
   assault;
   defense;
@@ -25,6 +26,7 @@ export class CalculatorComponent implements OnInit {
   userInfo = this.fb.group({
     id: '',
     name: '',
+    health: 10,
     ranger: 1,
     assault: 1,
     defense: 1,
@@ -34,6 +36,7 @@ export class CalculatorComponent implements OnInit {
   resetValues = {
     id: this.id,
     name: this.traveler,
+    health: 10,
     ranger: 1,
     assault: 1,
     defense: 1,
@@ -47,14 +50,6 @@ export class CalculatorComponent implements OnInit {
   maxLimit: boolean = false;
 
   updateButton = "Enter";
-
-  // onHoverUpdate() {
-  //   this.updateButton = "Let's Continue";
-  // }
-
-  // offHoverUpdate() {
-  //   this.updateButton = "Enter";
-  // }
 
   // i know this is not even remotely elegant, don't look at me.
 
@@ -119,6 +114,7 @@ export class CalculatorComponent implements OnInit {
     this.dataService.userStats(this.userInfo.value).subscribe(data => {
       let dbInfo = data.body;
       this.id = dbInfo['id'];
+      this.health = dbInfo['health'];
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
@@ -135,6 +131,7 @@ export class CalculatorComponent implements OnInit {
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
+      health: this.health,
       ranger: this.ranger,
       assault: this.assault,
       defense: this.defense,
@@ -146,6 +143,7 @@ export class CalculatorComponent implements OnInit {
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
     this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserHealth(this.health);
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
@@ -156,6 +154,7 @@ export class CalculatorComponent implements OnInit {
 
     this.dataService.id.subscribe(id => this.id = id);
     this.dataService.traveler.subscribe(name => this.traveler = name);
+    this.dataService.health.subscribe(health => this.health = health);
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
@@ -163,6 +162,7 @@ export class CalculatorComponent implements OnInit {
     this.userInfo.setValue({
       id: this.id,
       name: this.traveler,
+      health: this.health,
       ranger: this.ranger,
       assault: this.assault,
       defense: this.defense,
