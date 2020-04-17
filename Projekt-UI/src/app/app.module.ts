@@ -14,6 +14,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { PerkChartComponent } from './perk-chart/perk-chart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { IntroComponent } from './intro/intro.component';
+import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { IntroComponent } from './intro/intro.component';
     CalculatorComponent,
     PerkChartComponent,
     WelcomeComponent,
-    IntroComponent
+    IntroComponent,
+    DiceTrayComponent
   ],
   imports: [
     BrowserModule,
