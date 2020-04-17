@@ -1,0 +1,30 @@
+.container {
+    text-align: center;
+    margin: 5% auto;
+}
+
+.dice-button {
+    margin: 1vh;
+    background-color: whitesmoke;
+    color: black;
+    border: white;
+}
+
+.dice-counter {
+    width: 5vw;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 2vh;
+    margin: 1vh;
+}
+
+.dice-result {
+    margin: 1vh;
+    font-size: 3vh;
+}
+
+.result {
+    margin: 1vh;
+}

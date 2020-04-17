@@ -23,7 +23,7 @@ export class PerkChartComponent implements OnInit {
   userInfo = this.fb.group({
     id: '',
     name: '',
-    health: 10,
+    health: 0,
     ranger: 0,
     assault: 0,
     defense: 0,

@@ -4,12 +4,14 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { PerkChartComponent } from './perk-chart/perk-chart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { IntroComponent } from './intro/intro.component';
+import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'calculator', component: CalculatorComponent },
   { path: 'perks', component: PerkChartComponent },
-  { path: 'intro', component: IntroComponent},
+  { path: 'intro', component: IntroComponent },
+  { path: 'dice', component: DiceTrayComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -18,7 +20,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-/*
-dude just look at what we're doing at work as a reference, ya jackass.
-*/
