@@ -11,10 +11,10 @@ export class DataService {
 
   private userId = new BehaviorSubject<string>("");
   private userName = new BehaviorSubject<string>("Traveler");
-  private userHealth = new BehaviorSubject<number>(10);
-  private userRan = new BehaviorSubject<number>(1);
-  private userAss = new BehaviorSubject<number>(1);
-  private userDef = new BehaviorSubject<number>(1);
+  private userHealth = new BehaviorSubject<number>(0);
+  private userRan = new BehaviorSubject<number>(0);
+  private userAss = new BehaviorSubject<number>(0);
+  private userDef = new BehaviorSubject<number>(0);
   private userPerks = new BehaviorSubject<Array<string>>([""]);
 
   id = this.userId.asObservable();
