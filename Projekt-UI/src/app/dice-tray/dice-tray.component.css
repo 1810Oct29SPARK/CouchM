@@ -28,3 +28,8 @@
 .result {
     margin: 1vh;
 }
+
+.dice-total {
+    margin: 1vh;
+    font-size: 4vh;
+}

@@ -35,6 +35,10 @@ export class DiceTrayComponent implements OnInit {
 
   numberOfDice: number = 1;
 
+  totalRoll: number;
+
+  hits: number;
+
   rollDice(number) {
     this.diceResult = [];
     for (let i = 0; i < this.numberOfDice; i++) {
@@ -42,6 +46,10 @@ export class DiceTrayComponent implements OnInit {
     }
     this.diceResult.sort((n1, n2) => n1 - n2);
     console.log(this.diceResult);
+    // Total of diceResults combined
+    // this.totalRoll = this.diceResult.reduce((a, b) => a + b, 0);
+    let successRolls = this.diceResult.filter((n) => n >= 4);
+    this.hits = successRolls.length;
     this.numberOfDice = 1;
   }
 
