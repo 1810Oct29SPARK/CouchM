@@ -24,8 +24,6 @@ export class AppComponent {
   }
 
   pageTransition(outlet: RouterOutlet) {
-    // if (outlet.isActivated) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-    // }
   }
 }
