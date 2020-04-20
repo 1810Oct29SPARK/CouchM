@@ -15,10 +15,10 @@ export class DataService {
   private userRan = new BehaviorSubject<number>(0);
   private userAss = new BehaviorSubject<number>(0);
   private userDef = new BehaviorSubject<number>(0);
-  private userPerks = new BehaviorSubject<Array<string>>([""]);
+  private userPerks = new BehaviorSubject<Array<string>>(["","",""]);
 
   id = this.userId.asObservable();
-  traveler = this.userName.asObservable();
+  name = this.userName.asObservable();
   health = this.userHealth.asObservable();
   ranger = this.userRan.asObservable();
   assault = this.userAss.asObservable();

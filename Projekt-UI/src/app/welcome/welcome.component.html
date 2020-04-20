@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4 welcome">
-      <h2>Greetings, {{ traveler }}.</h2>
+      <h2>Greetings, {{ name }}.</h2>
       <br>
       <form [formGroup]="userInfo" (ngSubmit)="createNewUser()" name="userInfo" id="userInfo">
         <input type="text" class="form-control intro" formControlName="name" id="name" placeholder="What's your name?"

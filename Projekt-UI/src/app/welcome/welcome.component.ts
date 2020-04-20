@@ -34,7 +34,7 @@ export class WelcomeComponent {
   });
 
   id: any;
-  traveler;
+  name;
   health;
   ranger;
   assault;
@@ -54,24 +54,22 @@ export class WelcomeComponent {
       let dbInfo = data.body;
       console.log(dbInfo)
       this.id = dbInfo['id'];
+      this.name = dbInfo['name'];
       this.health = dbInfo['health'];
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
       this.perks = dbInfo['perks'];
       this.changeUserInfo();
-    })
-    this.traveler = this.userInfo.value.name;
-    this.userInfo.get("name").disable();
-    this.welcomeButton = "Welcome";
-    setTimeout(() => {
       this.router.navigateByUrl('/calculator');
-    }, 2000);
+    })
+    this.name = this.userInfo.value.name;
+    this.welcomeButton = "Welcome";
   }
 
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
-    this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserName(this.name);
     this.dataService.changeUserHealth(this.health);
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
@@ -81,7 +79,7 @@ export class WelcomeComponent {
 
   ngOnInit() {
     this.dataService.id.subscribe(id => this.id = id);
-    this.dataService.traveler.subscribe(name => this.traveler = name);
+    this.dataService.name.subscribe(name => this.name = name);
     this.dataService.health.subscribe(health => this.health = health);
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);

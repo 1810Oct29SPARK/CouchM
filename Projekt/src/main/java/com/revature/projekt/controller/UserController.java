@@ -72,13 +72,14 @@ public class UserController {
 	@PostMapping(value = "/create/name")
 	public ResponseEntity<User> createUser(@RequestBody String name) {
 		JSONObject json = new JSONObject(name);
+		System.out.println("Creating User with: " + json);
 		User user = new User();
 
 		if (json != null) {
 			user.setName(json.getString("name"));
 		}
 
-		String[] perks = new String[3];
+		String[] perks = { "", "", "" };
 
 		user.setHealth(10);
 		user.setRanger(1);
@@ -86,7 +87,7 @@ public class UserController {
 		user.setDefense(1);
 		user.setPerks(perks);
 		User returnUserData = us.createUser(user);
-		System.out.println(returnUserData.toString());
+		System.out.println("Created User's data: " + returnUserData.toString());
 
 		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
 	}
@@ -98,15 +99,15 @@ public class UserController {
 	 * in the meantime, do not create user until they've entered their stats
 	 */
 	@PutMapping(value = "/update")
-	public User updateUser(@RequestBody String userString) {
+	public ResponseEntity<User> updateUser(@RequestBody String userString) {
 		JSONObject json = new JSONObject(userString);
-		System.out.println(json);
+		System.out.println("Updating User with: " + json);
 		User user = new User();
 
 		if (json != null) {
 			user = us.getUserById(json.getString("id"));
 			if (user != null) {
-
+				System.out.println("Found a matching User ID");
 				if (json.getString("name") != null) {
 					user.setName(json.getString("name"));
 				}
@@ -132,11 +133,12 @@ public class UserController {
 					}
 					user.setPerks(perks);
 				}
-
-				System.out.println(user);
 			}
 		}
-		return us.updateUser(user);
+		User returnUserData = us.updateUser(user);
+		System.out.println("Updated User's data: " + returnUserData.toString());
+
+		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
 	}
 
 }

@@ -13,7 +13,7 @@ export class PerkChartComponent implements OnInit {
   constructor(private dataService: DataService, private fb: FormBuilder, private router: Router) { }
 
   id = "";
-  traveler = "";
+  name = "";
   health;
   ranger;
   assault;
@@ -127,8 +127,8 @@ export class PerkChartComponent implements OnInit {
     if (this.userInfo.value.defense > 3) {
       this.lvlFourDef = true;
     }
-  } 
-  
+  }
+
   enterUserPerks() {
     this.perkButton = "Let's Continue";
     this.userInfo.value.perks = this.selectedPerks;
@@ -142,15 +142,13 @@ export class PerkChartComponent implements OnInit {
       this.defense = dbInfo['defense'];
       this.perks = dbInfo['perks'];
       this.changeUserInfo();
+      this.router.navigateByUrl('/dice');
     })
-    setTimeout(() => {
-      this.router.navigateByUrl('/perks');
-    }, 2000);
   }
 
   changeUserInfo() {
     this.dataService.changeUserId(this.id);
-    this.dataService.changeUserName(this.traveler);
+    this.dataService.changeUserName(this.name);
     this.dataService.changeUserHealth(this.health);
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
@@ -161,7 +159,7 @@ export class PerkChartComponent implements OnInit {
   ngOnInit() {
 
     this.dataService.id.subscribe(id => this.id = id);
-    this.dataService.traveler.subscribe(name => this.traveler = name);
+    this.dataService.name.subscribe(name => this.name = name);
     this.dataService.health.subscribe(health => this.health = health);
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
@@ -169,7 +167,7 @@ export class PerkChartComponent implements OnInit {
     this.dataService.perks.subscribe(perks => this.perks = perks);
     this.userInfo.setValue({
       id: this.id,
-      name: this.traveler,
+      name: this.name,
       health: this.health,
       ranger: this.ranger,
       assault: this.assault,
