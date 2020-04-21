@@ -18,6 +18,7 @@ export class PerkChartComponent implements OnInit {
   ranger;
   assault;
   defense;
+  move;
   perks: Array<string>;
 
   userInfo = this.fb.group({
@@ -27,6 +28,7 @@ export class PerkChartComponent implements OnInit {
     ranger: 0,
     assault: 0,
     defense: 0,
+    move: 5,
     perks: []
   });
 
@@ -140,6 +142,7 @@ export class PerkChartComponent implements OnInit {
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
+      this.move = dbInfo['move'];
       this.perks = dbInfo['perks'];
       this.changeUserInfo();
       this.router.navigateByUrl('/dice');
@@ -153,6 +156,7 @@ export class PerkChartComponent implements OnInit {
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
+    this.dataService.changeUserMove(this.move);
     this.dataService.changeUserPerks(this.perks);
   }
 
@@ -164,6 +168,7 @@ export class PerkChartComponent implements OnInit {
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
+    this.dataService.move.subscribe(move => this.move = move);
     this.dataService.perks.subscribe(perks => this.perks = perks);
     this.userInfo.setValue({
       id: this.id,
@@ -172,6 +177,7 @@ export class PerkChartComponent implements OnInit {
       ranger: this.ranger,
       assault: this.assault,
       defense: this.defense,
+      move: this.move,
       perks: this.perks
     })
 

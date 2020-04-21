@@ -19,6 +19,7 @@ export class DiceTrayComponent implements OnInit {
   ranger;
   assault;
   defense;
+  move;
   perks: Array<string>;
 
   userInfo = this.fb.group({
@@ -28,6 +29,7 @@ export class DiceTrayComponent implements OnInit {
     ranger: 0,
     assault: 0,
     defense: 0,
+    move: 5,
     perks: []
   });
 
@@ -61,6 +63,7 @@ export class DiceTrayComponent implements OnInit {
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
+    this.dataService.move.subscribe(move => this.move = move);
     this.dataService.perks.subscribe(perks => this.perks = perks);
     this.userInfo.setValue({
       id: this.id,
@@ -69,6 +72,7 @@ export class DiceTrayComponent implements OnInit {
       ranger: this.ranger,
       assault: this.assault,
       defense: this.defense,
+      move: this.move,
       perks: this.perks
     })
 
