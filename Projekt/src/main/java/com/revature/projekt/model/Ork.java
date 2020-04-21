@@ -1,13 +1,12 @@
 package com.revature.projekt.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "users")
-public class User implements Serializable {
+@Document(collection = "orks")
+public class Ork implements Serializable {
 
 	/**
 	 * 
@@ -16,27 +15,23 @@ public class User implements Serializable {
 
 	@Id
 	private String id;
-	private String name;
 	private int health;
 	private int ranger;
 	private int assault;
 	private int defense;
 	private int move;
-	private String[] perks;
 
-	public User(String id, String name, int health, int ranger, int assault, int defense, int move, String[] perks) {
+	public Ork(String id, int health, int ranger, int assault, int defense, int move) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.health = health;
 		this.ranger = ranger;
 		this.assault = assault;
 		this.defense = defense;
 		this.move = move;
-		this.perks = perks;
 	}
 
-	public User() {
+	public Ork() {
 		super();
 	}
 
@@ -46,14 +41,6 @@ public class User implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getHealth() {
@@ -96,18 +83,10 @@ public class User implements Serializable {
 		this.move = move;
 	}
 
-	public String[] getPerks() {
-		return perks;
-	}
-
-	public void setPerks(String[] perks) {
-		this.perks = perks;
-	}
-
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", health=" + health + ", ranger=" + ranger + ", assault=" + assault
-				+ ", defense=" + defense + ", move=" + move + ", perks=" + Arrays.toString(perks) + "]";
+		return "Ork [id=" + id + ", health=" + health + ", ranger=" + ranger + ", assault=" + assault + ", defense="
+				+ defense + ", move=" + move + "]";
 	}
 
 }

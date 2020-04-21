@@ -15,7 +15,7 @@ export class DataService {
   private userRan = new BehaviorSubject<number>(0);
   private userAss = new BehaviorSubject<number>(0);
   private userDef = new BehaviorSubject<number>(0);
-  private userPerks = new BehaviorSubject<Array<string>>(["","",""]);
+  private userPerks = new BehaviorSubject<Array<string>>(["", "", ""]);
 
   id = this.userId.asObservable();
   name = this.userName.asObservable();
@@ -25,10 +25,9 @@ export class DataService {
   defense = this.userDef.asObservable();
   perks = this.userPerks.asObservable();
 
-  // allUserData = 'http://localhost:8085/api/all';
-  alexData = 'http://localhost:8085/api/Alex';
-  createApi = 'http://localhost:8085/api/create/name';
-  updateApi = 'http://localhost:8085/api/update';
+  allUserData = 'http://localhost:8085/user/all';
+  createApi = 'http://localhost:8085/user/create';
+  updateApi = 'http://localhost:8085/user/update';
 
   changeUserId(id: string) {
     console.log(id)
@@ -65,9 +64,8 @@ export class DataService {
     this.userPerks.next(array);
   }
 
-  getData() {
-    // return this.http.get(this.allUserData);
-    return this.http.get(this.alexData);
+  getAllUserData() {
+    return this.http.get(this.allUserData);
   }
 
   createUser(data: string) {

@@ -21,7 +21,7 @@ import com.revature.projekt.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserController {
 
 	private UserService us;
@@ -31,33 +31,21 @@ public class UserController {
 		this.us = us;
 	}
 
-	/**
-	 * returns all users, tested with Postman
-	 */
 	@GetMapping("/all")
 	public ResponseEntity<Collection<User>> getAllUsers() {
 		return new ResponseEntity<>(us.getAllUsers(), HttpStatus.OK);
 	}
 
-	/**
-	 * returns user by their id, tested with Postman
-	 */
-	@GetMapping(value = "/users/{id}")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable String id) {
 		return new ResponseEntity<>(us.getUserById(id), HttpStatus.OK);
 	}
 
-	/**
-	 * returns user by their name, tested with Postman
-	 */
-	@GetMapping(value = "/name/{name}")
+	@GetMapping(value = "/{name}")
 	public ResponseEntity<User> getUserByName(@PathVariable String name) {
 		return new ResponseEntity<>(us.findByName(name), HttpStatus.OK);
 	}
 
-	/**
-	 * deletes user by their id, tested successfully with postman
-	 */
 	@PostMapping(value = "/delete")
 	public void deleteUserById(@RequestBody String user) {
 		JSONObject js = new JSONObject(user);
@@ -65,11 +53,7 @@ public class UserController {
 		us.deleteUserbyId(id);
 	}
 
-	/**
-	 * creates user with only inputting a name, tested successfully with
-	 * postman @ModelAttribute("user")
-	 */
-	@PostMapping(value = "/create/name")
+	@PostMapping(value = "/create")
 	public ResponseEntity<User> createUser(@RequestBody String name) {
 		JSONObject json = new JSONObject(name);
 		System.out.println("Creating User with: " + json);
@@ -85,6 +69,7 @@ public class UserController {
 		user.setRanger(1);
 		user.setAssault(1);
 		user.setDefense(1);
+		user.setMove(5);
 		user.setPerks(perks);
 		User returnUserData = us.createUser(user);
 		System.out.println("Created User's data: " + returnUserData.toString());
@@ -92,12 +77,6 @@ public class UserController {
 		return new ResponseEntity<>(returnUserData, HttpStatus.OK);
 	}
 
-	/**
-	 * updates user by their id with new values for SPECIAL stats, will need to
-	 * search for user by id
-	 * 
-	 * in the meantime, do not create user until they've entered their stats
-	 */
 	@PutMapping(value = "/update")
 	public ResponseEntity<User> updateUser(@RequestBody String userString) {
 		JSONObject json = new JSONObject(userString);
@@ -122,6 +101,9 @@ public class UserController {
 				}
 				if ((Integer) json.getInt("defense") != null) {
 					user.setDefense(json.getInt("defense"));
+				}
+				if ((Integer) json.getInt("move") != null) {
+					user.setMove(json.getInt("move"));
 				}
 
 				if (json.getJSONArray("perks") != null) {
