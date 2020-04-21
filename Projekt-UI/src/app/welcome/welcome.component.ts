@@ -30,6 +30,7 @@ export class WelcomeComponent {
     ranger: 0,
     assault: 0,
     defense: 0,
+    move: 0,
     perks: []
   });
 
@@ -39,6 +40,7 @@ export class WelcomeComponent {
   ranger;
   assault;
   defense;
+  move;
   perks: Array<string>;
 
   welcomeButton = "Enter";
@@ -59,6 +61,7 @@ export class WelcomeComponent {
       this.ranger = dbInfo['ranger'];
       this.assault = dbInfo['assault'];
       this.defense = dbInfo['defense'];
+      this.move = dbInfo['move'];
       this.perks = dbInfo['perks'];
       this.changeUserInfo();
       this.router.navigateByUrl('/calculator');
@@ -74,6 +77,7 @@ export class WelcomeComponent {
     this.dataService.changeUserRan(this.ranger);
     this.dataService.changeUserAss(this.assault);
     this.dataService.changeUserDef(this.defense);
+    this.dataService.changeUserMove(this.move);
     this.dataService.changeUserPerks(this.perks);
   }
 
@@ -84,6 +88,7 @@ export class WelcomeComponent {
     this.dataService.ranger.subscribe(ranger => this.ranger = ranger);
     this.dataService.assault.subscribe(assault => this.assault = assault);
     this.dataService.defense.subscribe(defense => this.defense = defense);
+    this.dataService.move.subscribe(move => this.move = move);
     this.dataService.perks.subscribe(perks => this.perks = perks);
   }
 }
