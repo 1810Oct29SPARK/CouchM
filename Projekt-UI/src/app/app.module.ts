@@ -16,6 +16,7 @@ import { PerkChartComponent } from './perk-chart/perk-chart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { IntroComponent } from './intro/intro.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
+import { CombatComponent } from './combat/combat.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DiceTrayComponent } from './dice-tray/dice-tray.component';
     PerkChartComponent,
     WelcomeComponent,
     IntroComponent,
-    DiceTrayComponent
+    DiceTrayComponent,
+    CombatComponent
   ],
   imports: [
     BrowserModule,
