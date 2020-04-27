@@ -5,6 +5,7 @@ import { PerkChartComponent } from './perk-chart/perk-chart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { IntroComponent } from './intro/intro.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
+import { CombatComponent } from './combat/combat.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'perks', component: PerkChartComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'dice', component: DiceTrayComponent },
+  { path: 'combat', component: CombatComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

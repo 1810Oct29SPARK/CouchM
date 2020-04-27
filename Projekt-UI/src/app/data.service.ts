@@ -30,6 +30,8 @@ export class DataService {
   allUserData = 'http://localhost:8085/user/all';
   createApi = 'http://localhost:8085/user/create';
   updateApi = 'http://localhost:8085/user/update';
+  createOrkApi = 'http://localhost:8085/ork/create';
+  getAllOrkApi = 'http://localhost:8085/ork/all';
 
   changeUserId(id: string) {
     this.userId.next(id);
@@ -73,7 +75,15 @@ export class DataService {
   }
 
   userStats(data) {
-    return this.http.put(this.updateApi, data, { observe: "response" })
+    return this.http.put(this.updateApi, data, { observe: "response" });
+  }
+
+  createOrk() {
+    return this.http.get(this.createOrkApi, { observe: "response" });
+  }
+
+  getAllOrks() {
+    return this.http.get(this.getAllOrkApi, { observe: "response" });
   }
 
 }

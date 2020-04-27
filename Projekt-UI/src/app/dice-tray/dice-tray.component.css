@@ -1,6 +1,8 @@
 .container {
     text-align: center;
     margin: 5% auto;
+    border: 0.25vh white solid;
+    height: 40vh;
 }
 
 .dice-button {
@@ -21,12 +23,11 @@
 }
 
 .dice-result {
-    margin: 1vh;
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 .result {
-    margin: 1vh;
+    margin: .5vh;
 }
 
 .dice-total {

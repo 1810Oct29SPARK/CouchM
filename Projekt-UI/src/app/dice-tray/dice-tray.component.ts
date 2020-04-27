@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class DiceTrayComponent implements OnInit {
 
-  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder, private router: Router) { }
+  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder) { }
 
   id = "";
   name = "";

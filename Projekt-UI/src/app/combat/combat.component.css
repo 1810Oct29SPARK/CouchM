@@ -1,0 +1,15 @@
+.container {
+    margin: 1% auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.words {
+    margin: .5vh;
+}
+
+.info {
+    text-align: center;
+}

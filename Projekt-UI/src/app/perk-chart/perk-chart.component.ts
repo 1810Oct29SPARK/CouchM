@@ -145,7 +145,7 @@ export class PerkChartComponent implements OnInit {
       this.move = dbInfo['move'];
       this.perks = dbInfo['perks'];
       this.changeUserInfo();
-      this.router.navigateByUrl('/dice');
+      this.router.navigateByUrl('/combat');
     })
   }
 
