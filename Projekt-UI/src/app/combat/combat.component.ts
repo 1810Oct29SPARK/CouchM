@@ -3,6 +3,8 @@ import { DiceRollService } from '../dice-roll.service';
 import { DataService } from '../data.service';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CombatService } from './../combat.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-combat',
@@ -11,7 +13,9 @@ import { Router } from '@angular/router';
 })
 export class CombatComponent implements OnInit {
 
-  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder, private router: Router) { }
+  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder, private router: Router, private combatService: CombatService) {
+    this.subscription = this.combatService.getMessage().subscribe(message => this.messageFromDice = message);
+  }
 
   id = "";
   name = "";
@@ -39,22 +43,30 @@ export class CombatComponent implements OnInit {
 
   orks;
 
-  distanceBetween;
+  subscription: Subscription;
+
+  messageFromDice;
+
+  combatMessage: string;
+
+  // distanceBetween: number = 0;
 
   createOrk() {
     this.dataService.createOrk().subscribe(data => {
       let dbInfo = data.body;
       console.log(dbInfo);
-      this.distanceBetween = 15;
+      // this.distanceBetween = 15;
       if (this.orksArray.length === 0) {
-        this.wordsArray.push("An Ork has appeared " + this.distanceBetween + " meters away.");
+        // this.wordsArray.push("An Ork has appeared " + this.distanceBetween + " meters away.");
+        this.wordsArray.push("An Ork has appeared.");
       } else {
-        this.wordsArray.push("Another Ork has appeared " + this.distanceBetween + " meters away.");
+        // this.wordsArray.push("Another Ork has appeared " + this.distanceBetween + " meters away.");
+        this.wordsArray.push("Another Ork has appeared.");
       }
       // this.getAllOrks();
       this.orksArray.push(dbInfo);
       this.orks = this.orksArray.length;
-      console.log(this.orksArray)
+      console.log(this.orksArray);
     });
   }
 
@@ -67,7 +79,22 @@ export class CombatComponent implements OnInit {
     })
   }
 
+  attack() {
+    console.log("attack")
+    this.combatService.updateMessage("attack");
+  }
+
+  defend() {
+    console.log("defend")
+  }
+
+  showMessageFromDice(message: any) {
+    console.log(message)
+    this.wordsArray.push(message);
+  }
+
   ngOnInit() {
+    // console.log(this.distanceBetween)
 
     this.dataService.id.subscribe(id => this.id = id);
     this.dataService.name.subscribe(name => this.name = name);

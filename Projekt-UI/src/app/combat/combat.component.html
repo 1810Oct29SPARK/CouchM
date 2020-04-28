@@ -12,13 +12,15 @@
             </div>
             <div class="row hud">
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-primary" disabled>Move</button>
+                    <!-- <button type="button" class="btn btn-primary" [disabled]="distanceBetween === 0">Move</button> -->
+                    <button type="button" class="btn btn-primary">Move</button>
                 </div>
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-primary" disabled>Attack</button>
+                    <button type="button" class="btn btn-primary" (click)="attack()"
+                        [disabled]="orksArray.length === 0">Attack</button>
                 </div>
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-primary" disabled>Defend</button>
+                    <button type="button" class="btn btn-primary" (click)="defend()">Defend</button>
                 </div>
             </div>
         </div>
@@ -27,7 +29,7 @@
                 {{ words }}</div>
         </div>
         <div class="col-md-4 menu">
-            <app-dice-tray></app-dice-tray>
+            <app-dice-tray [message]="messageFromCombat" (diceMessage)="showMessageFromDice($event)"></app-dice-tray>
             <div>Orks: {{ orks }}</div>
             <br>
             <button type="button" class="btn btn-primary ork-button" (click)="createOrk()">Ork</button>

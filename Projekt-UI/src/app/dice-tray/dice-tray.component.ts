@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DiceRollService } from '../dice-roll.service';
 import { DataService } from '../data.service';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { CombatService } from './../combat.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dice-tray',
@@ -11,7 +12,13 @@ import { Router } from '@angular/router';
 })
 export class DiceTrayComponent implements OnInit {
 
-  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder) { }
+  @Input() message: string;
+
+  @Output() diceMessage = new EventEmitter<string>();
+
+  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder, private combatService: CombatService) {
+    this.subscription = this.combatService.getMessage().subscribe(message => this.messageFromCombat = message);
+  }
 
   id = "";
   name = "";
@@ -39,20 +46,29 @@ export class DiceTrayComponent implements OnInit {
 
   totalRoll: number;
 
-  hits: number;
+  hits: string;
+
+  subscription: Subscription;
+
+  messageFromCombat: string;
 
   rollDice(number) {
     this.diceResult = [];
     for (let i = 0; i < this.numberOfDice; i++) {
       this.diceResult.push(this.diceService.rollDie(number));
     }
-    this.diceResult.sort((n1, n2) => n1 - n2);
+    // this.diceResult.sort((n1, n2) => n1 - n2);
     console.log(this.diceResult);
     // Total of diceResults combined
     // this.totalRoll = this.diceResult.reduce((a, b) => a + b, 0);
     let successRolls = this.diceResult.filter((n) => n >= 4);
-    this.hits = successRolls.length;
+    this.hits = successRolls.length.toString();
     this.numberOfDice = 1;
+    this.updateCombat(this.hits);
+  }
+
+  updateCombat(message: string) {
+    this.diceMessage.emit(message);
   }
 
   ngOnInit() {
