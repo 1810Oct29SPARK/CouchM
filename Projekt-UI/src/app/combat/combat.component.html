@@ -1,26 +1,28 @@
 <div class="container">
     <h2 class="title">Combat</h2>
     <div class="row">
-        <div class="col-md-4 info">
-            <div class="row name-hp">
-                <div class="col-md-6 name">
-                    <h2>{{ name }}</h2>
+        <div class="col-md-4">
+            <div class="info">
+                <div class="row name-hp">
+                    <div class="col-md-6 name">
+                        <h2>{{ name }}</h2>
+                    </div>
+                    <div class="col-md-6 hp">
+                        <h4>HP: {{ health }}</h4>
+                    </div>
                 </div>
-                <div class="col-md-6 hp">
-                    <h4>HP: {{ health }}</h4>
-                </div>
-            </div>
-            <div class="row hud">
-                <div class="col-md-4">
-                    <!-- <button type="button" class="btn btn-primary" [disabled]="distanceBetween === 0">Move</button> -->
-                    <button type="button" class="btn btn-primary">Move</button>
-                </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-primary" (click)="attack()"
-                        [disabled]="orksArray.length === 0">Attack</button>
-                </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-primary" (click)="defend()">Defend</button>
+                <div class="row hud">
+                    <div class="col-md-4">
+                        <!-- <button type="button" class="btn btn-primary" [disabled]="distanceBetween === 0">Move</button> -->
+                        <button type="button" class="btn btn-primary">Move</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary" (click)="attack()"
+                            [disabled]="orksArray.length === 0">Attack</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary" (click)="defend()">Defend</button>
+                    </div>
                 </div>
             </div>
         </div>
