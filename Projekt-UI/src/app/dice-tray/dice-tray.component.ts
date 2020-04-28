@@ -65,6 +65,7 @@ export class DiceTrayComponent implements OnInit {
     this.hits = successRolls.length.toString();
     this.numberOfDice = 1;
     this.updateCombat(this.hits);
+    this.messageFromCombat = '';
   }
 
   updateCombat(message: string) {

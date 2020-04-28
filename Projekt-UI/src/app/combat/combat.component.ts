@@ -80,12 +80,11 @@ export class CombatComponent implements OnInit {
   }
 
   attack() {
-    console.log("attack")
     this.combatService.updateMessage("attack");
   }
 
   defend() {
-    console.log("defend")
+    this.combatService.updateMessage("defend");
   }
 
   showMessageFromDice(message: any) {

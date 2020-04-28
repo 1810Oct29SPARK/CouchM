@@ -2,13 +2,13 @@
   <h2>Dice Tray</h2>
   <div class="row">
     <div class="col-md-12">
-      Number of dice: <input class="dice-counter" type="number" [(ngModel)]="numberOfDice" [disabled]="messageFromCombat !== 'attack'">
+      Number of dice: <input class="dice-counter" type="number" [(ngModel)]="numberOfDice" [disabled]="messageFromCombat !== 'attack' && messageFromCombat !== 'defend'">
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <!-- <button type="button" class="btn btn-primary dice-button" (click)="rollDice(4)">D4</button> -->
-      <button type="button" class="btn btn-primary dice-button" (click)="rollDice(6)" [disabled]="messageFromCombat !== 'attack'">D6</button>
+      <button type="button" class="btn btn-primary dice-button" (click)="rollDice(6)" [disabled]="messageFromCombat !== 'attack' && messageFromCombat !== 'defend'">D6</button>
       <!-- <button type="button" class="btn btn-primary dice-button" (click)="rollDice(8)">D8</button> -->
     </div>
   </div>
