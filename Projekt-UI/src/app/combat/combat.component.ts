@@ -39,6 +39,10 @@ export class CombatComponent implements OnInit {
 
   wordsArray: Array<string> = ["Let's get you acquainted with how combat works."];
 
+  enemyMap = new Map([]);
+
+  enemyMapKeys;
+
   orksArray: Array<Object> = [];
 
   orks;
@@ -48,6 +52,8 @@ export class CombatComponent implements OnInit {
   messageFromDice;
 
   combatMessage: string;
+
+  enemySelect: boolean = false;
 
   // distanceBetween: number = 0;
 
@@ -63,10 +69,12 @@ export class CombatComponent implements OnInit {
         // this.wordsArray.push("Another Ork has appeared " + this.distanceBetween + " meters away.");
         this.wordsArray.push("Another Ork has appeared.");
       }
-      // this.getAllOrks();
       this.orksArray.push(dbInfo);
+      this.enemyMap.set("Orks", this.orksArray);
+      this.enemyMapKeys = Array.from(this.enemyMap.keys());
       this.orks = this.orksArray.length;
       console.log(this.orksArray);
+      console.log(this.enemyMap.keys());
     });
   }
 
@@ -81,6 +89,8 @@ export class CombatComponent implements OnInit {
 
   attack() {
     this.combatService.updateMessage("attack");
+    this.wordsArray.push("Select your target:");
+    this.enemySelect = true;
   }
 
   defend() {

@@ -17,8 +17,7 @@
                         <button type="button" class="btn btn-primary">Move</button>
                     </div>
                     <div class="col-md-4">
-                        <button type="button" class="btn btn-primary" (click)="attack()"
-                            [disabled]="orksArray.length === 0">Attack</button>
+                        <button type="button" class="btn btn-primary" (click)="attack()">Attack</button>
                     </div>
                     <div class="col-md-4">
                         <button type="button" class="btn btn-primary" (click)="defend()">Defend</button>
@@ -26,15 +25,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 dialogue">
+        <div class="col-md-5 dialogue">
             <div class="words" *ngFor="let words of wordsArray">
-                {{ words }}</div>
+                {{ words }}
+            </div>
+            <div *ngIf="enemySelect">
+                <div class="enemy-select" *ngFor="let enemy of enemyMapKeys">
+                    <button class="btn btn-warning">{{ enemy }}</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 menu">
+        <div class="col-md-3 menu">
             <app-dice-tray [message]="messageFromCombat" (diceMessage)="showMessageFromDice($event)"></app-dice-tray>
             <div>Orks: {{ orks }}</div>
             <br>
-            <button type="button" class="btn btn-primary ork-button" (click)="createOrk()">Ork</button>
+            <button type="button" class="btn btn-primary ork-button" (click)="createOrk()"
+                [disabled]="orksArray.length > 0">Ork</button>
         </div>
     </div>
 </div>
