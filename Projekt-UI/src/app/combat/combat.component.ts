@@ -39,12 +39,22 @@ export class CombatComponent implements OnInit {
 
   orks;
 
+  distanceBetween;
+
   createOrk() {
     this.dataService.createOrk().subscribe(data => {
       let dbInfo = data.body;
       console.log(dbInfo);
-      this.wordsArray.push("An Ork has appeared.");
-      this.getAllOrks();
+      this.distanceBetween = 15;
+      if (this.orksArray.length === 0) {
+        this.wordsArray.push("An Ork has appeared " + this.distanceBetween + " meters away.");
+      } else {
+        this.wordsArray.push("Another Ork has appeared " + this.distanceBetween + " meters away.");
+      }
+      // this.getAllOrks();
+      this.orksArray.push(dbInfo);
+      this.orks = this.orksArray.length;
+      console.log(this.orksArray)
     });
   }
 
@@ -79,6 +89,23 @@ export class CombatComponent implements OnInit {
     })
 
     console.log(this.userInfo.value);
+
+    if (this.userInfo.value.name === 'Traveler') {
+      this.dataService.createUser(this.userInfo.value).subscribe(data => {
+        let dbInfo = data.body;
+        console.log(dbInfo)
+        this.id = dbInfo['id'];
+        this.name = dbInfo['name'];
+        this.health = dbInfo['health'];
+        this.ranger = dbInfo['ranger'];
+        this.assault = dbInfo['assault'];
+        this.defense = dbInfo['defense'];
+        this.move = dbInfo['move'];
+        this.perks = dbInfo['perks'];
+      })
+      this.name = this.userInfo.value.name;
+    }
+
 
     setTimeout(() => {
       this.wordsArray.push("Generate an opponent with the 'Ork' button on the right.")

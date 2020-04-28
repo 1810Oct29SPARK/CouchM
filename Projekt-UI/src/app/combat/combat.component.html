@@ -1,11 +1,32 @@
 <div class="container">
     <h2 class="title">Combat</h2>
     <div class="row">
-        <div class="col-md-8 dialogue">
+        <div class="col-md-4 info">
+            <div class="row name-hp">
+                <div class="col-md-6 name">
+                    <h2>{{ name }}</h2>
+                </div>
+                <div class="col-md-6 hp">
+                    <h4>HP: {{ health }}</h4>
+                </div>
+            </div>
+            <div class="row hud">
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" disabled>Move</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" disabled>Attack</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary" disabled>Defend</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 dialogue">
             <div class="words" *ngFor="let words of wordsArray">
                 {{ words }}</div>
         </div>
-        <div class="col-md-4 info">
+        <div class="col-md-4 menu">
             <app-dice-tray></app-dice-tray>
             <div>Orks: {{ orks }}</div>
             <br>

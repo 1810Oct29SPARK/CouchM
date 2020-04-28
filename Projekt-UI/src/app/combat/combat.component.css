@@ -10,6 +10,25 @@
     margin: .5vh;
 }
 
+.menu {
+    text-align: center;
+}
+
 .info {
     text-align: center;
+    margin: 1% auto;
+    border: 0.25vh white solid;
+    height: fit-content;
+}
+
+.name-hp {
+    margin: auto;
+}
+
+.hp {
+    padding-top: 2%;
+}
+
+.hud {
+    margin: 1vh;
 }

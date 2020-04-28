@@ -27,6 +27,7 @@ export class DataService {
   move = this.userMove.asObservable();
   perks = this.userPerks.asObservable();
 
+  getUserByIdApi = 'http://localhost:8085/user/';
   allUserData = 'http://localhost:8085/user/all';
   createApi = 'http://localhost:8085/user/create';
   updateApi = 'http://localhost:8085/user/update';
@@ -64,6 +65,10 @@ export class DataService {
   changeUserPerks(array: Array<string>) {
     console.log(array)
     this.userPerks.next(array);
+  }
+
+  getUserById(id: string) {
+    return this.http.get(this.getUserByIdApi + id);
   }
 
   getAllUserData() {
