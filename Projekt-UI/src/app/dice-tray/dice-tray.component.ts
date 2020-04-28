@@ -61,8 +61,13 @@ export class DiceTrayComponent implements OnInit {
     console.log(this.diceResult);
     // Total of diceResults combined
     // this.totalRoll = this.diceResult.reduce((a, b) => a + b, 0);
-    let successRolls = this.diceResult.filter((n) => n >= 4);
-    this.hits = successRolls.length.toString();
+    if (this.messageFromCombat === 'attack') {
+      let successRolls = this.diceResult.filter((n) => n >= 4);
+      this.hits = successRolls.length.toString();
+    } else if (this.messageFromCombat === 'defend') {
+      let successRolls = this.diceResult.filter((n) => n >= 5);
+      this.hits = successRolls.length.toString();
+    }
     this.numberOfDice = 1;
     this.updateCombat(this.hits);
     this.messageFromCombat = '';
