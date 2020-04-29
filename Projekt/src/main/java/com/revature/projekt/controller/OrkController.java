@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +46,7 @@ public class OrkController {
 		return new ResponseEntity<>(os.createOrk(ork), HttpStatus.OK);
 	}
 
-	@PostMapping("/update")
+	@PutMapping("/update")
 	public ResponseEntity<Ork> updateOrk(@RequestBody String orkString) {
 		JSONObject json = new JSONObject(orkString);
 		Ork ork = new Ork();
@@ -63,10 +63,11 @@ public class OrkController {
 		return new ResponseEntity<>(os.updateOrk(ork), HttpStatus.OK);
 	}
 
-	@DeleteMapping
+	@PostMapping("/delete")
 	public void deleteOrk(@RequestBody String ork) {
 		JSONObject json = new JSONObject(ork);
 		String id = json.getString("id");
+		System.out.println("Slain Ork's ID: " + id);
 		os.deleteOrk(id);
 	}
 }

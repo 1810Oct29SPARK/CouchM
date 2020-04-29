@@ -45,7 +45,7 @@ export class CombatComponent implements OnInit {
 
   orksArray: Array<Object> = [];
 
-  orks;
+  orks: number = 0;
 
   subscription: Subscription;
 
@@ -53,7 +53,9 @@ export class CombatComponent implements OnInit {
 
   combatMessage: string;
 
-  enemySelect: boolean = false;
+  enemyType: boolean = false;
+
+  enemySelected: string;
 
   // distanceBetween: number = 0;
 
@@ -88,9 +90,17 @@ export class CombatComponent implements OnInit {
   }
 
   attack() {
-    this.combatService.updateMessage("attack");
     this.wordsArray.push("Select your target:");
-    this.enemySelect = true;
+    this.enemyType = true;
+  }
+
+  selectEnemy(target: string) {
+    console.log(target);
+    if (target === 'Orks') {
+      this.combatService.updateMessage("attack");
+      console.log("Orks selected")
+      this.enemySelected = target;
+    }
   }
 
   defend() {
@@ -99,7 +109,29 @@ export class CombatComponent implements OnInit {
 
   showMessageFromDice(message: any) {
     console.log(message)
-    this.wordsArray.push(message);
+    this.enemyType = false;
+    this.wordsArray.push("You dealt " + message + " damage to the " + this.enemySelected);
+    if (this.enemySelected === "Orks") {
+      console.log(this.orksArray[0])
+      let damage = this.orksArray[0]["health"] - message;
+      this.orksArray[0]["health"] = damage;
+      console.log(this.orksArray[0]["health"]);
+      if (this.orksArray[0]["health"] > 0) {
+        console.log(this.orksArray[0]["health"]);
+        this.dataService.updateOrk(this.orksArray[0]).subscribe(data => {
+          let dbData = data.body;
+          console.log(dbData)
+        })
+      } else if (this.orksArray[0]["health"] <= 0) {
+        console.log("Ork's health is depleted");
+        this.dataService.deleteOrk(this.orksArray[0]).subscribe(data => {
+          console.log(data);
+        });
+        this.orksArray = this.orksArray.splice(1);
+        this.orks = this.orksArray.length;
+        console.log(this.orksArray.length);
+      }
+    }
   }
 
   ngOnInit() {

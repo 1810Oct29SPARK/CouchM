@@ -33,6 +33,8 @@ export class DataService {
   updateApi = 'http://localhost:8085/user/update';
   createOrkApi = 'http://localhost:8085/ork/create';
   getAllOrkApi = 'http://localhost:8085/ork/all';
+  updateOrkApi = 'http://localhost:8085/ork/update';
+  deleteOrkApi = 'http://localhost:8085/ork/delete';
 
   changeUserId(id: string) {
     this.userId.next(id);
@@ -89,6 +91,15 @@ export class DataService {
 
   getAllOrks() {
     return this.http.get(this.getAllOrkApi, { observe: "response" });
+  }
+
+  updateOrk(data) {
+    return this.http.put(this.updateOrkApi, data, { observe: "response" });
+  }
+
+  deleteOrk(data) {
+    console.log("deleting Ork with id: " + data["id"]);
+    return this.http.post(this.deleteOrkApi, data, { observe: "response" });
   }
 
 }

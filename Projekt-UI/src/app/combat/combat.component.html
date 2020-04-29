@@ -29,9 +29,9 @@
             <div class="words" *ngFor="let words of wordsArray">
                 {{ words }}
             </div>
-            <div *ngIf="enemySelect">
-                <div class="enemy-select" *ngFor="let enemy of enemyMapKeys">
-                    <button class="btn btn-warning">{{ enemy }}</button>
+            <div *ngIf="enemyType">
+                <div class="enemy-type" *ngFor="let enemy of enemyMapKeys">
+                    <button class="btn btn-primary" (click)="selectEnemy(enemy)">{{ enemy }}</button>
                 </div>
             </div>
         </div>
