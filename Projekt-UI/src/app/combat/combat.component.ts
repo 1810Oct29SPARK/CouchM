@@ -90,12 +90,14 @@ export class CombatComponent implements OnInit {
   }
 
   attack() {
-    this.wordsArray.push("Select your target:");
+    this.wordsArray.push("Select your target.");
     this.enemyType = true;
   }
 
   selectEnemy(target: string) {
     console.log(target);
+    this.wordsArray.push("You attack the " + target + ".");
+    this.enemyType = false;
     if (target === 'Orks') {
       this.combatService.updateMessage("attack");
       console.log("Orks selected")
@@ -109,8 +111,7 @@ export class CombatComponent implements OnInit {
 
   showMessageFromDice(message: any) {
     console.log(message)
-    this.enemyType = false;
-    this.wordsArray.push("You dealt " + message + " damage to the " + this.enemySelected);
+    this.wordsArray.push("You dealt " + message + " damage.");
     if (this.enemySelected === "Orks") {
       console.log(this.orksArray[0])
       let damage = this.orksArray[0]["health"] - message;
@@ -130,6 +131,7 @@ export class CombatComponent implements OnInit {
         this.orksArray = this.orksArray.splice(1);
         this.orks = this.orksArray.length;
         console.log(this.orksArray.length);
+        this.wordsArray.push("You've slain an Ork!");
       }
     }
   }
