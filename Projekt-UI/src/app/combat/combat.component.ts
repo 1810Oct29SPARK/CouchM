@@ -118,21 +118,26 @@ export class CombatComponent implements OnInit {
       this.orksArray[0]["health"] = damage;
       console.log(this.orksArray[0]["health"]);
       if (this.orksArray[0]["health"] > 0) {
-        console.log(this.orksArray[0]["health"]);
+        console.log("ork health after attack: " + this.orksArray[0]["health"]);
         this.dataService.updateOrk(this.orksArray[0]).subscribe(data => {
           let dbData = data.body;
           console.log(dbData)
         })
+        // this.wordsArray.push("");
       } else if (this.orksArray[0]["health"] <= 0) {
         console.log("Ork's health is depleted");
         this.dataService.deleteOrk(this.orksArray[0]).subscribe(data => {
           console.log(data);
         });
-        this.orksArray = this.orksArray.splice(1);
+        this.orksArray = this.orksArray.splice(1, 1);
         this.orks = this.orksArray.length;
         console.log(this.orksArray.length);
         this.wordsArray.push("You've slain an Ork!");
       }
+
+      // When dealing with multiple enemies of the same type, consider taking the roll over damage 
+      // (when health is -1 after attacks, for example) and "adding" that to the health of the next enemy in the array
+
     }
   }
 

@@ -42,7 +42,7 @@ export class DiceTrayComponent implements OnInit {
 
   diceResult: number[] = [];
 
-  numberOfDice: number = 1;
+  numberOfDice: number = 3;
 
   totalRoll: number;
 
@@ -51,6 +51,18 @@ export class DiceTrayComponent implements OnInit {
   subscription: Subscription;
 
   messageFromCombat: string;
+
+  rangerTwo: boolean = false;
+  rangerThree: boolean = false;
+  rangerFour: boolean = false;
+
+  assaultTwo: boolean = false;
+  assaultThree: boolean = false;
+  assaultFour: boolean = false;
+
+  defenseTwo: boolean = false;
+  defenseThree: boolean = false;
+  defenseFour: boolean = false;
 
   rollDice(number) {
     this.diceResult = [];
@@ -65,10 +77,21 @@ export class DiceTrayComponent implements OnInit {
       let successRolls = this.diceResult.filter((n) => n >= 4);
       this.hits = successRolls.length.toString();
     } else if (this.messageFromCombat === 'defend') {
-      let successRolls = this.diceResult.filter((n) => n >= 5);
-      this.hits = successRolls.length.toString();
+      if (this.defenseTwo) {
+        let successRolls = this.diceResult.filter((n) => n >= 4);
+        this.hits = successRolls.length.toString();
+      } else if (this.defenseThree) {
+        let successRolls = this.diceResult.filter((n) => n >= 3);
+        this.hits = successRolls.length.toString();
+      } else if (this.defenseFour) {
+        let successRolls = this.diceResult.filter((n) => n >= 2);
+        this.hits = successRolls.length.toString();
+      } else {
+        let successRolls = this.diceResult.filter((n) => n >= 5);
+        this.hits = successRolls.length.toString();
+      }
     }
-    this.numberOfDice = 1;
+    // this.numberOfDice = 1;
     this.updateCombat(this.hits);
     this.messageFromCombat = '';
   }
@@ -99,6 +122,25 @@ export class DiceTrayComponent implements OnInit {
     })
 
     console.log(this.userInfo.value);
+
+    if (this.userInfo.value.assault === 2) {
+      this.assaultTwo = true;
+      this.numberOfDice = 4;
+    } else if (this.userInfo.value.assault === 3) {
+      this.assaultThree = true;
+      this.numberOfDice = 5;
+    } else if (this.userInfo.value.assault === 4) {
+      this.assaultFour = true;
+      this.numberOfDice = 6;
+    }
+
+    if (this.userInfo.value.defense === 2) {
+      this.defenseTwo = true;
+    } else if (this.userInfo.value.defense === 3) {
+      this.defenseThree = true;
+    } else if (this.userInfo.value.defense === 4) {
+      this.defenseFour = true;
+    }
   }
 
 }
