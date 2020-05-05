@@ -17,6 +17,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { IntroComponent } from './intro/intro.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { CombatComponent } from './combat/combat.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CombatComponent } from './combat/combat.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StorageServiceModule
+    StorageServiceModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent] /** lists all the components it analyzes our index.html file */

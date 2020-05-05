@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CombatService } from './../combat.service';
 import { Subscription } from 'rxjs';
+import { MatDialogConfig, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-combat',
@@ -13,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class CombatComponent implements OnInit {
 
-  constructor(private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder, private router: Router, private combatService: CombatService) {
+  constructor(private dialog: MatDialog, private diceService: DiceRollService, private dataService: DataService, private fb: FormBuilder, private router: Router, private combatService: CombatService) {
     this.subscription = this.combatService.getMessage().subscribe(message => this.messageFromDice = message);
   }
 

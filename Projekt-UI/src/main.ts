@@ -1,3 +1,4 @@
+import 'hammerjs';
 /**this is the first code that gets executed on app start up
  */
 

@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": [],
@@ -132,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "Projekt-UI"
+  "defaultProject": "Projekt-UI",
+  "cli": {
+    "analytics": "8cb4862e-1186-4e1e-9777-3d096faf2020"
+  }
 }
