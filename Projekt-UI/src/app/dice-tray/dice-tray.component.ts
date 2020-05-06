@@ -4,6 +4,7 @@ import { DataService } from '../data.service';
 import { FormBuilder } from '@angular/forms';
 import { CombatService } from './../combat.service';
 import { Subscription } from 'rxjs';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-dice-tray',
@@ -94,6 +95,7 @@ export class DiceTrayComponent implements OnInit {
     // this.numberOfDice = 1;
     this.updateCombat(this.hits);
     this.messageFromCombat = '';
+    // this.dialogRef.close({data: this.hits});
   }
 
   updateCombat(message: string) {

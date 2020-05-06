@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { CombatService } from './../combat.service';
 import { Subscription } from 'rxjs';
 import { MatDialogConfig, MatDialog } from '@angular/material';
+import { DiceTrayComponent } from '../dice-tray/dice-tray.component';
 
 @Component({
   selector: 'app-combat',
@@ -56,7 +57,7 @@ export class CombatComponent implements OnInit {
 
   enemyType: boolean = false;
 
-  enemySelected: string;
+  enemySelected: Object;
 
   // distanceBetween: number = 0;
 
@@ -95,15 +96,31 @@ export class CombatComponent implements OnInit {
     this.enemyType = true;
   }
 
-  selectEnemy(target: string) {
-    console.log(target);
-    this.wordsArray.push("You attack the " + target + ".");
+  selectEnemy(target: Object) {
+    console.log(target["name"]);
+    this.wordsArray.push("You attack the " + target["name"] + ".");
     this.enemyType = false;
-    if (target === 'Orks') {
+    if (target["name"] === 'Ork') {
       this.combatService.updateMessage("attack");
       console.log("Orks selected")
       this.enemySelected = target;
+      console.log(this.enemySelected);
     }
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.height = '100%';
+    // dialogConfig.width = '100%';
+    // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.data = {
+    //   values: 
+    // }
+
+    // const dialogRef = this.dialog.open(DiceTrayComponent, dialogConfig);
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(result);
+
+
+    // })
   }
 
   defend() {
@@ -113,33 +130,33 @@ export class CombatComponent implements OnInit {
   showMessageFromDice(message: any) {
     console.log(message)
     this.wordsArray.push("You dealt " + message + " damage.");
-    if (this.enemySelected === "Orks") {
-      console.log(this.orksArray[0])
-      let damage = this.orksArray[0]["health"] - message;
-      this.orksArray[0]["health"] = damage;
-      console.log(this.orksArray[0]["health"]);
-      if (this.orksArray[0]["health"] > 0) {
-        console.log("ork health after attack: " + this.orksArray[0]["health"]);
-        this.dataService.updateOrk(this.orksArray[0]).subscribe(data => {
-          let dbData = data.body;
-          console.log(dbData)
-        })
-        // this.wordsArray.push("");
-      } else if (this.orksArray[0]["health"] <= 0) {
-        console.log("Ork's health is depleted");
-        this.dataService.deleteOrk(this.orksArray[0]).subscribe(data => {
-          console.log(data);
-        });
-        this.orksArray = this.orksArray.splice(1, 1);
-        this.orks = this.orksArray.length;
-        console.log(this.orksArray.length);
-        this.wordsArray.push("You've slain an Ork!");
-      }
-
-      // When dealing with multiple enemies of the same type, consider taking the roll over damage 
-      // (when health is -1 after attacks, for example) and "adding" that to the health of the next enemy in the array
-
+    // if (this.enemySelected["name"] === "Ork") {
+    console.log(this.enemySelected)
+    let damage = this.enemySelected["health"] - message;
+    this.enemySelected["health"] = damage;
+    console.log(this.orksArray[0]["health"]);
+    if (this.enemySelected["health"] > 0) {
+      console.log("ork health after attack: " + this.enemySelected["health"]);
+      this.dataService.updateOrk(this.orksArray[0]).subscribe(data => {
+        let dbData = data.body;
+        console.log(dbData)
+      })
+      // this.wordsArray.push("");
+    } else if (this.enemySelected["health"] <= 0) {
+      console.log("Ork's health is depleted");
+      this.dataService.deleteOrk(this.orksArray[0]).subscribe(data => {
+        console.log(data);
+      });
+      this.orksArray = this.orksArray.splice(1, 1);
+      this.orks = this.orksArray.length;
+      console.log(this.orksArray.length);
+      this.wordsArray.push("You've slain an enemy!");
     }
+
+    // When dealing with multiple enemies of the same type, consider taking the roll over damage 
+    // (when health is -1 after attacks, for example) and "adding" that to the health of the next enemy in the array
+
+    // }
   }
 
   ngOnInit() {
