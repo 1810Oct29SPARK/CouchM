@@ -38,6 +38,7 @@ public class OrkController {
 	@GetMapping("/create")
 	public ResponseEntity<Ork> createOrk() {
 		Ork ork = new Ork();
+		ork.setName("Ork");
 		ork.setHealth(5);
 		ork.setRanger(1);
 		ork.setAssault(2);

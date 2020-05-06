@@ -32,3 +32,18 @@
 .hud {
     margin: 1vh;
 }
+
+.enemy-button {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1vh;
+}
+
+.enemy-button-active {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1vh;
+    border: 0.25vh red solid;
+}

@@ -15,15 +15,17 @@ public class Ork implements Serializable {
 
 	@Id
 	private String id;
+	private String name;
 	private int health;
 	private int ranger;
 	private int assault;
 	private int defense;
 	private int move;
 
-	public Ork(String id, int health, int ranger, int assault, int defense, int move) {
+	public Ork(String id, String name, int health, int ranger, int assault, int defense, int move) {
 		super();
 		this.id = id;
+		this.name = name;
 		this.health = health;
 		this.ranger = ranger;
 		this.assault = assault;
@@ -41,6 +43,14 @@ public class Ork implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getHealth() {
@@ -85,8 +95,8 @@ public class Ork implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Ork [id=" + id + ", health=" + health + ", ranger=" + ranger + ", assault=" + assault + ", defense="
-				+ defense + ", move=" + move + "]";
+		return "Ork [id=" + id + ", name=" + name + ", health=" + health + ", ranger=" + ranger + ", assault=" + assault
+				+ ", defense=" + defense + ", move=" + move + "]";
 	}
 
 }

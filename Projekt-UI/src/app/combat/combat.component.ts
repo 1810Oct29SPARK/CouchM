@@ -42,7 +42,7 @@ export class CombatComponent implements OnInit {
 
   enemyMap = new Map([]);
 
-  enemyMapKeys;
+  // enemyMapKeys;
 
   orksArray: Array<Object> = [];
 
@@ -74,10 +74,10 @@ export class CombatComponent implements OnInit {
       }
       this.orksArray.push(dbInfo);
       this.enemyMap.set("Orks", this.orksArray);
-      this.enemyMapKeys = Array.from(this.enemyMap.keys());
+      // this.enemyMapKeys = Array.from(this.enemyMap.keys());
       this.orks = this.orksArray.length;
       console.log(this.orksArray);
-      console.log(this.enemyMap.keys());
+      // console.log(this.enemyMap.keys());
     });
   }
 
