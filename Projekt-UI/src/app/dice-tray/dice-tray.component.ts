@@ -49,9 +49,11 @@ export class DiceTrayComponent implements OnInit {
 
   hits: string;
 
+  blocks: string;
+
   subscription: Subscription;
 
-  messageFromCombat: string;
+  messageFromCombat: string = '';
 
   rangerTwo: boolean = false;
   rangerThree: boolean = false;
@@ -74,28 +76,61 @@ export class DiceTrayComponent implements OnInit {
     console.log(this.diceResult);
     // Total of diceResults combined
     // this.totalRoll = this.diceResult.reduce((a, b) => a + b, 0);
-    if (this.messageFromCombat === 'attack') {
-      let successRolls = this.diceResult.filter((n) => n >= 4);
-      this.hits = successRolls.length.toString();
-    } else if (this.messageFromCombat === 'defend') {
-      if (this.defenseTwo) {
-        let successRolls = this.diceResult.filter((n) => n >= 4);
-        this.hits = successRolls.length.toString();
-      } else if (this.defenseThree) {
-        let successRolls = this.diceResult.filter((n) => n >= 3);
-        this.hits = successRolls.length.toString();
-      } else if (this.defenseFour) {
-        let successRolls = this.diceResult.filter((n) => n >= 2);
-        this.hits = successRolls.length.toString();
-      } else {
-        let successRolls = this.diceResult.filter((n) => n >= 5);
-        this.hits = successRolls.length.toString();
-      }
+    if (this.messageFromCombat.includes('attack')) {
+      let successRolls = this.attack(this.diceResult);
+      console.log(successRolls);
+      console.log("Successful attacks: " + successRolls.length.toString());
+      let successfulAttacks = successRolls.length;
+      // this.hits = successRolls.length.toString();
+      this.defend(successfulAttacks);
+      console.log("Attacks blocked: " + this.blocks);
+      console.log("Damage inflicted: " + this.hits);
+    } else if (this.messageFromCombat.includes('defend')) {
+      // this.defend(this.diceResult);
     }
-    // this.numberOfDice = 1;
-    this.updateCombat(this.hits);
+    this.updateCombat(this.hits + "," + this.blocks);
     this.messageFromCombat = '';
-    // this.dialogRef.close({data: this.hits});
+  }
+
+  attack(rolls: number[]) {
+    if (this.rangerTwo) {
+      return rolls.filter((n) => n >= 4);
+    } else if (this.rangerThree) {
+      return rolls.filter((n) => n >= 3);
+    } else if (this.rangerFour) {
+      return rolls.filter((n) => n >= 2);
+    } else {
+      return rolls.filter((n) => n >= 5);
+    }
+  }
+
+  defend(success: number) {
+    let defenseRoll: number[] = [];
+    for (let i = 0; i < success; i++) {
+      defenseRoll.push(this.diceService.rollDie(success));
+    }
+    console.log("Defense roll results: " + defenseRoll);
+    if (this.defenseTwo) {
+      let successfulBlocks = defenseRoll.filter((n) => n >= 4);
+      this.blocks = successfulBlocks.length.toString();
+      let failedBlocks = defenseRoll.filter((n) => n < 4);
+      this.hits = failedBlocks.length.toString();
+    } else if (this.defenseThree) {
+      let successfulBlocks = defenseRoll.filter((n) => n >= 3);
+      this.blocks = successfulBlocks.length.toString();
+      let failedBlocks = defenseRoll.filter((n) => n < 3);
+      this.hits = failedBlocks.length.toString();
+    } else if (this.defenseFour) {
+      let successfulBlocks = defenseRoll.filter((n) => n >= 2);
+      this.blocks = successfulBlocks.length.toString();
+      let failedBlocks = defenseRoll.filter((n) => n < 2);
+      this.hits = failedBlocks.length.toString();
+    } else {
+      let successfulBlocks = defenseRoll.filter((n) => n >= 5);
+      this.blocks = successfulBlocks.length.toString();
+      let failedBlocks = defenseRoll.filter((n) => n < 5);
+      this.hits = failedBlocks.length.toString();
+    }
   }
 
   updateCombat(message: string) {
@@ -124,6 +159,14 @@ export class DiceTrayComponent implements OnInit {
     })
 
     console.log(this.userInfo.value);
+
+    if (this.userInfo.value.ranger === 2) {
+      this.rangerTwo = true;
+    } else if (this.userInfo.value.ranger === 3) {
+      this.rangerThree = true;
+    } else if (this.userInfo.value.ranger === 4) {
+      this.rangerFour = true;
+    }
 
     if (this.userInfo.value.assault === 2) {
       this.assaultTwo = true;

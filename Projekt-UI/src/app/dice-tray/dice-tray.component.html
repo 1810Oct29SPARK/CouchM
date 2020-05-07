@@ -9,7 +9,7 @@
     <div class="col-md-12">
       <!-- <button type="button" class="btn btn-primary dice-button" (click)="rollDice(4)">D4</button> -->
       <!-- <button type="button" class="btn btn-primary dice-button" (click)="rollDice(6)">D6</button> -->
-      <button type="button" class="btn btn-primary dice-button" (click)="rollDice(6)" [disabled]="messageFromCombat !== 'attack' && messageFromCombat !== 'defend'">D6</button>
+      <button type="button" class="btn btn-primary dice-button" (click)="rollDice(6)" [disabled]="!messageFromCombat.includes('attack') && !messageFromCombat.includes('defend')">D6</button>
       <!-- <button type="button" class="btn btn-primary dice-button" (click)="rollDice(8)">D8</button> -->
     </div>
   </div>

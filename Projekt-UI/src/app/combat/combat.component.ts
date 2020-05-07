@@ -57,6 +57,8 @@ export class CombatComponent implements OnInit {
 
   enemyType: boolean = false;
 
+  rollingDice: boolean = false;
+
   enemySelected: Object;
 
   // distanceBetween: number = 0;
@@ -94,6 +96,7 @@ export class CombatComponent implements OnInit {
   attack() {
     this.wordsArray.push("Select your target.");
     this.enemyType = true;
+    this.rollingDice = true;
   }
 
   selectEnemy(target: Object) {
@@ -101,7 +104,7 @@ export class CombatComponent implements OnInit {
     this.wordsArray.push("You attack the " + target["name"] + ".");
     this.enemyType = false;
     if (target["name"] === 'Ork') {
-      this.combatService.updateMessage("attack");
+      this.combatService.updateMessage("attack", target["name"]);
       console.log("Orks selected")
       this.enemySelected = target;
       console.log(this.enemySelected);
@@ -124,26 +127,26 @@ export class CombatComponent implements OnInit {
   }
 
   defend() {
-    this.combatService.updateMessage("defend");
+    this.combatService.updateMessage("defend", null);
   }
 
-  showMessageFromDice(message: any) {
+  showMessageFromDice(message: string) {
+    this.rollingDice = false;
     console.log(message)
-    this.wordsArray.push("You dealt " + message + " damage.");
-    // if (this.enemySelected["name"] === "Ork") {
+    let splitMessage = message.split(",");
+    let hits = splitMessage[0];
+    let blocks = splitMessage[1];
+    this.wordsArray.push(this.enemySelected["name"] + " blocked " + blocks + " hits.");
+    this.wordsArray.push("You dealt " + hits + " damage.");
     console.log(this.enemySelected)
-    let damage = this.enemySelected["health"] - message;
+    let damage = this.enemySelected["health"] - parseInt(hits);
     this.enemySelected["health"] = damage;
-    console.log(this.orksArray[0]["health"]);
     if (this.enemySelected["health"] > 0) {
-      console.log("ork health after attack: " + this.enemySelected["health"]);
       this.dataService.updateOrk(this.orksArray[0]).subscribe(data => {
         let dbData = data.body;
         console.log(dbData)
       })
-      // this.wordsArray.push("");
     } else if (this.enemySelected["health"] <= 0) {
-      console.log("Ork's health is depleted");
       this.dataService.deleteOrk(this.orksArray[0]).subscribe(data => {
         console.log(data);
       });
@@ -151,6 +154,7 @@ export class CombatComponent implements OnInit {
       this.orks = this.orksArray.length;
       console.log(this.orksArray.length);
       this.wordsArray.push("You've slain an enemy!");
+
     }
 
     // When dealing with multiple enemies of the same type, consider taking the roll over damage 

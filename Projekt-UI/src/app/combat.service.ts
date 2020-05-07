@@ -7,8 +7,8 @@ import { Observable, Subject } from 'rxjs';
 export class CombatService {
   private message = new Subject<string>();
 
-  updateMessage(message: string) {
-    this.message.next(message);
+  updateMessage(message: string, target: string) {
+    this.message.next(message + target);
   }
 
   clearMessage() {

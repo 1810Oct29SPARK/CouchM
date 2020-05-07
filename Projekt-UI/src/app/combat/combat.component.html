@@ -39,7 +39,7 @@
             <app-dice-tray [message]="messageFromCombat" (diceMessage)="showMessageFromDice($event)"></app-dice-tray>
             <!-- <div>Orks: {{ orks }}</div>
             <br> -->
-            <button type="button" class="btn btn-primary ork-button" (click)="createOrk()">Ork</button>
+            <button type="button" class="btn btn-primary ork-button" (click)="createOrk()" [disabled]="rollingDice">Ork</button>
             <div class="info" *ngFor="let ork of orksArray"> 
                 <button type="button" [ngClass]="enemyType ? 'enemy-button-active' : 'enemy-button'" (click)="selectEnemy(ork)" [value]="ork" [disabled]="!enemyType">
                     <div class="row name-hp">
