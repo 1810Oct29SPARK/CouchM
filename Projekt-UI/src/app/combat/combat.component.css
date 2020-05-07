@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+.dialogue {
+    height: 90vh;
+    overflow: auto;
+}
+
 .words {
     margin: .5vh;
 }
