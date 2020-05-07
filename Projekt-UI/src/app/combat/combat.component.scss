@@ -11,8 +11,23 @@
     overflow: auto;
 }
 
+.scrollbar-black::-webkit-scrollbar-track {
+    background-color: black;
+    border-radius: 10px;
+}
+
+.scrollbar-black::-webkit-scrollbar {
+    width: 12px;
+    background-color: black;
+}
+
+.scrollbar-black::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(49, 49, 49);
+}
+
 .words {
-    margin: .5vh;
+    margin: 0.5vh;
 }
 
 .menu {
