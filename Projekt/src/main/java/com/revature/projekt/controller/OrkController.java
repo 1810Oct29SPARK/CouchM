@@ -18,7 +18,6 @@ import com.revature.projekt.model.Ork;
 import com.revature.projekt.service.OrkService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/ork")
 public class OrkController {
 
