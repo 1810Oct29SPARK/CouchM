@@ -23,6 +23,7 @@ public class User implements Serializable {
 	private int defense;
 	private int move;
 	private String[] perks;
+	private String creationDate;
 
 	public User(String id, String name, int health, int ranger, int assault, int defense, int move, String[] perks) {
 		super();
@@ -104,10 +105,19 @@ public class User implements Serializable {
 		this.perks = perks;
 	}
 
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", health=" + health + ", ranger=" + ranger + ", assault=" + assault
-				+ ", defense=" + defense + ", move=" + move + ", perks=" + Arrays.toString(perks) + "]";
+		return "User [id=" + id + ", name=" + name + ", health=" + health + ", ranger=" + ranger + ", assault="
+				+ assault + ", defense=" + defense + ", move=" + move + ", perks=" + Arrays.toString(perks)
+				+ ", creationDate=" + creationDate + "]";
 	}
 
 }

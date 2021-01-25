@@ -1,5 +1,7 @@
 package com.revature.projekt.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
 import org.json.JSONArray;
@@ -20,7 +22,6 @@ import com.revature.projekt.model.User;
 import com.revature.projekt.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/user")
 public class UserController {
 
@@ -65,12 +66,16 @@ public class UserController {
 
 		String[] perks = { "", "", "" };
 
+		LocalDateTime dateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyy HH:mm:ss");
+
 		user.setHealth(10);
 		user.setRanger(1);
 		user.setAssault(1);
 		user.setDefense(1);
 		user.setMove(5);
 		user.setPerks(perks);
+		user.setCreationDate(dateTime.format(formatter).toString());
 		User returnUserData = us.createUser(user);
 		System.out.println("Created User's data: " + returnUserData.toString());
 
